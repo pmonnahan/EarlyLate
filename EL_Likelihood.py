@@ -5,8 +5,8 @@ Created on Wed Jun 17 10:37:06 2015
 @author: patrick
 """
 from scipy.stats import *
-import 
-import 
+import csv
+import math
 
 EL_Likelihoods=open("/Users/patrick/Google Drive/Research/EarlyLate/EL_Likelihoods.csv","wb")
 like=csv.writer(EL_Likelihoods,delimiter=",",dialect='excel')
