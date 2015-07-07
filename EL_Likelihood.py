@@ -4,8 +4,8 @@ Created on Wed Jun 17 10:37:06 2015
 
 @author: patrick
 """
-
-import 
+from scipy.stats import *
+import csv
 import math
 
 EL_Likelihoods=open("/Users/patrick/Google Drive/Research/EarlyLate/EL_Likelihoods.csv","wb")
