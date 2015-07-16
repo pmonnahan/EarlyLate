@@ -8,19 +8,27 @@ from scipy.stats import *
 import csv
 import math
 
-EL_Likelihoods=open("/Users/patrick/Google Drive/Research/EarlyLate/EL_Likelihoods.csv","wb")
+EL_Likelihoods=open("/Users/patrick/Documents/Research/EarlyLate/EL_Likelihoods.csv","wb")
 like=csv.writer(EL_Likelihoods,delimiter=",",dialect='excel')
-like.writerow(["scaff","pos","bre13r","bre13a","brl13r","brl13a","bre14r","bre14a","ime13r","ime13a","iml13r","iml13a","ime14r","ime14a","iml14r","iml14a","qe13r","qe13a","ql13r","ql13a","qe14r","qe14a","ql14r","ql14a"])
+like.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_Y","ll_P","ll_B","ll_YP","ll_YB","ll_PB","ll_C","lrt_Y","lrt_P","lrt_B","p_Y","p_P","p_B"])
+#like.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_Y","ll_P","ll_B","ll_YP","ll_YB","ll_PB","lrt_Y","p_Y","lrt_y","p_y","lrt_P","p_P","lrt_p","p_p","lrt_B","p_B","lrt_b","p_b"])
 
+#out2=open("/Users/patrick/Documents/Research/EarlyLate/EL_Likelihoods_SimplePops_test.csv","wb")
+#out2x=csv.writer(out2,delimiter=",",dialect='excel')
+#out2x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_P","X2","p_p"])
+
+
+#Test SNPs
 snp_null=[10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
 snp_Y=[10.0,10.0,10.0,10.0,20.0,1.0,10.0,10.0,10.0,10.0,20.0,1.0,20.0,1.0,10.0,10.0,10.0,10.0,20.0,1.0,20.0,1.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
 snp_P=[20.0,1.0,20.0,1.0,20.0,1.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,1.0,20.0,1.0,20.0,1.0,20.0,1.0,20.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
 snp_B=[20.0,1.0,1.0,20.0,20.0,1.0,20.0,1.0,1.0,20.0,20.0,1.0,1.0,20.0,20.0,1.0,1.0,20.0,20.0,1.0,1.0,20.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
 snp_YP=[10.0,10.0,10.0,10.0,20.0,1.0,1.0,20.0,1.0,20.0,20.0,1.0,20.0,1.0,20.0,1.0,20.0,1.0,1.0,20.0,1.0,20.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
 snp_YB=[10.0,10.0,1.0,20.0,20.0,1.0,10.0,10.0,1.0,20.0,20.0,1.0,10.0,10.0,10.0,10.0,1.0,20.0,20.0,1.0,10.0,10.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
-snp_PB=[20.0,1.0,17.0,3.0,20.0,1.0,10.0,10.0,10.0,5.0,10.0,10.0,10.0,5.0,1.0,20.0,5.0,20.0,1.0,20.0,5.0,20.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_PB=[20.0,1.0,1.0,20.0,20.0,1.0,10.0,10.0,10.0,5.0,10.0,10.0,10.0,5.0,1.0,20.0,20.0,1.0,1.0,20.0,20.0,10.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
 
-with open("/Users/patrick/Google Drive/Research/EarlyLate/counts_filtered_6-13-15.txt","rb") as sites_file:   
+
+with open("/Users/patrick/Documents/Research/EarlyLate/counts_filtered_6-13-15.txt","rb") as sites_file:   
     LL_S=0.0
     LL_Y=0.0
     LL_P=0.0
@@ -29,38 +37,39 @@ with open("/Users/patrick/Google Drive/Research/EarlyLate/counts_filtered_6-13-1
     LL_YB=0.0
     LL_PB=0.0
     LL_C=0.0  
+    sites=0
     for i,site in enumerate(sites_file):
-        if i==0:
-#            site=site.strip("\n")
-#            site=site.split(" ")
-#            site=site[1:]
-#            scaff=site[0]
-#            pos=float(site[1])
-#            site=[float(a) for a in site[4:]]
-            bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,brer,brea,brlr,brla,imer,imea,imlr,imla,qer,qea,qlr,qla,im14t,im13t,br13t,br14t,q13t,q14t=snp_B
-            xbre13=math.asin((bre13r/(bre13r+bre13a))**0.5)
-            xbrl13=math.asin((brl13r/(brl13r+brl13a))**0.5)
-            xbre14=math.asin((bre14r/(bre14r+bre14a))**0.5)
-            xime13=math.asin((ime13r/(ime13r+ime13a))**0.5)
-            ximl13=math.asin((iml13r/(iml13r+iml13a))**0.5)
-            xime14=math.asin((ime14r/(ime14r+ime14a))**0.5)
-            ximl14=math.asin((iml14r/(iml14r+iml14a))**0.5)
-            xqe13=math.asin((qe13r/(qe13r+qe13a))**0.5)
-            xql13=math.asin((ql13r/(ql13r+ql13a))**0.5)
-            xqe14=math.asin((qe14r/(qe14r+qe14a))**0.5)
-            xql14=math.asin((ql14r/(ql14r+ql14a))**0.5)
+        if i>0:
+            site=site.strip("\n")
+            site=site.split(" ")
+            site=site[1:]
+            scaff=site[0]
+            pos=float(site[1])
+            site=[float(a) for a in site[4:]]
+            bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,brer,brea,brlr,brla,imer,imea,imlr,imla,qer,qea,qlr,qla,im14t,im13t,br13t,br14t,q13t,q14t=site
+            xbre13=2*math.asin((bre13r/(bre13r+bre13a))**0.5)
+            xbrl13=2*math.asin((brl13r/(brl13r+brl13a))**0.5)
+            xbre14=2*math.asin((bre14r/(bre14r+bre14a))**0.5)
+            xime13=2*math.asin((ime13r/(ime13r+ime13a))**0.5)
+            ximl13=2*math.asin((iml13r/(iml13r+iml13a))**0.5)
+            xime14=2*math.asin((ime14r/(ime14r+ime14a))**0.5)
+            ximl14=2*math.asin((iml14r/(iml14r+iml14a))**0.5)
+            xqe13=2*math.asin((qe13r/(qe13r+qe13a))**0.5)
+            xql13=2*math.asin((ql13r/(ql13r+ql13a))**0.5)
+            xqe14=2*math.asin((qe14r/(qe14r+qe14a))**0.5)
+            xql14=2*math.asin((ql14r/(ql14r+ql14a))**0.5)
             
-            vbre13=(0.02+(1/(bre13r+bre13a)))
-            vbrl13=(0.02+(1/(brl13r+brl13a)))
-            vbre14=(0.02+(1/(bre14r+bre14a)))
-            vime13=(0.02+(1/(ime13r+ime13a)))
-            viml13=(0.02+(1/(iml13r+iml13a)))
-            vime14=(0.02+(1/(ime14r+ime14a)))
-            viml14=(0.02+(1/(iml14r+iml14a)))
-            vqe13=(0.02+(1/(qe13r+qe13a)))
-            vql13=(0.02+(1/(ql13r+ql13a)))
-            vqe14=(0.02+(1/(qe14r+qe14a)))
-            vql14=(0.02 +(1/(ql14r+ql14a)))
+            vbre13=(0.005+(1/(bre13r+bre13a)))
+            vbrl13=(0.005+(1/(brl13r+brl13a)))
+            vbre14=(0.005+(1/(bre14r+bre14a)))
+            vime13=(0.005+(1/(ime13r+ime13a)))
+            viml13=(0.005+(1/(iml13r+iml13a)))
+            vime14=(0.005+(1/(ime14r+ime14a)))
+            viml14=(0.005+(1/(iml14r+iml14a)))
+            vqe13=(0.005+(1/(qe13r+qe13a)))
+            vql13=(0.005+(1/(ql13r+ql13a)))
+            vqe14=(0.005+(1/(qe14r+qe14a)))
+            vql14=(0.005 +(1/(ql14r+ql14a)))
             
             """Model 1 = Simplest Model.  All bulks share one mean."""                        
             x=[xbre13,xbrl13,xbre14,xime13,ximl13,xime14,ximl14,xqe13,xql13,xqe14,xql14]
@@ -155,7 +164,8 @@ with open("/Users/patrick/Google Drive/Research/EarlyLate/counts_filtered_6-13-1
             uim13=sum([xx*(ww/sum(wim13)) for xx,ww in zip(xim13,wim13)])
             uim14=sum([xx*(ww/sum(wim14)) for xx,ww in zip(xim14,wim14)])
             uq13=sum([xx*(ww/sum(wq13)) for xx,ww in zip(xq13,wq13)])            
-            uq14=sum([xx*(ww/sum(wq14)) for xx,ww in zip(xq14,wq14)])            
+            uq14=sum([xx*(ww/sum(wq14)) for xx,ww in zip(xq14,wq14)]) 
+            
             
             for j,xx in enumerate(xbr13):
                 ll_YP+=(-(xx-ubr13)**2)/(2*vbr13[j])
@@ -244,22 +254,39 @@ with open("/Users/patrick/Google Drive/Research/EarlyLate/counts_filtered_6-13-1
             """Model 8 = Most complex model.  All bulks have distinct mean."""
             ll_C=0.0
             
-            lrt_Y=chisqprob(-2*(ll_PB-ll_C),5)
-            lrt_P=chisqprob(-2*(ll_YB-ll_C),7)
-            lrt_B=chisqprob(-2*(ll_YP-ll_C),5)
+            lrt_Y=-2*(ll_PB-ll_C)
+            p_Y=chisqprob(lrt_Y,5)
+            lrt_y=(-2*(ll_S-ll_Y))
+            p_y=chisqprob(lrt_y,1)
+            lrt_P=-2*(ll_YB-ll_C)
+            p_P=chisqprob(lrt_P,7)
+            lrt_p=(-2*(ll_S-ll_P))
+            p_p=chisqprob(lrt_p,2)
+            lrt_B=-2*(ll_YP-ll_C)
+            p_B=chisqprob(lrt_B,5)
+            lrt_b=(-2*(ll_S-ll_B))
+            p_b=chisqprob(lrt_b,1)
             lrt_YP=chisqprob(-2*(ll_B-ll_C),9)
             lrt_YB=chisqprob(-2*(ll_P-ll_C),8)
             lrt_PB=chisqprob(-2*(ll_Y-ll_C),9)
             lrt_Yb=chisqprob(-2*(ll_B-ll_YB),2)
             lrt_Yp=chisqprob(-2*(ll_P-ll_YP),2)
             lrt_Py=chisqprob(-2*(ll_Y-ll_YP),2)
-            like.writerow([bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,ll_S,ll_Y,ll_P,ll_B,ll_YP,ll_YB,ll_PB,ll_C,lrt_Y,lrt_P,lrt_B,lrt_YP,lrt_YB,lrt_PB])   
+            lrt_Pb=chisqprob(-2*(ll_B-ll_PB),2)
+            lrt_Bp=chisqprob(-2*(ll_P-ll_PB),2)
             
+            like.writerow([scaff,pos,bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,ll_S,ll_Y,ll_P,ll_B,ll_YP,ll_YB,ll_PB,ll_C,lrt_Y,lrt_P,lrt_B,p_Y,p_P,p_B])   
+            #like.writerow([scaff,pos,bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,ll_S,ll_Y,ll_P,ll_B,ll_YP,ll_YB,ll_PB,lrt_Y,p_Y,lrt_y,p_y,lrt_P,p_P,lrt_p,p_p,lrt_B,p_B,lrt_b,p_b])   
+#            out2x.writerow([scaff,pos,bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,ll_S,ll_P,lrt_p,p_p])
+            sites+=1
+            if sites%10000==0:
+                print sites
+    print "number of sites=", sites
     print "LL_S=",LL_S
     print "LL_Y=",LL_Y,lrt_Y
-    print "LL_P=",LL_P,lrt_P
+    print "LL_P=",LL_P,lrt_P,lrt_p,p_p
     print "LL_B=",LL_B,lrt_B
     print "LL_YP=",LL_YP,lrt_YP,lrt_Py,lrt_Yp
     print "LL_YB=",LL_YB,lrt_Yb
-    print "LL_PB=",LL_PB,lrt_PB
+    print "LL_PB=",LL_PB,lrt_PB,lrt_Pb,lrt_Bp
     
