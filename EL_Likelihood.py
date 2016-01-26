@@ -170,7 +170,7 @@ with open(INPUT_FILE,"rb") as sites_file:
             scaff=scaff
             pos=float(site[1])
             site=[float(a) for a in site[4:]]
-            bre14r,bre14a,bre13r,bre13a,brl13r,brl13a,ime14r,ime14a,iml14r,iml14a,ime13r,ime13a,iml13r,iml13a,qe14r,qe14a,ql14r,ql14a,qe13r,qe13a,ql13r,ql13a=site
+            bre13r,bre13a,brl13r,brl13a,ime14r,ime14a,iml14r,iml14a,ime13r,ime13a,iml13r,iml13a,qe14r,qe14a,ql14r,ql14a,qe13r,qe13a,ql13r,ql13a=site
             
             if bre13r+bre13a <= min_cov or bre13r+bre13a >= max_cov or years == "2014":
                 xbre13=-99.0
@@ -185,13 +185,6 @@ with open(INPUT_FILE,"rb") as sites_file:
             else:
                 xbrl13=2*math.asin((brl13r/(brl13r+brl13a))**0.5)
                 vbrl13=(vb2+(1/(brl13r+brl13a)))
-                
-            if bre14r+bre14a <= min_cov or bre14r+bre14a >= max_cov or years == "2013":
-                xbre14=-99.0
-                vbre14=-99.0
-            else:
-                xbre14=2*math.asin((bre14r/(bre14r+bre14a))**0.5)
-                vbre14=(vb3+(1/(bre14r+bre14a)))
                 
             if ime13r+ime13a <= min_cov or ime13r+ime13a >= max_cov or years == "2014":
                 xime13=-99.0

@@ -1,5 +1,6 @@
-# matching Patrick for EL data 12/7/15
-# 2	IM pops
+# 
+# Second of three programs whose purpose is to JackKnife the contrasts between
+# Takes a file containing counts 
 # 2a	take output from 2: IM.snps.txt and perform contrasts
 
 
@@ -7,8 +8,8 @@ import math
 
 src  =open("Q.cc.txt", "rU")
 out1 =open("Q.dz.txt","w")
-min_m= 8
-minQ=  0.05
+min_m= 8 #Minimum coverage
+minQ=  0.05 #Min allele frequency
 maxQ=  0.95
 
 # evaluate contents of each line of input file
