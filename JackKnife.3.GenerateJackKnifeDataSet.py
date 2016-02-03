@@ -8,17 +8,17 @@ import sys
 import csv
 
 
-DIR="/Users/patrick/Documents/Research/EarlyLate/JackKnifer/"
-INPUT_FILE="Q.dz.txt"
-OUTPUT_FILE="JackVars1-Q.csv"
+DIR="/Users/patrick/Documents/Research/EarlyLate/"
+INPUT_FILE="IM.dz.txt"
+OUTPUT_FILE="JackVars100-IM.csv"
 out1=open(DIR+OUTPUT_FILE,"wb")
 out1x=csv.writer(out1,delimiter=",",dialect='excel')
-Num_Reps=1 #MUST BE A POWER OF TEN
+Num_Reps=100 #MUST BE A POWER OF TEN
 
 out1x.writerow(["Replicate","num_lines","Con0","Con1","Con2","Con3","Con4","Con5"])
 for rep in range(Num_Reps):
     # evaluate contents of each line of input file
-    src  =open(INPUT_FILE, "rU")
+    src  =open(DIR+INPUT_FILE, "rU")
     z0=[]
     z1=[]
     z2=[]
@@ -33,7 +33,7 @@ for rep in range(Num_Reps):
     excluded=0
     for line_idx, line in enumerate(src):
         cols = line.replace('\n', '').split('\t')
-        if int(cols[1][-(str(Num_Reps).count(""))+2:]) != rep:
+        if int(cols[1][-(str(Num_Reps).count(""))+2:]) != rep: #This throws out a portion of the data log10-proportional to Num_Reps.  Checks the last 1, 2 or 3 digist of the site position (correpsonding to 10, 100, or 1,000 reps).  Basically, throws out a tenth, hunredth, etc, for jacknife replicates.  
             if cols[2] != "-9":
                 z0.append(float(cols[2]))
                 zmeans[0]+=float(cols[2])

@@ -9,7 +9,7 @@ import sys
 
 #AF = allele frequency analysis; RN = read number analysis
 
-def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/EarlyLate/EL.massive.Jan16.vcf", outfilepath0="/Users/patrick/Documents/Research/EarlyLate/counts__AF250_10-11-15.txt", outfilepath1="/Users/patrick/Documents/Research/EarlyLate/read_depth_dt.txt", outfilepath6="/Users/patrick/Documents/Research/EarlyLate/counts_parsed_8-11-15.txt",outfilepath10="/Users/patrick/Documents/Research/EarlyLate/counts_dt_SandP_RN250_10-11-15.txt"):
+def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/EarlyLate/EL.massive.Jan16.vcf", outfilepath0="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt", outfilepath1="/Users/patrick/Documents/Research/EarlyLate/read_depth_massiveJuan16.txt", outfilepath6="/Users/patrick/Documents/Research/EarlyLate/counts_parsed_8-11-15.txt",outfilepath10="/Users/patrick/Documents/Research/EarlyLate/counts_dt_SandP_RN250_10-11-15.txt"):
     src  =open(infilepath, "rU")
 #    in0  =open(inpath1, "rU")
     out0 =open(outfilepath0, "w")

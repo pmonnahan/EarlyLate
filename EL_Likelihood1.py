@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 """
+Created on Tue Dec 15 21:55:34 2015
+
+@author: patrick
+"""
+
+# -*- coding: utf-8 -*-
+"""
 Created on Wed Jun 17 10:37:06 2015
 
 Important Note:  I have stupid, inconsistent variable names.  For the likelihood, ll_Y_im is the likelihood in which bulk is constrained (i.e. year is allowed to vary, which will be compared to a model in which both yeah AND bulk car vary...hence the Y in lrt_Y)
@@ -15,34 +22,31 @@ import timeit
 
 start = timeit.default_timer()
 
-INPUT_FILE="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt"
+INPUT_FILE="/Users/patrick/Documents/Research/EarlyLate/counts_dt_SandP_AF250_10-11-15.txt"
 OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
-#OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
 
 timestr = time.strftime("%Y%m%d-%H%M")
-file1=1
+file1=0
 file2=0
-file3=0
-file4=1
+file3=1
+file4=0
 file5=0
-file6=1
+file6=0
 
 #filters
 p_min1=0.05
 p_max1=0.95
 p_min=2*math.asin(p_min1**0.5)
 p_max=2*math.asin(p_max1**0.5)
-min_cov=10
+min_cov=7
 max_cov=250
 years="both"
-window_size=30000
+window_size=3000000
 
    
 FDR=0.1
 
 
-
-jjj=0
 if file1 !=0:
     EL_Likelihoods=open(OUTDIR+"EL_Likelihoods_" + years + timestr + ".csv","wb")
     like=csv.writer(EL_Likelihoods,delimiter=",",dialect='excel')
@@ -53,7 +57,7 @@ if file2 != 0:
     out2x=csv.writer(out2,delimiter=",",dialect='excel')
     out2x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_P","X2","p_p"])
 if file3 != 0:
-    out3=open(OUTDIR+"EL_ZandVs_" + timestr + ".csv","wb")
+    out3=open(OUTDIR+"EL_ZandVs_dt_" + timestr + ".csv","wb")
     out3x=csv.writer(out3,delimiter=",",dialect='excel')
     out3x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","zbre13","zbrl13","zbre14","zime13","ziml13","zime14","ziml14","zqe13","zql13","zqe14","zql14","vbre13","vbrl13","vbre14","vime13","viml13","vime14","viml14","vqe13","vql13","vqe14","vql14"])
                
@@ -72,7 +76,7 @@ if file5 != 0:
     out5xQ=csv.writer(out5Q,delimiter=",",dialect='excel')    
     out5xQ.writerow(["scaff","window","start_bp","wind_sites","dist","numYtests","numBtests","numYCBtests","sigY","sigB","sigYCB","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","lrt_Y","lrt_B","lrt_YCB","p_Y","p_B","p_YCB"])
 if file6!=0:
-    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_30KbWindows" + timestr + ".csv","wb")
+    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_3MbWindows" + timestr + ".csv","wb")
     out6x=csv.writer(out6,delimiter=",",dialect='excel')  
     out6x.writerow(["scaff","window","start_bp","wind_sites","dist","sigBim","sigBq","sigBbr"])
 
@@ -87,21 +91,57 @@ p_Y_q_cutoff = 0.000106
 p_B_q_cutoff = 0.000138586071041
 p_YCB_q_cutoff = 0.000017
 
+#BS variance factors
+#vb1=0.0202424161398826
+#vb2=0.0210338659644601
+#vb3=0.0259068189951584
+#vi1=0.0124345226269854
+#vi2=0.0134937476965089
+#vi3=0.0148278409077799
+#vi4=0.0213598599284424
+#vq1=0.0143154047741656
+#vq2=0.0141464991676786
+#vq3=0.0157198826990208
+#vq4=0.0278335149163331
 
 #BS variance factor : Paired + Single
-vb1=0.034805286266108827198
-vb2=0.036184480292554409286
-vb3=0.022731757864254985291
+vb1=0.020612083809598856499
+vb2=0.0217535696073883969
+vb3=0.026018343064258535324
 
-vi1=0.0137298312949835840668 #With new data the variance calculations were similar to old data except for 2014...Early var was similar to late var and vice versa.
-vi2=0.0184233013099333840790 #Should run through calc with old data to confirm that there wasn't an error
-vi3=0.0066893073640574111927
-vi4=0.0107630749671819188340
+vi1=0.014965610620059237312
+vi2=0.028010552848386834068
+vi3=0.012678076003631882918
+vi4=0.0076614046170989519302
 
-vq1=0.0152782122396757438776
-vq2=0.0212079200267419748505
-vq3=0.0082510518410872438211
-vq4=0.0130222983597531889038
+vq1=0.01575236801895848332
+vq2=0.032949901921173620212
+vq3=0.014455823475332418848
+vq4=0.0098306622991962411273
+
+#vb1=0.0
+#vb2=0.0
+#vb3=0.0
+#vi1=0.0
+#vi2=0.0
+#vi3=0.0
+#vi4=0.0
+#vq1=0.0
+#vq2=0.0
+#vq3=0.0
+#vq4=0.0      
+
+
+#Test SNPs
+snp_null=[10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_Y=[10.0,10.0,10.0,10.0,20.0,1.0,10.0,10.0,10.0,10.0,20.0,1.0,20.0,1.0,10.0,10.0,10.0,10.0,20.0,1.0,20.0,1.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_P=[20.0,1.0,20.0,1.0,20.0,1.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,10.0,1.0,20.0,1.0,20.0,1.0,20.0,1.0,20.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_B=[20.0,1.0,1.0,20.0,20.0,1.0,20.0,1.0,1.0,20.0,20.0,1.0,1.0,20.0,20.0,1.0,1.0,20.0,20.0,1.0,1.0,20.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_YP=[10.0,10.0,10.0,10.0,20.0,1.0,1.0,20.0,1.0,20.0,20.0,1.0,20.0,1.0,20.0,1.0,20.0,1.0,1.0,20.0,1.0,20.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_YB=[10.0,10.0,1.0,20.0,20.0,1.0,10.0,10.0,1.0,20.0,20.0,1.0,10.0,10.0,10.0,10.0,1.0,20.0,20.0,1.0,10.0,10.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_PB=[20.0,1.0,1.0,20.0,20.0,1.0,10.0,10.0,10.0,5.0,10.0,10.0,10.0,5.0,1.0,20.0,20.0,1.0,1.0,20.0,20.0,10.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_fix=[10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
+snp_fix1=[0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,0.0,10.0,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99,99]
 
 with open(INPUT_FILE,"rb") as sites_file:   
     sites=0
@@ -137,12 +177,7 @@ with open(INPUT_FILE,"rb") as sites_file:
             scaff=scaff
             pos=float(site[1])
             site=[float(a) for a in site[4:]]
-            bre13r,bre13a,brl13r,brl13a,ime14r,ime14a,iml14r,iml14a,ime13r,ime13a,iml13r,iml13a,qe14r,qe14a,ql14r,ql14a,qe13r,qe13a,ql13r,ql13a=site
-            
-            bre14r=0.0
-            bre14a=0.0
-            xbre14=-99.0
-            vbre14=-99.0
+            bre14r,bre14a,bre13r,bre13a,brl13r,brl13a,ime14r,ime14a,iml14r,iml14a,ime13r,ime13a,iml13r,iml13a,qe14r,qe14a,ql14r,ql14a,qe13r,qe13a,ql13r,ql13a=site
             
             if bre13r+bre13a <= min_cov or bre13r+bre13a >= max_cov or years == "2014":
                 xbre13=-99.0
@@ -157,6 +192,13 @@ with open(INPUT_FILE,"rb") as sites_file:
             else:
                 xbrl13=2*math.asin((brl13r/(brl13r+brl13a))**0.5)
                 vbrl13=(vb2+(1/(brl13r+brl13a)))
+                
+            if bre14r+bre14a <= min_cov or bre14r+bre14a >= max_cov or years == "2013":
+                xbre14=-99.0
+                vbre14=-99.0
+            else:
+                xbre14=2*math.asin((bre14r/(bre14r+bre14a))**0.5)
+                vbre14=(vb3+(1/(bre14r+bre14a)))
                 
             if ime13r+ime13a <= min_cov or ime13r+ime13a >= max_cov or years == "2014":
                 xime13=-99.0
@@ -314,18 +356,18 @@ with open(INPUT_FILE,"rb") as sites_file:
                 vq14=[vqe14,vql14]
                 wq13=[1/vqe13,1/vql13]
                 wq14=[1/vqe14,1/vql14]
-                ubr13=sum([xx*(ww/sum(wbr13)) for xx,ww in zip(xbr13,wbr13)])
-                ubr14=sum([xx*(ww/sum(wbr14)) for xx,ww in zip(xbr14,wbr14)])
-                uim13=sum([xx*(ww/sum(wim13)) for xx,ww in zip(xim13,wim13)])
-                uim14=sum([xx*(ww/sum(wim14)) for xx,ww in zip(xim14,wim14)])
-                uq13=sum([xx*(ww/sum(wq13)) for xx,ww in zip(xq13,wq13)])            
-                uq14=sum([xx*(ww/sum(wq14)) for xx,ww in zip(xq14,wq14)]) 
+                ubr13=((xbr13[1]*wbr13[1])+(xbr13[0]*wbr13[0]))/sum(wbr13) 
+                ubr14=((xbr13[0]*wbr13[0]))/sum(wbr13) 
+                uim13=((xim13[1]*wim13[1])+(xim13[0]*wim13[0]))/sum(wim13) 
+                uim14=((xim14[1]*wim14[1])+(xim14[0]*wim14[0]))/sum(wim14) 
+                uq13=((xq13[1]*wq13[1])+(xq13[0]*wq13[0]))/sum(wq13)           
+                uq14=((xq14[1]*wq14[1])+(xq14[0]*wq14[0]))/sum(wq14)
                 
                 df_B_br=1
                 df_B_im=2
                 df_B_q=2                    
                 df_B=5
-
+                
                 if ((xbre13 < p_min and xbrl13 < p_min) or (xbre13 > p_max and xbrl13 > p_max) or bre13r+bre13a <= min_cov or brl13r+brl13a <= min_cov or bre13r+bre13a >= max_cov or brl13r+brl13a >= max_cov):
                     df_B_br-=1
                     df_B+=(-1)
@@ -367,7 +409,7 @@ with open(INPUT_FILE,"rb") as sites_file:
                     for j,xx in enumerate(xq14):                    
                         ll_Y_q+=(-(xx-uq14)**2)/(2*vq14[j])
                         ll_YP+=(-(xx-uq14)**2)/(2*vq14[j])
-                                        
+                
                 
                 """Model 6 = Year and bulk effect.  No differences across pops."""
                 ll_YB=0.0
@@ -605,6 +647,12 @@ with open(INPUT_FILE,"rb") as sites_file:
                 if file4 != 0:
                     out4x.writerow([scaff,pos,bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,lrt_Y_br,df_Y_br,p_Y_br,lrt_B_br,df_B_br,p_B_br,lrt_Y_im,df_Y_im,p_Y_im,lrt_B_im,df_B_im,p_B_im,lrt_Y_q,df_Y_q,p_Y_q,lrt_B_q,df_B_q,p_B_q,lrt_YCB_im,df_YCB_im,p_YCB_im,lrt_YCB_q,df_YCB_q,p_YCB_q])
                 
+                if i < 100:
+                    print i,qe14r,qe14a,qe13r,qe13a
+                    print uq14,uq13
+                    print vq14, xq14
+                    print vq13, xq13
+                    print lrt_B,p_B, df_B, "\n"
                 
                 """determine windows and print to file"""
                 if i==1:
@@ -964,7 +1012,7 @@ with open(INPUT_FILE,"rb") as sites_file:
         p_Y_im_cutoff=pvals_Y_im[x]
         x+=1
     y=0
-    while y < len(pvals_Y_q) and pvals_Y_q[y] < ((float(y)+1.0)/float(len(pvals_Y_q)))*FDR:
+    while pvals_Y_q[y] < ((float(y)+1.0)/float(len(pvals_Y_q)))*FDR and y < len(pvals_Y_q):
         p_Y_q_cutoff=pvals_Y_q[y]
         y+=1
     z=0    

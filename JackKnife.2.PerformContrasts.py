@@ -5,10 +5,10 @@
 
 
 import math
-
-src  =open("Q.cc.txt", "rU")
-out1 =open("Q.dz.txt","w")
-min_m= 8 #Minimum coverage
+DIR="/Users/patrick/Documents/Research/EarlyLate/"
+src  =open(DIR+"IM.cc.txt", "rU")
+out1 =open(DIR+"IM.dz.txt","w")
+min_m= 10 #Minimum coverage
 minQ=  0.05 #Min allele frequency
 maxQ=  0.95
 
