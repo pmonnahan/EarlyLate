@@ -26,17 +26,17 @@ snp_dict={}
 #new_csv=open("/Users/patrick/Documents/Research/EarlyLate/EL_queried_all_snps_7-19-15.csv","wb")
 #writer=csv.writer(new_csv,dialect="excel")
 
-p_Y_cutoff = 0.000148
-p_B_cutoff = 0.0001809180073915291
-p_P_cutoff = 0.048506
-p_Y_im_cutoff = 0.000037
-p_YCB_im_cutoff = 0.000007
-p_B_im_cutoff = 0.000028
-p_Y_br_cutoff = 0.000010
-p_B_br_cutoff = 0.000002
-p_Y_q_cutoff = 0.000106
-p_B_q_cutoff = 0.000180
-p_YCB_q_cutoff = 0.000017
+#p_Y_cutoff = 0.000148
+p_B_cutoff = 0.000536853996743
+#p_P_cutoff = 0.048506
+#p_Y_im_cutoff = 0.000037
+#p_YCB_im_cutoff = 0.000007
+#p_B_im_cutoff = 0.000028
+#p_Y_br_cutoff = 0.000010
+#p_B_br_cutoff = 0.000002
+#p_Y_q_cutoff = 0.000106
+#p_B_q_cutoff = 0.000180
+#p_YCB_q_cutoff = 0.000017
 
 sigFTG=0
 nsigFTG=0
@@ -50,7 +50,7 @@ nsigNonFTUS=0
 DIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 
 INPUT_FILE="/Users/patrick/Documents/Research/Mimulus/FriedBlackman_GeneList.csv"
-QUERY_FILE="EL_Likelihoods_both20151118-1354.csv"
+QUERY_FILE="EL_Likelihoods_both20160202-2345.csv"
 
 OUTPUT_FILE1=DIR+QUERY_FILE[:-4]+"_FTqueried_sigB_inGenes.csv"
 OUTPUT_FILE2=DIR+QUERY_FILE[:-4]+"_FTqueried_sigB_upstream.csv"

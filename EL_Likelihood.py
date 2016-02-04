@@ -20,10 +20,10 @@ OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 #OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
 
 timestr = time.strftime("%Y%m%d-%H%M")
-file1=1
+file1=0
 file2=0
 file3=0
-file4=1
+file4=0
 file5=0
 file6=1
 
@@ -34,8 +34,8 @@ p_min=2*math.asin(p_min1**0.5)
 p_max=2*math.asin(p_max1**0.5)
 min_cov=10
 max_cov=250
-years="both"
-window_size=30000
+years="2013"
+window_size=3000000
 
    
 FDR=0.1
@@ -72,7 +72,7 @@ if file5 != 0:
     out5xQ=csv.writer(out5Q,delimiter=",",dialect='excel')    
     out5xQ.writerow(["scaff","window","start_bp","wind_sites","dist","numYtests","numBtests","numYCBtests","sigY","sigB","sigYCB","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","lrt_Y","lrt_B","lrt_YCB","p_Y","p_B","p_YCB"])
 if file6!=0:
-    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_30KbWindows" + timestr + ".csv","wb")
+    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_3MbWindows" + timestr + ".csv","wb")
     out6x=csv.writer(out6,delimiter=",",dialect='excel')  
     out6x.writerow(["scaff","window","start_bp","wind_sites","dist","sigBim","sigBq","sigBbr"])
 
@@ -956,17 +956,17 @@ with open(INPUT_FILE,"rb") as sites_file:
         o+=1
 
     w=0
-    while pvals_Y_br[w] < ((float(w)+1.0)/float(len(pvals_Y_br)))*FDR and w < len(pvals_Y_br):
-        p_Y_br_cutoff=pvals_Y_br[w]
-        w+=1
+#    while pvals_Y_br[w] < ((float(w)+1.0)/float(len(pvals_Y_br)))*FDR and w < len(pvals_Y_br):
+#        p_Y_br_cutoff=pvals_Y_br[w]
+#        w+=1
     x=0
-    while pvals_Y_im[x] < ((float(x)+1.0)/float(len(pvals_Y_im)))*FDR and x < len(pvals_Y_im):
-        p_Y_im_cutoff=pvals_Y_im[x]
-        x+=1
+#    while pvals_Y_im[x] < ((float(x)+1.0)/float(len(pvals_Y_im)))*FDR and x < len(pvals_Y_im):
+#        p_Y_im_cutoff=pvals_Y_im[x]
+#        x+=1
     y=0
-    while y < len(pvals_Y_q) and pvals_Y_q[y] < ((float(y)+1.0)/float(len(pvals_Y_q)))*FDR:
-        p_Y_q_cutoff=pvals_Y_q[y]
-        y+=1
+#    while y < len(pvals_Y_q) and pvals_Y_q[y] < ((float(y)+1.0)/float(len(pvals_Y_q)))*FDR:
+#        p_Y_q_cutoff=pvals_Y_q[y]
+#        y+=1
     z=0    
     if years != "2014":
 
