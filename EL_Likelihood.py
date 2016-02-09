@@ -35,8 +35,10 @@ p_max=2*math.asin(p_max1**0.5)
 min_cov=10
 max_cov=250
 years="2013"
-window_size=3000000
+window_size=30000
 
+#Run Description
+CustomMessage=""
    
 FDR=0.1
 
@@ -216,7 +218,7 @@ with open(INPUT_FILE,"rb") as sites_file:
                 vql14=(vq4 +(1/(ql14r+ql14a)))                
                 
 
-            if (all(k==0.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xbre14,xqe13,xql13,xqe14,xql14]) or all(k==math.pi for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xbre14,xqe13,xql13,xqe14,xql14])):
+            if (all(k==0.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14]) or all(k==math.pi for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14]) or all(k==-99.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xbre14,xqe13,xql13,xqe14,xql14])):
                 fixed+=1
                 filtered+=1
                 
@@ -339,8 +341,6 @@ with open(INPUT_FILE,"rb") as sites_file:
                     df_B+=(-1)
                 else:
                     for j,xx in enumerate(xim13):
-                        if xx==-99.0:
-                            print "fuck"
                         ll_Y_im+=(-(xx-uim13)**2)/(2*vim13[j])
                         ll_YP+=(-(xx-uim13)**2)/(2*vim13[j])
                         
@@ -372,15 +372,15 @@ with open(INPUT_FILE,"rb") as sites_file:
                 """Model 6 = Year and bulk effect.  No differences across pops."""
                 ll_YB=0.0
                 xe13=[xbre13,xime13,xqe13]
-                xe14=[xbre14,xime14,xqe14]
+                xe14=[xime14,xqe14]
                 xl13=[xbrl13,ximl13,xql13]
                 xl14=[ximl14,xql14]
                 ve13=[vbre13,vime13,vqe13]
-                ve14=[vbre14,vime14,vqe14]
+                ve14=[vime14,vqe14]
                 vl13=[vbrl13,viml13,vql13]
                 vl14=[viml14,vql14]
                 we13=[1/vbre13,1/vime13,1/vqe13]
-                we14=[1/vbre14,1/vime14,1/vqe14]
+                we14=[1/vime14,1/vqe14]
                 wl13=[1/vbrl13,1/viml13,1/vql13]
                 wl14=[1/viml14,1/vql14]
                 ue13=sum([xx*(ww/sum(we13)) for xx,ww in zip(xe13,we13)])
@@ -446,11 +446,11 @@ with open(INPUT_FILE,"rb") as sites_file:
                 ll_B_br=0.0
                 ll_B_im=0.0
                 ll_B_q=0.0
-                xbre=[xbre13,xbre14]
+                xbre=[xbre13]
                 xbrl=[xbrl13]
-                vbre=[vbre13,vbre14]
+                vbre=[vbre13]
                 vbrl=[vbrl13]
-                wbre=[1/vbre13,1/vbre14]
+                wbre=[1/vbre13]
                 wbrl=[1/vbrl13]
                 ubre=sum([xx*(ww/sum(wbre)) for xx,ww in zip(xbre,wbre)])
                 ubrl=sum([xx*(ww/sum(wbrl)) for xx,ww in zip(xbrl,wbrl)])
@@ -934,64 +934,62 @@ with open(INPUT_FILE,"rb") as sites_file:
     p_YCB_im_cutoff=0.0
     p_YCB_q_cutoff=0.0
     
-    
     n=0
-    while pvals_Y[n] < ((float(n)+1.0)/float(len(pvals_Y)))*FDR and n < len(pvals_Y):
-        p_Y_cutoff=pvals_Y[n]
-        n+=1
-#    print n
-#    print ((float(n)+1)/float(len(pvals_Y)))*FDR
-#    print pvals_Y[0:100]
-#    print pvals_Y[n]
-#    print len(pvals_Y) 
-        
-    m=0
-    while pvals_B[m] < ((float(m)+1.0)/float(len(pvals_B)))*FDR and m < len(pvals_B):
-        p_B_cutoff=pvals_B[m]
-        m+=1
-    
+    for m,p in enumerate(pvals_Y):
+        if p < ((float(m)+1.0)/float(len(pvals_Y)))*FDR:
+            p_Y_cutoff=p
+            n=m+1
+    mm=0
+    for m,p in enumerate(pvals_B):
+        if p < ((float(m)+1.0)/float(len(pvals_B)))*FDR:
+            p_B_cutoff=p
+            mm=m+1
+            
     o=0
-    while pvals_P[o] < ((float(o)+1.0)/float(len(pvals_P)))*FDR and o < len(pvals_P):
-        p_P_cutoff=pvals_P[o]
-        o+=1
-
-    w=0
-#    while pvals_Y_br[w] < ((float(w)+1.0)/float(len(pvals_Y_br)))*FDR and w < len(pvals_Y_br):
-#        p_Y_br_cutoff=pvals_Y_br[w]
-#        w+=1
+    for m,p in enumerate(pvals_P):
+        if p < ((float(m)+1.0)/float(len(pvals_P)))*FDR:
+            p_P_cutoff=p
+            o=m+1
     x=0
-#    while pvals_Y_im[x] < ((float(x)+1.0)/float(len(pvals_Y_im)))*FDR and x < len(pvals_Y_im):
-#        p_Y_im_cutoff=pvals_Y_im[x]
-#        x+=1
-    y=0
-#    while y < len(pvals_Y_q) and pvals_Y_q[y] < ((float(y)+1.0)/float(len(pvals_Y_q)))*FDR:
-#        p_Y_q_cutoff=pvals_Y_q[y]
-#        y+=1
-    z=0    
-    if years != "2014":
-
-        while pvals_B_br[z] < ((float(z)+1.0)/float(len(pvals_B_br)))*FDR and z < len(pvals_B_br):
-            p_B_br_cutoff=pvals_B_br[z]
-            z+=1    
-    t=0
-    while pvals_B_im[t] < ((float(t)+1.0)/float(len(pvals_B_im)))*FDR and t < len(pvals_B_im):
-        p_B_im_cutoff=pvals_B_im[t]
-        t+=1    
-    k=0
-    while pvals_B_q[k] < ((float(k)+1.0)/float(len(pvals_B_q)))*FDR and k < len(pvals_B_q):
-        p_B_q_cutoff=pvals_B_q[k]
-        k+=1
+    for m,p in enumerate(pvals_Y_im):
+        if p < ((float(m)+1.0)/float(len(pvals_Y_im)))*FDR:
+            p_Y_im_cutoff=p
+            x=m+1
+    y=0   
+    for m,p in enumerate(pvals_Y_q):
+        if p < ((float(m)+1.0)/float(len(pvals_Y_q)))*FDR:
+            p_Y_q_cutoff=p
+            y=m+1
+    t=0    
+    for m,p in enumerate(pvals_B_im):
+        if p < ((float(m)+1.0)/float(len(pvals_B_im)))*FDR:
+            p_B_im_cutoff=p
+            t=m+1
+    k=0    
+    for m,p in enumerate(pvals_B_q):
+        if p < ((float(m)+1.0)/float(len(pvals_B_q)))*FDR:
+            p_B_q_cutoff=p
+            k=m+1
+    z=0
+    if years !="2014":        
+        for m,p in enumerate(pvals_B_br):
+            if p < ((float(m)+1.0)/float(len(pvals_B_br)))*FDR:
+                p_B_br_cutoff=p
+                z=m+1  
+                
     h=0
-    j=0
-    if years == "both":
-        while pvals_YCB_im[h] < ((float(h)+1.0)/float(len(pvals_YCB_im)))*FDR and h < len(pvals_YCB_im):
-            p_YCB_im_cutoff=pvals_YCB_im[h]
-            h+=1        
- 
-        while pvals_YCB_q[j] < ((float(j)+1.0)/float(len(pvals_YCB_q)))*FDR and j < len(pvals_YCB_q):
-            p_YCB_q_cutoff=pvals_YCB_q[j]
-            j+=1        
-        
+    j=0    
+    if years == "both":        
+        for m,p in enumerate(pvals_YCB_im):
+            if p < ((float(m)+1.0)/float(len(pvals_YCB_im)))*FDR:
+                p_YCB_im_cutoff=p
+                h=m+1
+
+        for m,p in enumerate(pvals_YCB_q):
+            if p < ((float(m)+1.0)/float(len(pvals_YCB_q)))*FDR:
+                p_YCB_q_cutoff=p
+                j=m+1
+
         
     stop = timeit.default_timer()
     runtime=stop-start
@@ -1010,25 +1008,26 @@ with open(INPUT_FILE,"rb") as sites_file:
     paramfile.write("Program run time: " + str(runtime/60) + " minutes \n")
     paramfile.write("p_Y_cutoff = " + str(p_Y_cutoff) + " ; num_sig_tests = " + str(n) + " ; num_tests = " +str(len(pvals_Y)) + "\n")
     paramfile.write("p_P_cutoff = " + str(p_P_cutoff) + " ; num_sig_tests = " + str(o) + " ; num_tests = " +str(len(pvals_P)) + "\n")
-    paramfile.write("p_B_cutoff = " + str(p_B_cutoff) + " ; num_sig_tests = " + str(m) + " ; num_tests = " +str(len(pvals_B)) + "\n")
+    paramfile.write("p_B_cutoff = " + str(p_B_cutoff) + " ; num_sig_tests = " + str(mm) + " ; num_tests = " +str(len(pvals_B)) + "\n")
     paramfile.write("p_Y_im_cutoff = " + str(p_Y_im_cutoff) + " ; num_sig_tests = " + str(x) + " ; num_tests = " +str(len(pvals_Y_im)) + "\n")
     paramfile.write("p_B_im_cutoff = " + str(p_B_im_cutoff) + " ; num_sig_tests = " + str(t) + " ; num_tests = " +str(len(pvals_B_im)) + "\n")
     paramfile.write("p_YCB_im_cutoff = " + str(p_YCB_im_cutoff) + " ; num_sig_tests = " + str(h) + " ; num_tests = " +str(len(pvals_YCB_im)) + "\n")
     paramfile.write("p_Y_q_cutoff = " + str(p_Y_q_cutoff) + " ; num_sig_tests = " + str(y) + " ; num_tests = " +str(len(pvals_Y_q)) + "\n")
     paramfile.write("p_B_q_cutoff = " + str(p_B_q_cutoff) + " ; num_sig_tests = " + str(k) + " ; num_tests = " +str(len(pvals_B_q)) + "\n")
     paramfile.write("p_YCB_q_cutoff = " + str(p_YCB_q_cutoff) + " ; num_sig_tests = " + str(j) + " ; num_tests = " +str(len(pvals_YCB_q)) + "\n")
-    paramfile.write("p_Y_br_cutoff = " + str(p_Y_br_cutoff) + " ; num_sig_tests = " + str(w) + " ; num_tests = " +str(len(pvals_Y_br)) + "\n")
+#    paramfile.write("p_Y_br_cutoff = " + str(p_Y_br_cutoff) + " ; num_sig_tests = " + str(w) + " ; num_tests = " +str(len(pvals_Y_br)) + "\n")
     paramfile.write("p_B_br_cutoff = " + str(p_B_br_cutoff) + " ; num_sig_tests = " + str(z) + " ; num_tests = " +str(len(pvals_B_br)) + "\n")
+    paramfile.write(CustomMessage + "\n")    
     paramfile.close()
     
     print "FDR = ",FDR
     print "p_Y_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_Y_cutoff, n, len(pvals_Y))         
-    print "p_B_cutoff = %.19f ; num sig tests = %d ; num_tests = %d" % (p_B_cutoff, m, len(pvals_B))
+    print "p_B_cutoff = %.19f ; num sig tests = %d ; num_tests = %d" % (p_B_cutoff, mm, len(pvals_B))
     print "p_P_cutoff = %.19f ; num sig tests = %d ; num_tests = %d" % (p_P_cutoff, o, len(pvals_P))
     print "p_Y_im_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_Y_im_cutoff, x, len(pvals_Y_im))     
     print "p_YCB_im_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_YCB_im_cutoff, h, len(pvals_YCB_im))     
     print "p_B_im_cutoff = %.19f ; num sig tests = %d ; num_tests = %d" % (p_B_im_cutoff, t, len(pvals_B_im))
-    print "p_Y_br_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_Y_br_cutoff, w, len(pvals_Y_br) )        
+#    print "p_Y_br_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_Y_br_cutoff, w, len(pvals_Y_br) )        
     print "p_B_br_cutoff = %.19f ; num sig tests = %d ; num_tests = %d" % (p_B_br_cutoff, z, len(pvals_B_br))
     print "p_Y_q_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_Y_q_cutoff, y, len(pvals_Y_q)    )     
     print "p_B_q_cutoff = %.19f ; num sig tests = %d ; num_tests = %d" % (p_B_q_cutoff, k, len(pvals_B_q))
