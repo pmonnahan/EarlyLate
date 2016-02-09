@@ -16,16 +16,16 @@ import csv
 
 INDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
-INPUT_FILE="EL_Likelihoods_PerPop_201320151118-1514.csv"
+INPUT_FILE="EL_Likelihoods_PerPop_201320160207-2149.csv"
 
-p_Y_im_cutoff = 0
-p_YCB_im_cutoff = 0
-p_B_im_cutoff = 4.62448137005e-06
+p_Y_im_cutoff = 0.00012813994988
+p_YCB_im_cutoff = 2.20953240961e-05
+p_B_im_cutoff = 7.87658325594e-05
 p_Y_br_cutoff = 0
-p_B_br_cutoff = 1.60241798643e-06
-p_Y_q_cutoff = 0
-p_B_q_cutoff = 0.000138586071041
-p_YCB_q_cutoff = 0
+p_B_br_cutoff = 1.81035976527e-06
+p_Y_q_cutoff = 0.000314346470622
+p_B_q_cutoff = 0.000422357994809
+p_YCB_q_cutoff = 4.66511571067e-05
 
 sigfile=open(OUTDIR+INPUT_FILE[:-4]+"_sig.csv","wb")
 sigwriter=csv.writer(sigfile,delimiter=",",dialect='excel')    
@@ -77,35 +77,40 @@ with open(INDIR+INPUT_FILE,"rb") as sites_file:
             try:
                 p_Y_im=float(site[32])                
             except (ValueError, IndexError):
-                p_Y_im=99                
+                p_Y_im=99
+                sigY_im="-"                
             try:
                 p_B_im=float(site[35])               
             except (ValueError, IndexError):
                 p_B_im=99
+                sigB_im="-"
             try:
                 p_YCB_im=float(site[44])              
             except (ValueError, IndexError):
                 p_YCB_im = 99
+                sigYCB_im="-"
             try:
                 p_Y_q=float(site[38])                
             except (ValueError, IndexError):
-                p_Y_q=99                
+                p_Y_q=99     
+                sigY_q="-"
             try:
                 p_B_q=float(site[41])               
             except (ValueError, IndexError):
                 p_B_q=99
+                sigB_q="-"
             try:
                 p_YCB_q=float(site[47])              
             except (ValueError, IndexError):
                 p_YCB_q = 99
-            try:
-                p_Y_br=float(site[26])                
-            except (ValueError, IndexError):
-                p_Y_br=99                
+                sigYCB_q="-"
+                
+            p_Y_br=99               
             try:
                 p_B_br=float(site[29])               
             except (ValueError, IndexError):
                 p_B_br=99
+                sigB_br="-"
             
             
             if p_Y_im < p_Y_im_cutoff:
