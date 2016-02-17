@@ -25,17 +25,17 @@ file2=0
 file3=0
 file4=0
 file5=0
-file6=1
+file6=0
 
 #filters
 p_min1=0.05
 p_max1=0.95
 p_min=2*math.asin(p_min1**0.5)
 p_max=2*math.asin(p_max1**0.5)
-min_cov=10
-max_cov=250
+min_cov=25
+max_cov=100
 years="2013"
-window_size=30000
+window_size=1000000
 
 #Run Description
 CustomMessage=""
@@ -74,36 +74,52 @@ if file5 != 0:
     out5xQ=csv.writer(out5Q,delimiter=",",dialect='excel')    
     out5xQ.writerow(["scaff","window","start_bp","wind_sites","dist","numYtests","numBtests","numYCBtests","sigY","sigB","sigYCB","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","lrt_Y","lrt_B","lrt_YCB","p_Y","p_B","p_YCB"])
 if file6!=0:
-    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_3MbWindows" + timestr + ".csv","wb")
+    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_1MbWindows" + timestr + ".csv","wb")
     out6x=csv.writer(out6,delimiter=",",dialect='excel')  
-    out6x.writerow(["scaff","window","start_bp","wind_sites","dist","sigBim","sigBq","sigBbr"])
+    out6x.writerow(["scaff","window","start_bp","wind_sites","dist","sigBim","sigBq","sigBbr","numsigBim","numsigBq","numsigBbr","numBtests_im","numBtests_q","numBtests_br","pime13","piml13","pime14","piml14","pqe13","pql13","pqe14","pql14","pbre13","pbrl13","numtestsIM13","numtestsIM14","numtestsQ13","numtestsQ14","numtestsBR13"])
 
 
 #USED ONLY IN WINDOW CALCULATIONS FOR NUM SIG SNPS IN A WINDOW...BASED ON PREVIOUS RUN AND FDR CALC
 p_Y_im_cutoff = 0.000037
 p_YCB_im_cutoff = 0.000007
-p_B_im_cutoff = 4.62448137005e-06
+p_B_im_cutoff = 0.000018735352155
 p_Y_br_cutoff = 0.000010
-p_B_br_cutoff = 1.60241798643e-06
+p_B_br_cutoff = 3.47E-07
 p_Y_q_cutoff = 0.000106
-p_B_q_cutoff = 0.000138586071041
+p_B_q_cutoff = 0.000160195
 p_YCB_q_cutoff = 0.000017
 
 
 #BS variance factor : Paired + Single
-vb1=0.034805286266108827198
-vb2=0.036184480292554409286
-vb3=0.022731757864254985291
+#vb1=0.034805286266108827198
+#vb2=0.036184480292554409286
+#vb3=0.022731757864254985291
+#
+#vi1=0.0137298312949835840668 #With new data the variance calculations were similar to old data except for 2014...Early var was similar to late var and vice versa.
+#vi2=0.0184233013099333840790 #Should run through calc with old data to confirm that there wasn't an error
+#vi3=0.0066893073640574111927 #Calculated with minimum depth of 10
+#vi4=0.0107630749671819188340
+#
+#vq1=0.0152782122396757438776
+#vq2=0.0212079200267419748505
+#vq3=0.0082510518410872438211
+#vq4=0.0130222983597531889038
 
-vi1=0.0137298312949835840668 #With new data the variance calculations were similar to old data except for 2014...Early var was similar to late var and vice versa.
-vi2=0.0184233013099333840790 #Should run through calc with old data to confirm that there wasn't an error
-vi3=0.0066893073640574111927
-vi4=0.0107630749671819188340
+#BS variance factor : Paired + Single
+vb1=0.031943454869850194944 
+vb2=0.032900188828741155911
+vb3=0.027101898310498844652 
+
+vi1=0.0141406715106648095404 #With new data the variance calculations were similar to old data except for 2014...Early var was similar to late var and vice versa.
+vi2=0.0200071498211230672237 #Should run through calc with old data to confirm that there wasn't an error
+vi3=0.0066349383482011761726 #Calculated with minimum depth of 25
+vi4=0.0110139598993814532418
 
 vq1=0.0152782122396757438776
 vq2=0.0212079200267419748505
 vq3=0.0082510518410872438211
 vq4=0.0130222983597531889038
+
 
 with open(INPUT_FILE,"rb") as sites_file:   
     sites=0
@@ -169,7 +185,7 @@ with open(INPUT_FILE,"rb") as sites_file:
                 
             if iml13r+iml13a <= min_cov or iml13r+iml13a >= max_cov or years == "2014":
                 ximl13=-99.0
-                viml=-99.0
+                viml13=-99.0
             else:
                 ximl13=2*math.asin((iml13r/(iml13r+iml13a))**0.5)
                 viml13=(vi2+(1/(iml13r+iml13a)))
@@ -218,10 +234,12 @@ with open(INPUT_FILE,"rb") as sites_file:
                 vql14=(vq4 +(1/(ql14r+ql14a)))                
                 
 
-            if (all(k==0.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14]) or all(k==math.pi for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14]) or all(k==-99.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xbre14,xqe13,xql13,xqe14,xql14])):
+            if (all(k==0.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14]) or all(k==math.pi for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14])):
                 fixed+=1
                 filtered+=1
-                
+            elif (all(k==-99.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xbre14,xqe13,xql13,xqe14,xql14])):                
+                filtered+=1
+            
             else:
                 sites+=1
                 if sites%10000==0:
@@ -388,16 +406,16 @@ with open(INPUT_FILE,"rb") as sites_file:
                 ul13=sum([xx*(ww/sum(wl13)) for xx,ww in zip(xl13,wl13)])
                 ul14=sum([xx*(ww/sum(wl14)) for xx,ww in zip(xl14,wl14)])
                 
-                df_P = 7
+                df_P = 6
                 
-                if (any(k <= min_cov for k in [ime14r+ime14a,iml14r+iml14a,qe14r+qe14a,ql14r+ql14a])) or (any(k >= max_cov for k in [ime14r+ime14a,iml14r+iml14a,qe14r+qe14a,ql14r+ql14a])):
-                    df_P -= 3
+                if (any(k ==-99.0 for k in [xime14,ximl14,xqe14,xql14])):
+                    df_P -= 2
                 else:
                     for j,xx in enumerate(xe14):
                         ll_YB+=(-(xx-ue14)**2)/(2*ve14[j])
                     for j,xx in enumerate(xl14):
                         ll_YB+=(-(xx-ul14)**2)/(2*vl14[j])
-                if (any(k <= min_cov for k in [ime13r+ime13a,iml13r+iml13a,qe13r+qe13a,ql13r+ql13a,bre13r+bre13a,brl13r+brl13a])) or (any(k < max_cov for k in [ime13r+ime13a,iml13r+iml13a,qe13r+qe13a,ql13r+ql13a,bre13r+bre13a,brl13r+brl13a])):
+                if (any(k ==-99.0 for k in [xime13,ximl13,xqe13,xql13,xbre13,xbrl13])):
                     df_P -= 4
                 else:                                    
                     for j,xx in enumerate(xe13):
@@ -607,7 +625,7 @@ with open(INPUT_FILE,"rb") as sites_file:
                 
                 
                 """determine windows and print to file"""
-                if i==1:
+                if sites==1:
                     start_bp=pos
                     wind_sites=1
                     sigBim=0
@@ -640,7 +658,51 @@ with open(INPUT_FILE,"rb") as sites_file:
                     QE14R=qe14r
                     QE14A=qe14a
                     QL14R=ql14r
-                    QL14A=ql14a                   
+                    QL14A=ql14a 
+                    x1=0
+                    x2=0
+                    x3=0
+                    x4=0
+                    x5=0
+                    
+                    if xime13!=-99.0 and ximl13!=-99.0:
+                        pime13=ime13r/(ime13r+ime13a)
+                        piml13=iml13r/(iml13r+iml13a)
+                        x1+=1
+                    else:
+                        pime13="-"
+                        piml13="-"                     
+                    if xime14!=-99.0 and ximl14!=-99.0:
+                        pime14=ime14r/(ime14r+ime14a)
+                        piml14=iml14r/(iml14r+iml14a)
+                        x2+=1
+                    else:
+                        pime14="-"
+                        piml14="-"
+                    
+                    if xqe13!=-99.0 and xql13!=-99.0:
+                        pqe13=qe13r/(qe13r+qe13a)
+                        pql13=ql13r/(ql13r+ql13a)
+                        x3+=1
+                    else:
+                        pqe13="-"
+                        pql13="-"                     
+                    if xqe14!=-99.0 and xql14!=-99.0:
+                        pqe14=qe14r/(qe14r+qe14a)
+                        pql14=ql14r/(ql14r+ql14a)
+                        x4+=1
+                    else:
+                        pqe14="-"
+                        pql14="-"
+                      
+                    if xbre13!=-99.0 and xbrl13!=-99.0:
+                        pbre13=bre13r/(bre13r+bre13a)
+                        pbrl13=brl13r/(brl13r+brl13a)
+                        x5+=1
+                    else:
+                        pbre13="-"
+                        pbrl13="-"  
+                    
                                       
                     if lrt_Y_br == "-":
                         LRT_Y_br=0.0
@@ -697,20 +759,52 @@ with open(INPUT_FILE,"rb") as sites_file:
                         LRT_YCB_im=lrt_YCB_im
                         numYCBtests_im=1
                         
-                elif i>1:                      
+                elif sites>1:                      
                     if pos-start_bp>window_size or scaff!=prev_scaff: # or wind_sites == 5
+                        try:
+                            pime13=pime13/float(x1)
+                            piml13=piml13/float(x1)
+                        except TypeError:
+                            pass
+                        try:
+                            pime14=pime14/float(x2)
+                            piml14=piml14/float(x2)
+                        except TypeError:
+                            pass
+                        try:
+                            pqe13=pqe13/float(x3)
+                            pql13=pql13/float(x3)
+                        except TypeError:
+                            pass
+                        try:
+                            pqe14=pqe14/float(x4)
+                            pql14=pql14/float(x4)
+                        except TypeError:
+                            pass
+                        try:
+                            pbre13=pbre13/float(x5)
+                            pbrl13=pbrl13/float(x5)
+                        except TypeError:
+                            pass
+                        
                         if file5 != 0:
                             out5xQ.writerow([scaff,window,start_bp,wind_sites,dist,numYtests_q,numBtests_q,numYCBtests_q,sigYq,sigBq,sigYCBq,QE13R,QE13A,QL13R,QL13A,QE14R,QE14A,QL14R,QL14A,LRT_Y_q,LRT_B_q,LRT_YCB_q])
                             out5xBR.writerow([scaff,window,start_bp,wind_sites,dist,numYtests_br,numBtests_br,sigYbr,sigBbr,BRE13R,BRE13A,BRL13R,BRL13A,BRE14R,BRE14A,LRT_Y_br,LRT_B_br])
                             out5xIM.writerow([scaff,window,start_bp,wind_sites,dist,numYtests_im,numBtests_im,numYCBtests_im,sigYim,sigBim,sigYCBim,IME13R,IME13A,IML13R,IML13A,IME14R,IME14A,IML14R,IML14A,LRT_Y_im,LRT_B_im,LRT_YCB_im])
                         if file6 != 0:
                             if sigBim > 0:
-                                sigBim=1
+                                sigBim_x=1
+                            else:
+                                sigBim_x=0
                             if sigBq > 0:
-                                sigBq=1
+                                sigBq_x=1
+                            else:
+                                sigBq_x=0
                             if sigBbr > 0:
-                                sigBbr=1
-                            out6x.writerow([scaff,window,start_bp,wind_sites,dist,sigBim,sigBq,sigBbr])
+                                sigBbr_x=1
+                            else:
+                                sigBbr_x=0
+                            out6x.writerow([scaff,window,start_bp,wind_sites,dist,sigBim_x,sigBq_x,sigBbr_x,sigBim,sigBq,sigBbr,numBtests_im,numBtests_q,numBtests_br,pime13,piml13,pime14,piml14,pqe13,pql13,pqe14,pql14,pbre13,pbrl13,x1,x2,x3,x4,x5])
                         if scaff!=prev_scaff:
                             window=0
                         else:    
@@ -747,6 +841,49 @@ with open(INPUT_FILE,"rb") as sites_file:
                         QE14A=qe14a
                         QL14R=ql14r
                         QL14A=ql14a
+                        x1=0
+                        x2=0
+                        x3=0
+                        x4=0
+                        x5=0
+                        
+                        if xime13!=-99.0 and ximl13!=-99.0:
+                            pime13=ime13r/(ime13r+ime13a)
+                            piml13=iml13r/(iml13r+iml13a)
+                            x1+=1
+                        else:
+                            pime13="-"
+                            piml13="-"                     
+                        if xime14!=-99.0 and ximl14!=-99.0:
+                            pime14=ime14r/(ime14r+ime14a)
+                            piml14=iml14r/(iml14r+iml14a)
+                            x2+=1
+                        else:
+                            pime14="-"
+                            piml14="-"
+                        
+                        if xqe13!=-99.0 and xql13!=-99.0:
+                            pqe13=qe13r/(qe13r+qe13a)
+                            pql13=ql13r/(ql13r+ql13a)
+                            x3+=1
+                        else:
+                            pqe13="-"
+                            pql13="-"                     
+                        if xqe14!=-99.0 and xql14!=-99.0:
+                            pqe14=qe14r/(qe14r+qe14a)
+                            pql14=ql14r/(ql14r+ql14a)
+                            x4+=1
+                        else:
+                            pqe14="-"
+                            pql14="-"
+                          
+                        if xbre13!=-99.0 and xbrl13!=-99.0:
+                            pbre13=bre13r/(bre13r+bre13a)
+                            pbrl13=brl13r/(brl13r+brl13a)
+                            x5+=1
+                        else:
+                            pbre13="-"
+                            pbrl13="-"  
                             
                         if lrt_Y_im == "-" or df_Y_im < 2:
                             LRT_Y_im=0.0
@@ -898,6 +1035,50 @@ with open(INPUT_FILE,"rb") as sites_file:
                             numYCBtests_q+=1
                             if p_YCB_q < p_YCB_q_cutoff:
                                 sigYCBq+=1
+                                
+                        if xime13!=-99.0 and ximl13!=-99.0:
+                            if isinstance(pime13,basestring)==True:
+                                pime13=ime13r/(ime13r+ime13a)
+                                piml13=iml13r/(iml13r+iml13a)
+                            else:
+                                pime13+=ime13r/(ime13r+ime13a)
+                                piml13+=iml13r/(iml13r+iml13a)
+                            x1+=1
+                    
+                        if xime14!=-99.0 and ximl14!=-99.0:
+                            if isinstance(pime14,basestring)==True:
+                                pime14=ime14r/(ime14r+ime14a)
+                                piml14=iml14r/(iml14r+iml14a)
+                            else:
+                                pime14+=ime14r/(ime14r+ime14a)
+                                piml14+=iml14r/(iml14r+iml14a)
+                            x2+=1
+                        
+                        if xqe13!=-99.0 and xql13!=-99.0:
+                            if isinstance(pqe13,basestring)==True:
+                                pqe13=qe13r/(qe13r+qe13a)
+                                pql13=ql13r/(ql13r+ql13a)
+                            else:
+                                pqe13+=qe13r/(qe13r+qe13a)
+                                pql13+=ql13r/(ql13r+ql13a) 
+                            x3+=1
+                        if xqe14!=-99.0 and xql14!=-99.0:
+                            if isinstance(pqe14,basestring)==True:
+                                pqe14=qe14r/(qe14r+qe14a)
+                                pql14=ql14r/(ql14r+ql14a)
+                            else:
+                                pqe14+=qe14r/(qe14r+qe14a)
+                                pql14+=ql14r/(ql14r+ql14a)
+                            x4+=1
+                          
+                        if xbre13!=-99.0 and xbrl13!=-99.0:
+                            if isinstance(pbre13,basestring)==True:
+                                pbre13=bre13r/(bre13r+bre13a)
+                                pbrl13=brl13r/(brl13r+brl13a)
+                            else:
+                                pbre13+=bre13r/(bre13r+bre13a)
+                                pbrl13+=brl13r/(brl13r+brl13a)
+                            x5+=1
                         
             prev_scaff=scaff
             prev_p_B_Q=p_B_q

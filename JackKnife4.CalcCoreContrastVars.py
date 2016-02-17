@@ -7,7 +7,6 @@ import sys
 
 DIR="/Users/patrick/Documents/Research/EarlyLate/"
 #comparison = 5 # 0 to 5
-src  =open(DIR+"Q.dz.txt", "rU")
 #out1 =open(comparison+".IM.txt","w")
 
 
@@ -16,20 +15,22 @@ z=[]
 varm=[]
 zmeans=[0.0,0.0]
 vmeans=[0.0,0.0]
-
+cores=[]
 for comparison in range (0,6):
-    src  =open(DIR+"IM.dz.txt", "rU")
+    src  =open(DIR+"Q.dz.minDP25.txt", "rU")
     for line_idx, line in enumerate(src):
         cols = line.replace('\n', '').split('\t') 
-    		
-        if cols[2*int(comparison)+2] != "-9":
-    
-            z.append(float(cols[2*int(comparison)+2]))
-            varm.append(float(cols[2*int(comparison)+3]))	
-            zmeans[0]+=float(cols[2*int(comparison)+2])
-            zmeans[1]+=float(cols[2*int(comparison)+2])**2.0
-            vmeans[0]+=float(cols[2*int(comparison)+3])
-            vmeans[1]+=float(cols[2*int(comparison)+3])**2.0
+        try:
+            if cols[2*int(comparison)+2] != "-9":
+        
+                z.append(float(cols[2*int(comparison)+2]))
+                varm.append(float(cols[2*int(comparison)+3]))	
+                zmeans[0]+=float(cols[2*int(comparison)+2])
+                zmeans[1]+=float(cols[2*int(comparison)+2])**2.0
+                vmeans[0]+=float(cols[2*int(comparison)+3])
+                vmeans[1]+=float(cols[2*int(comparison)+3])**2.0
+        except IndexError:
+            pass
     
     SnpCC=len(z)
     
@@ -45,7 +46,8 @@ for comparison in range (0,6):
     print "Z percentiles ",n25,n50,n75
     print "total variance in Z (based on IQR) ",((n75-n25)/1.349)**2
     print "estimated core var ",((n75-n25)/1.349)**2 - RDV
-
+    cores.append(((n75-n25)/1.349)**2 - RDV)
+print cores
 #ranked_varm=sorted(varm)
 
 #out1.write(outstring+'\n')

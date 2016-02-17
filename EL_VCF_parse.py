@@ -12,9 +12,9 @@ import sys
 def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/EarlyLate/EL.massive.Jan16.vcf", outfilepath0="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt", outfilepath1="/Users/patrick/Documents/Research/EarlyLate/read_depth_massiveJuan16.txt", outfilepath6="/Users/patrick/Documents/Research/EarlyLate/counts_parsed_8-11-15.txt",outfilepath10="/Users/patrick/Documents/Research/EarlyLate/counts_dt_SandP_RN250_10-11-15.txt"):
     src  =open(infilepath, "rU")
 #    in0  =open(inpath1, "rU")
-    out0 =open(outfilepath0, "w")
-    out1 =open(outfilepath1, "w")
-    out10=open(outfilepath10,"w")
+#    out0 =open(outfilepath0, "w")
+#    out1 =open(outfilepath1, "w")
+#    out10=open(outfilepath10,"w")
          
     
 
@@ -40,7 +40,7 @@ def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/Ear
     line_num=0
     cutsites = 0
     noncutsites = 0
-    out1.write("Scaff"+"\t"+"pos"+"\t"+"DP"+"\t"+"\t"+"BRE_13"+"\t"+"BRL_13"+"\t"+"BR_count"+"\t"+"IME_14"+"\t"+"IML_14"+"\t"+"IME_13"+"\t"+"IML_13"+"\t"+"IM_count"+"\t"+"QE_14"+"\t"+"QL_14"+"\t"+"QE_13"+"\t"+"QL_13"+"\t"+"Q_count"+"\n")
+#    out1.write("Scaff"+"\t"+"pos"+"\t"+"DP"+"\t"+"\t"+"BRE_13"+"\t"+"BRL_13"+"\t"+"BR_count"+"\t"+"IME_14"+"\t"+"IML_14"+"\t"+"IME_13"+"\t"+"IML_13"+"\t"+"IM_count"+"\t"+"QE_14"+"\t"+"QL_14"+"\t"+"QE_13"+"\t"+"QL_13"+"\t"+"Q_count"+"\n")
     # evaluate contents of each line of input file
     for line_idx, line in enumerate(src):
         cols = line.replace('\n', '').split('\t') 

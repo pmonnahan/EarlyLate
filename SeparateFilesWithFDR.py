@@ -9,11 +9,11 @@ import csv
 
 INDIR="/Users/patrick/Documents/Research/EarlyLate/"
 OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
-INPUT_FILE="EL_Likelihoods_both20151118-1354.csv"
+INPUT_FILE="EL_Likelihoods_both20160209-2211.csv"
 
-p_Y_cutoff = 0.000117820242888
-p_B_cutoff = 0.000174546445418
-p_P_cutoff = 0.0633680891612 
+p_Y_cutoff = 0.000112266628638
+p_B_cutoff = 0.00015940722695
+p_P_cutoff = 0.060793629058
 
 
 sigfile=open(OUTDIR+INPUT_FILE[:-4]+"_sig.csv","wb")
@@ -58,15 +58,18 @@ with open(OUTDIR+INPUT_FILE,"rb") as sites_file:
             try:
                 p_Y=float(site[35])                
             except (ValueError, IndexError):
-                p_Y=99                
+                p_Y=99
+                sigY="-"                
             try:
                 p_B=float(site[37])               
             except (ValueError, IndexError):
                 p_B=99
+                sigB="-"
             try:
                 p_P=float(site[36])              
             except (ValueError, IndexError):
                 p_P = 99
+                sigP="-"
             if (p_Y < p_Y_cutoff or p_B < p_B_cutoff or p_P < p_P_cutoff):
                 numsig+=1
                 if p_Y < p_Y_cutoff:

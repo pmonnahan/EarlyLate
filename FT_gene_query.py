@@ -27,7 +27,7 @@ snp_dict={}
 #writer=csv.writer(new_csv,dialect="excel")
 
 #p_Y_cutoff = 0.000148
-p_B_cutoff = 0.000536853996743
+p_B_cutoff = 0.00015940722695
 #p_P_cutoff = 0.048506
 #p_Y_im_cutoff = 0.000037
 #p_YCB_im_cutoff = 0.000007
@@ -50,7 +50,7 @@ nsigNonFTUS=0
 DIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 
 INPUT_FILE="/Users/patrick/Documents/Research/Mimulus/FriedBlackman_GeneList.csv"
-QUERY_FILE="EL_Likelihoods_both20160202-2345.csv"
+QUERY_FILE="EL_Likelihoods_both20160209-2211.csv"
 
 OUTPUT_FILE1=DIR+QUERY_FILE[:-4]+"_FTqueried_sigB_inGenes.csv"
 OUTPUT_FILE2=DIR+QUERY_FILE[:-4]+"_FTqueried_sigB_upstream.csv"

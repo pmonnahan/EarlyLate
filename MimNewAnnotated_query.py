@@ -14,7 +14,7 @@ snp_dict={}
 
 DIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 
-INPUT_FILE="EL_Likelihoods_both20151118-1354_sig.csv"
+INPUT_FILE="EL_Likelihoods_both20160209-2211_sig.csv"
 
 OUTPUT_FILE1=DIR+INPUT_FILE[:-4]+"_queried_MimNewAnnotated.csv"
 
@@ -125,21 +125,21 @@ with open("/Users/patrick/Documents/Research/Mimulus/MimNewAnnotated.csv","rU") 
                         info=[scaff,snp,lower_bound,upper_bound,stats[i]]+line
                         writer1.writerow(info)
                     d.writelines(str(geneid)+"\n")
-                    if sigY[i] == '0':
+                    if sigY[i] == '0' or sigY[i]=='-':
                         pass
                     elif sigY[i] == '1':
                         a.writelines(str(geneid)+"\n")
                         numsigY+=1
                     else:
                         print "WTF1", sigY
-                    if sigB[i] == '0':
+                    if sigB[i] == '0' or sigB[i]=='-':
                         pass
                     elif sigB[i] == '1':
                         b.writelines(str(geneid)+"\n")
                         numsigB+=1
                     else:
                         print "WTF2", sigB
-                    if sigP[i] == '0':
+                    if sigP[i] == '0' or sigP[i]=='-':
                         pass
                     elif sigP[i] == '1':
                         c.writelines(str(geneid)+"\n") 

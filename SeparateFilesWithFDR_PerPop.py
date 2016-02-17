@@ -16,16 +16,16 @@ import csv
 
 INDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
-INPUT_FILE="EL_Likelihoods_PerPop_201320160207-2149.csv"
+INPUT_FILE="EL_Likelihoods_PerPop_both20160209-2211.csv"
 
-p_Y_im_cutoff = 0.00012813994988
-p_YCB_im_cutoff = 2.20953240961e-05
-p_B_im_cutoff = 7.87658325594e-05
+p_Y_im_cutoff = 2.84717126029e-05
+p_YCB_im_cutoff = 4.41809928877e-06
+p_B_im_cutoff = 1.8735352155e-05 
 p_Y_br_cutoff = 0
-p_B_br_cutoff = 1.81035976527e-06
-p_Y_q_cutoff = 0.000314346470622
-p_B_q_cutoff = 0.000422357994809
-p_YCB_q_cutoff = 4.66511571067e-05
+p_B_br_cutoff = 3.46567027194e-07
+p_Y_q_cutoff = 9.4924509668e-05
+p_B_q_cutoff = 0.00016019505704
+p_YCB_q_cutoff = 6.75887478276e-06
 
 sigfile=open(OUTDIR+INPUT_FILE[:-4]+"_sig.csv","wb")
 sigwriter=csv.writer(sigfile,delimiter=",",dialect='excel')    
@@ -78,7 +78,7 @@ with open(INDIR+INPUT_FILE,"rb") as sites_file:
                 p_Y_im=float(site[32])                
             except (ValueError, IndexError):
                 p_Y_im=99
-                sigY_im="-"                
+                sigY_im="-" 
             try:
                 p_B_im=float(site[35])               
             except (ValueError, IndexError):
@@ -113,28 +113,28 @@ with open(INDIR+INPUT_FILE,"rb") as sites_file:
                 sigB_br="-"
             
             
-            if p_Y_im < p_Y_im_cutoff:
+            if p_Y_im <= p_Y_im_cutoff:
                 sigY_im=1
                 numsigY_im+=1
-            if p_B_im < p_B_im_cutoff:
+            if p_B_im <= p_B_im_cutoff:
                 sigB_im=1
                 numsigB_im+=1
-            if p_YCB_im < p_YCB_im_cutoff:
+            if p_YCB_im <= p_YCB_im_cutoff:
                 sigYCB_im=1
                 numsigYCB_im+=1
-            if p_Y_q < p_Y_q_cutoff:
+            if p_Y_q <= p_Y_q_cutoff:
                 sigY_q=1
                 numsigY_q+=1
-            if p_B_q < p_B_q_cutoff:
+            if p_B_q <= p_B_q_cutoff:
                 sigB_q=1
                 numsigB_q+=1
-            if p_YCB_q < p_YCB_q_cutoff:
+            if p_YCB_q <= p_YCB_q_cutoff:
                 sigYCB_q=1
                 numsigYCB_q+=1
-            if p_Y_br < p_Y_br_cutoff:
+            if p_Y_br <= p_Y_br_cutoff:
                 sigY_br=1
                 numsigY_br+=1
-            if p_B_br < p_B_br_cutoff:
+            if p_B_br <= p_B_br_cutoff:
                 sigB_br=1
                 numsigB_br+=1
 
