@@ -29,8 +29,8 @@ Reps=100
 p_cutoff = 4.62448137005e-06
 
 p=0.5 #allele frequency
-a=9 #average effect
-Ve=10
+a= #average effect
+Ve=1
 PopMean=50
 
 N=10000 #Pop Size
@@ -46,7 +46,7 @@ RdE=20
 RdL=20
 
 
-for A in range(a-2,a+3):
+for A in range(a-0.2,a+0.3,0.1):
     for rd in range(RdE-10,RdE+30,10):
         for rep in range(0,Reps):
             
