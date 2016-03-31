@@ -8,7 +8,6 @@ where we control the degree of divergence between Early and Late bulks.
 How strong or consistent of a signal is required before our means of observing 
 idiosyncrasy of genetic variation disappears?
 
-@author: patrick
 """
 
 from scipy.stats import *
@@ -27,10 +26,10 @@ OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 #OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
 
 timestr = time.strftime("%Y%m%d-%H%M")
-file1=1
+file1=0
 file2=0
 file3=0
-file4=1
+file4=0
 file5=0
 file6=0
 
@@ -45,13 +44,49 @@ years="both"
 window_size=1000000
 
 #Simulation parameters
-N=10000  #Population Size
-A=0.0  #Effect Size
-Ve=1.0  #Environmental Variance
-B=100 #Bulk Size
+Num_loci=0  #Number of sites with a nonzero average effect
+effect_size=0.5 #number of standard deviations that separating two alternative homozygotes (2a)
+intensity=1.755 #intensity of selection. Calculated from truncated normal in which 10% of individuals exceed truncation point
 
 Sim_Type="Neutral"
 
+if Sim_Type=="Neutral":
+    effect_size=0.0
+    ib1=1.0
+    ib2=1.0
+    ii1=1.0
+    ii2=1.0
+    ii3=1.0
+    ii4=1.0
+    iq1=1.0
+    iq2=1.0
+    iq3=1.0
+    iq4=1.0
+
+elif Sim_Type=="All_Constant":
+    ib1=1.0
+    ib2=1.0
+    ii1=1.0
+    ii2=1.0
+    ii3=1.0
+    ii4=1.0
+    iq1=1.0
+    iq2=1.0
+    iq3=1.0
+    iq4=1.0
+
+elif Sim_Type=="Variable_Years":
+    ib1=1.0
+    ib2=1.0
+    ii1=1.0
+    ii2=1.0
+    ii3=-1.0
+    ii4=-1.0
+    iq1=1.0
+    iq2=1.0
+    iq3=-1.0
+    iq4=-1.0
+    
 #Run Description
 CustomMessage=""
    
@@ -59,23 +94,24 @@ FDR=0.1
 
 
 
+
 jjj=0
 if file1 !=0:
-    EL_Likelihoods=open(OUTDIR+"EL_Likelihoods_" + years + timestr + Sim_Type + ".csv","wb")
+    EL_Likelihoods=open(OUTDIR+"EL_Likelihoods_" + years + timestr + Sim_Type + "_EffSize"+str(effect_size)+".csv","wb")
     like=csv.writer(EL_Likelihoods,delimiter=",",dialect='excel')
     like.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_Y","ll_P","ll_B","ll_YP","ll_YB","ll_PB","ll_C","lrt_Y","lrt_P","lrt_B","p_Y","p_P","p_B"])
     #like.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_Y","ll_P","ll_B","ll_YP","ll_YB","ll_PB","lrt_Y","p_Y","lrt_y","p_y","lrt_P","p_P","lrt_p","p_p","lrt_B","p_B","lrt_b","p_b"])
 if file2 != 0:
-    out2=open(OUTDIR+"EL_Likelihoods_SimplePops_test" + timestr + Sim_Type + ".csv","wb")
+    out2=open(OUTDIR+"EL_Likelihoods_SimplePops_test" + timestr + Sim_Type + "_EffSize"+str(effect_size)+".csv","wb")
     out2x=csv.writer(out2,delimiter=",",dialect='excel')
     out2x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_P","X2","p_p"])
 if file3 != 0:
-    out3=open(OUTDIR+"EL_ZandVs_" + timestr + Sim_Type + ".csv","wb")
+    out3=open(OUTDIR+"EL_ZandVs_" + timestr + Sim_Type + "_EffSize"+str(effect_size)+".csv","wb")
     out3x=csv.writer(out3,delimiter=",",dialect='excel')
     out3x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","zbre13","zbrl13","zbre14","zime13","ziml13","zime14","ziml14","zqe13","zql13","zqe14","zql14","vbre13","vbrl13","vbre14","vime13","viml13","vime14","viml14","vqe13","vql13","vqe14","vql14"])
                
 if file4 != 0:
-    out4=open(OUTDIR+"EL_Likelihoods_PerPop_" + years + timestr + Sim_Type + ".csv","wb")
+    out4=open(OUTDIR+"EL_Likelihoods_PerPop_" + years + timestr + Sim_Type + "_EffSize"+str(effect_size)+".csv","wb")
     out4x=csv.writer(out4,delimiter=",",dialect='excel')    
     out4x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","lrt_Y_br","df_Y_br","p_Y_br","lrt_B_br","df_B_br","p_B_br","lrt_Y_im","df_Y_im","p_Y_im","lrt_B_im","df_B_im","p_B_im","lrt_Y_q","df_Y_q","p_Y_q","lrt_B_q","df_B_q","p_B_q","lrt_YCB_im","df_YCB_im","p_YCB_im","lrt_YCB_q","df_YCB_q","p_YCB_q"])
 if file5 != 0:
@@ -148,7 +184,7 @@ with open(INPUT_FILE,"rb") as sites_file:
     for i,site in enumerate(sites_file):
 #        if i == 0:
 #            print site
-        if i>0:
+        if i>0 and i%10==0:
             site=site.strip("\n")
             site=site.split("\t")
             scaff=site[0]
@@ -173,13 +209,15 @@ with open(INPUT_FILE,"rb") as sites_file:
                                 
             else:                
                 pbr13=((bre13r/(bre13r+bre13a))+(brl13r/(brl13r+brl13a)))/2
-                pbre13=(bre13r/(bre13r+bre13a))+A
-                pbrl13=(brl13r/(brl13r+brl13a))-A
+                pbre13=pbr13-(0.5*intensity*effect_size*pbr13*(1-pbr13))
+                pbrl13=pbr13+(0.5*intensity*effect_size*pbr13*(1-pbr13))
                 vbre13=(vb1+(1/(bre13r+bre13a)))
                 xbre13=2*math.asin(pbre13**0.5)+normalvariate(0,vbre13**0.5)
                 vbrl13=(vb2+(1/(brl13r+brl13a)))
                 xbrl13=2*math.asin(pbrl13**0.5)+normalvariate(0,vbrl13**0.5)
-                
+#                print "1",pbre13,2*math.asin(pbre13**0.5),normalvariate(0,vbre13**0.5)
+#                print "2",pbrl13,2*math.asin(pbrl13**0.5),normalvariate(0,vbrl13**0.5)
+#                
             if ime13r+ime13a <= min_cov or ime13r+ime13a >= max_cov or iml13r+iml13a <= min_cov or iml13r+iml13a >= max_cov:
                 pim13=-99.0
                 pime13=-99.0
@@ -190,8 +228,8 @@ with open(INPUT_FILE,"rb") as sites_file:
                 viml13=-99.0                                           
             else:                
                 pim13=((ime13r/(ime13r+ime13a))+(iml13r/(iml13r+iml13a)))/2
-                pime13=(ime13r/(ime13r+ime13a))+A
-                piml13=(iml13r/(iml13r+iml13a))-A
+                pime13=pim13-(0.5*intensity*effect_size*pim13*(1-pim13))*ii1
+                piml13=pim13+(0.5*intensity*effect_size*pim13*(1-pim13))*ii2
                 vime13=(vi1+(1/(ime13r+ime13a)))
                 xime13=2*math.asin(pime13**0.5)+normalvariate(0,vime13**0.5)
                 viml13=(vi2+(1/(iml13r+iml13a)))
@@ -207,8 +245,8 @@ with open(INPUT_FILE,"rb") as sites_file:
                 viml14=-99.0
             else:               
                 pim14=((ime14r/(ime14r+ime14a))+(iml14r/(iml14r+iml14a)))/2
-                pime14=(ime14r/(ime14r+ime14a))+A
-                piml14=(iml14r/(iml14r+iml14a))-A
+                pime14=pim14-(0.5*intensity*effect_size*pim14*(1-pim14))*ii3
+                piml14=pim14+(0.5*intensity*effect_size*pim14*(1-pim14))*ii4
                 vime14=(vi3+(1/(ime14r+ime14a)))
                 xime14=2*math.asin(pime14**0.5)+normalvariate(0,vime14**0.5)
                 viml14=(vi4+(1/(iml14r+iml14a)))
@@ -224,8 +262,8 @@ with open(INPUT_FILE,"rb") as sites_file:
                 vql13=-99.0
             else:               
                 pq13=((qe13r/(qe13r+qe13a))+(ql13r/(ql13r+ql13a)))/2
-                pqe13=(qe13r/(qe13r+qe13a))+A
-                pql13=(ql13r/(ql13r+ql13a))-A
+                pqe13=pq13-(0.5*intensity*effect_size*pq13*(1-pq13))*iq1
+                pql13=pq13+(0.5*intensity*effect_size*pq13*(1-pq13))*iq2
                 vqe13=(vq1+(1/(qe13r+qe13a)))
                 xqe13=2*math.asin(pqe13**0.5)+normalvariate(0,vqe13**0.5)
                 vql13=(vq2+(1/(ql13r+ql13a)))
@@ -241,8 +279,8 @@ with open(INPUT_FILE,"rb") as sites_file:
                 vql14=-99.0
             else:         
                 pq14=((qe14r/(qe14r+qe14a))+(ql14r/(ql14r+ql14a)))/2
-                pqe14=(qe14r/(qe14r+qe14a))+A
-                pql14=(ql14r/(ql14r+ql14a))-A
+                pqe14=pq14-(0.5*intensity*effect_size*pq14*(1-pq14))*iq3
+                pql14=pq14+(0.5*intensity*effect_size*pq14*(1-pq14))*iq4
                 vqe14=(vq3+(1/(qe14r+qe14a)))
                 xqe14=2*math.asin(pqe14**0.5)+normalvariate(0,vqe14**0.5)
                 vql14=(vq4+(1/(ql14r+ql14a)))
@@ -602,7 +640,6 @@ with open(INPUT_FILE,"rb") as sites_file:
                 else:
                     p_YCB_im="-"
                     lrt_YCB_im="-"
-                
                 
                 """test for all pops together"""                
                 if df_Y > 0:
