@@ -611,7 +611,8 @@ with open(INPUT_FILE,"rb") as sites_file:
                 else:
                     lrt_P="-"
                     p_P="-"
-                
+                if i<1000 and i>500:
+                    print i,qe13r,qe13a,lrt_B_q,p_B_q
                 """Print to files 1 through 4"""
                 if file1!=0:
                     like.writerow([scaff,pos,bre13r,bre13a,brl13r,brl13a,bre14r,bre14a,ime13r,ime13a,iml13r,iml13a,ime14r,ime14a,iml14r,iml14a,qe13r,qe13a,ql13r,ql13a,qe14r,qe14a,ql14r,ql14a,ll_S,ll_Y,ll_P,ll_B,ll_YP,ll_YB,ll_PB,ll_C,lrt_Y,lrt_P,lrt_B,p_Y,p_P,p_B])   
