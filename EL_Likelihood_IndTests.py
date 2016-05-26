@@ -53,13 +53,22 @@ if file2!=0:
     out2x=csv.writer(out2,delimiter=",",dialect='excel')
     out2x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","lrt_B_13_M12","p_B_13_M12","lrt_B_13_M13","p_B_13_M13","lrt_B_13_M23","p_B_13_M23","lrt_B_14_M12","p_B_14_M12","lrt_B_14_M13","p_B_14_M13","lrt_B_14_M23","p_B_14_M23"])
 if file3!=0:
-    out3=open(OUTDIR+"EL_Likelihoods_Slim_" + timestr + ".csv","wb")
+    out3=open(OUTDIR+"EL_Likelihoods_Slim13_RealData_" + timestr + ".csv","wb")
     out3x=csv.writer(out3,delimiter=",",dialect='excel')
-    out3x.writerow(["lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_13_M12","p_B_13_M12","lrt_B_13_M13","p_B_13_M13","lrt_B_13_M23","p_B_13_M23","pime13","piml13","pqe13","pql13"])   
-if file6!=0:
-    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_1MbWindows" + timestr + ".csv","wb")
-    out6x=csv.writer(out6,delimiter=",",dialect='excel')  
-    out6x.writerow(["scaff","window","start_bp","wind_sites","dist","sigBim","sigBq","sigBbr","numsigBim","numsigBq","numsigBbr","numBtests_im","numBtests_q","numBtests_br","pime13","piml13","pime14","piml14","pqe13","pql13","pqe14","pql14","pbre13","pbrl13","numtestsIM13","numtestsIM14","numtestsQ13","numtestsQ14","numtestsBR13"])
+    out3x.writerow(["lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_13_M12","p_B_13_M12","lrt_B_13_M13","p_B_13_M13","lrt_B_13_M23","p_B_13_M23","pime13","piml13","pqe13","pql13"])
+    out4=open(OUTDIR+"EL_Likelihoods_Slim14_RealData_" + timestr + ".csv","wb")
+    out4x=csv.writer(out4,delimiter=",",dialect='excel')
+    out4x.writerow(["lrt_B_im14","p_B_im14","lrt_B_q14","p_B_q14","lrt_B_14_M12","p_B_14_M12","lrt_B_14_M13","p_B_14_M13","lrt_B_14_M23","p_B_14_M23","pime14","piml14","pqe14","pql14"])
+    out5=open(OUTDIR+"EL_Likelihoods_SlimIM_RealData_" + timestr + ".csv","wb")
+    out5x=csv.writer(out5,delimiter=",",dialect='excel')
+    out5x.writerow(["lrt_B_im14","p_B_im14","lrt_B_im13","p_B_im13","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","pime13","piml13","pime14","piml14"])
+    out6=open(OUTDIR+"EL_Likelihoods_SlimQ_RealData_" + timestr + ".csv","wb")
+    out6x=csv.writer(out6,delimiter=",",dialect='excel')
+    out6x.writerow(["lrt_B_q14","p_B_q14","lrt_B_q13","p_B_q13","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","pqe13","pql13","pqe14","pql14"])    
+#if file6!=0:
+#    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_1MbWindows" + timestr + ".csv","wb")
+#    out6x=csv.writer(out6,delimiter=",",dialect='excel')  
+#    out6x.writerow(["scaff","window","start_bp","wind_sites","dist","sigBim","sigBq","sigBbr","numsigBim","numsigBq","numsigBbr","numBtests_im","numBtests_q","numBtests_br","pime13","piml13","pime14","piml14","pqe13","pql13","pqe14","pql14","pbre13","pbrl13","numtestsIM13","numtestsIM14","numtestsQ13","numtestsQ14","numtestsBR13"])
 
 
 #USED ONLY IN WINDOW CALCULATIONS FOR NUM SIG SNPS IN A WINDOW...BASED ON PREVIOUS RUN AND FDR CALC
@@ -464,16 +473,24 @@ with open(INPUT_FILE,"rb") as sites_file:
                     lrt_B_im14=-2*ll_Y_im14
                     p_B_im14=chisqprob(lrt_B_im14,df_B_im14)
                     pvals_B_im14.append(p_B_im14)
+                    pime14=math.sin(xime14/2)**2
+                    piml14=math.sin(ximl14/2)**2
                 else:
                     p_B_im14="-"
                     lrt_B_im14="-"
+                    pime14="-"
+                    piml14="-"
                 if df_B_im13 > 0:
                     lrt_B_im13=-2*ll_Y_im13
                     p_B_im13=chisqprob(lrt_B_im13,df_B_im13)
                     pvals_B_im13.append(p_B_im13)
+                    pime13=math.sin(xime13/2)**2
+                    piml13=math.sin(ximl13/2)**2
                 else:
                     p_B_im13="-"
                     lrt_B_im13="-"
+                    pime13="-"
+                    piml13="-"
                 if df_Y_q > 0:
                     lrt_Y_q=-2*ll_B_q
                     p_Y_q=chisqprob(lrt_Y_q,df_Y_q)
@@ -485,16 +502,24 @@ with open(INPUT_FILE,"rb") as sites_file:
                     lrt_B_q14=-2*ll_Y_q14
                     p_B_q14=chisqprob(lrt_B_q14,df_B_q14)
                     pvals_B_q14.append(p_B_q14)
+                    pqe14=math.sin(xqe14/2)**2
+                    pql14=math.sin(xql14/2)**2
                 else:
                     p_B_q14="-"
                     lrt_B_q14="-"
+                    pqe14="-"
+                    pql14="-"
                 if df_B_q13 > 0:
                     lrt_B_q13=-2*ll_Y_q13
                     p_B_q13=chisqprob(lrt_B_q13,df_B_q13)
                     pvals_B_q13.append(p_B_q13)
+                    pqe13=math.sin(xqe13/2)**2
+                    pql13=math.sin(xql13/2)**2
                 else:
                     p_B_q13="-"
                     lrt_B_q13="-"
+                    pqe13="-"
+                    pql13="-"
                 if df_B_im > 1:  
                     lrt_B_im_M12=-2*(ll_Y_im-ll_YCB_im)#Compare model 1 (no difference among early versus late) to model 2 (consistent difference across populations: one parameter describes difference in both populations)
                     lrt_B_im_M13=-2*(ll_Y_im)
@@ -581,9 +606,11 @@ with open(INPUT_FILE,"rb") as sites_file:
                 if file2!=0:
                     out2x.writerow([scaff,pos,BRE13_R,BRE13_A,BRL13_R,BRL13_A,IME13_R,IME13_A,IML13_R,IML13_A,IME14_R,IME14_A,IML14_R,IML14_A,QE13_R,QE13_A,QL13_R,QL13_A,QE14_R,QE14_A,QL14_R,QL14_A,lrt_B_im_M12,p_B_im_M12,lrt_B_im_M13,p_B_im_M13,lrt_B_im_M23,p_B_im_M23,lrt_B_q_M12,p_B_q_M12,lrt_B_q_M13,p_B_q_M13,lrt_B_q_M23,p_B_q_M23,lrt_B_13_M12,p_B_13_M12,lrt_B_13_M13,p_B_13_M13,lrt_B_13_M23,p_B_13_M23,lrt_B_14_M12,p_B_14_M12,lrt_B_14_M13,p_B_14_M13,lrt_B_14_M23,p_B_14_M23])
                 if file3!=0:
-#                    out3x.writerow([lrt_B_im13,p_B_im13,lrt_B_q13,p_B_q13,lrt_B_13_M12,p_B_13_M12,lrt_B_13_M13,p_B_13_M13,lrt_B_13_M23,p_B_13_M23,math.sin(xime13/2)**2,math.sin(ximl13/2)**2,math.sin(xqe13/2)**2,math.sin(xql13/2)**2])   
-                    out3x.writerow([lrt_B_im_M12,lrt_B_q_M12,lrt_B_13_M12,lrt_B_14_M12])   
-                    
+                    out3x.writerow([lrt_B_im13,p_B_im13,lrt_B_q13,p_B_q13,lrt_B_13_M12,p_B_13_M12,lrt_B_13_M13,p_B_13_M13,lrt_B_13_M23,p_B_13_M23,pime13,piml13,pqe13,pql13])   
+                    out4x.writerow([lrt_B_im14,p_B_im14,lrt_B_q14,p_B_q14,lrt_B_14_M12,p_B_14_M12,lrt_B_14_M13,p_B_14_M13,lrt_B_14_M23,p_B_14_M23,pime14,piml14,pqe14,pql14])   
+                    out5x.writerow([lrt_B_im14,p_B_im14,lrt_B_im13,p_B_im13,lrt_B_im_M12,p_B_im_M12,lrt_B_im_M13,p_B_im_M13,lrt_B_im_M23,p_B_im_M23,pime13,piml13,pime14,piml14])   
+                    out6x.writerow([lrt_B_q14,p_B_q14,lrt_B_q13,p_B_q13,lrt_B_14_M12,p_B_q_M12,lrt_B_q_M13,p_B_q_M13,lrt_B_q_M23,p_B_q_M23,pqe13,pql13,pqe14,pql14])   
+
                 """determine windows and print to file"""
 #                if sites==1:
 #                    start_bp=pos
