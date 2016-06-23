@@ -17,12 +17,13 @@ start = timeit.default_timer()
 
 INPUT_FILE="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt"
 #OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
-OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
+#OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
+OUTDIR="/Volumes/avery/Research/EarlyLate/"
 
 timestr = time.strftime("%Y%m%d-%H%M")
 file1=0
 file2=0
-file3=1
+file3=0
 file6=0
 
 #filters
@@ -43,15 +44,17 @@ FDR=0.1
 
 jjj=0
 if file1 !=0:
-    EL_Likelihoods=open(OUTDIR+"EL_Likelihoods_" + timestr + ".csv","wb")
+    EL_Likelihoods=open(OUTDIR+"EL_Likelihoods_IndTests_" + timestr + ".csv","wb")
     like=csv.writer(EL_Likelihoods,delimiter=",",dialect='excel')
-    like.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","lrt_P","p_P","lrt_Y_im","p_Y_im","lrt_Y_q","p_Y_q","lrt_B_br13","p_B_br13","lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_im14","p_B_im14","lrt_B_q14","p_B_q14"])
+#    like.writerow(["scaff","pos","lrt_B_br13","p_B_br13","lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_im14","p_B_im14","lrt_B_q14","p_B_q14"])
+    like.writerow(["scaff","pos","lrt_B","p_B","pop"])
     #like.writerow(["lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_q14","p_B_q14","lrt_YCBq","p_YCBq","lrt_PCB13","p_PCB13"])
     #like.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_Y","ll_P","ll_B","ll_YP","ll_YB","ll_PB","lrt_Y","p_Y","lrt_y","p_y","lrt_P","p_P","lrt_p","p_p","lrt_B","p_B","lrt_b","p_b"])
 if file2!=0:
     out2=open(OUTDIR+"EL_Likelihoods_Interactions_" + timestr + ".csv","wb")
     out2x=csv.writer(out2,delimiter=",",dialect='excel')
-    out2x.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","lrt_B_13_M12","p_B_13_M12","lrt_B_13_M13","p_B_13_M13","lrt_B_13_M23","p_B_13_M23","lrt_B_14_M12","p_B_14_M12","lrt_B_14_M13","p_B_14_M13","lrt_B_14_M23","p_B_14_M23"])
+#    out2x.writerow(["scaff","pos","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","lrt_B_13_M12","p_B_13_M12","lrt_B_13_M13","p_B_13_M13","lrt_B_13_M23","p_B_13_M23","lrt_B_14_M12","p_B_14_M12","lrt_B_14_M13","p_B_14_M13","lrt_B_14_M23","p_B_14_M23"])
+    out2x.writerow(["scaff","pos","lrt_B_M12","p_B_M12","lrt_B_M13","p_B_M13","lrt_B_M23","p_B_M23","pop"])
 if file3!=0:
     out3=open(OUTDIR+"EL_Likelihoods_Slim13_RealData_" + timestr + ".csv","wb")
     out3x=csv.writer(out3,delimiter=",",dialect='excel')
@@ -61,10 +64,10 @@ if file3!=0:
     out4x.writerow(["lrt_B_im14","p_B_im14","lrt_B_q14","p_B_q14","lrt_B_14_M12","p_B_14_M12","lrt_B_14_M13","p_B_14_M13","lrt_B_14_M23","p_B_14_M23","pime14","piml14","pqe14","pql14"])
     out5=open(OUTDIR+"EL_Likelihoods_SlimIM_RealData_" + timestr + ".csv","wb")
     out5x=csv.writer(out5,delimiter=",",dialect='excel')
-    out5x.writerow(["lrt_B_im14","p_B_im14","lrt_B_im13","p_B_im13","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","pime13","piml13","pime14","piml14"])
+    out5x.writerow(["scaff","pos","lrt_B_im14","p_B_im14","lrt_B_im13","p_B_im13","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","pime13","piml13","pime14","piml14"])
     out6=open(OUTDIR+"EL_Likelihoods_SlimQ_RealData_" + timestr + ".csv","wb")
     out6x=csv.writer(out6,delimiter=",",dialect='excel')
-    out6x.writerow(["lrt_B_q14","p_B_q14","lrt_B_q13","p_B_q13","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","pqe13","pql13","pqe14","pql14"])    
+    out6x.writerow(["scaff","pos","lrt_B_q14","p_B_q14","lrt_B_q13","p_B_q13","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","pqe13","pql13","pqe14","pql14"])    
 #if file6!=0:
 #    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_1MbWindows" + timestr + ".csv","wb")
 #    out6x=csv.writer(out6,delimiter=",",dialect='excel')  
@@ -130,12 +133,23 @@ with open(INPUT_FILE,"rb") as sites_file:
     pvals_P_windows=[]
     pvals_B_windows=[]
     exceptions=0
+    polim=0
+    polq=0
+    polbr=0
+    polimq=0
+    polimbr=0
+    polqbr=0
+    polimqbr=0
+    polim1=0
+    polq1=0
+    polimq1=0
     for i,site in enumerate(sites_file):
 #        if i == 0:
 #            print site
         if i>0:
             site=site.strip("\n")
             site=site.split("\t")
+            print len(site)
             scaff=site[0]
             scaff=scaff
             pos=float(site[1])
@@ -590,7 +604,28 @@ with open(INPUT_FILE,"rb") as sites_file:
                     p_B_14_M23="-"
                     
                 
-                
+                if p_B_im13!="-" and p_B_q13=="-" and p_B_br13=="-":
+                    polim+=1
+                elif p_B_im13=="-" and p_B_q13!="-" and p_B_br13=="-":
+                    polq+=1
+                elif p_B_im13=="-" and p_B_q13=="-" and p_B_br13!="-":
+                    polbr+=1
+                elif p_B_im13!="-" and p_B_q13=="-" and p_B_br13!="-":
+                    polimbr+=1
+                elif p_B_im13=="-" and p_B_q13!="-" and p_B_br13!="-":
+                    polqbr+=1
+                elif p_B_im13!="-" and p_B_q13!="-" and p_B_br13=="-":
+                    polimq+=1
+                elif p_B_im13!="-" and p_B_q13!="-" and p_B_br13!="-":
+                    polimqbr+=1
+                    
+                if p_B_im14!="-" and p_B_q14=="-":
+                    polim1+=1
+                elif p_B_im14=="-" and p_B_q14!="-":
+                    polq1+=1
+                elif p_B_im13!="-" and p_B_q13!="-":
+                    polimq1+=1
+                    
                 """test for all pops together"""                
                 if df_P > 0:    
                     lrt_P=-2*(ll_YB-ll_C)
@@ -602,14 +637,24 @@ with open(INPUT_FILE,"rb") as sites_file:
                     
                 """Print to file"""
                 if file1!=0:
-                    like.writerow([scaff,pos,BRE13_R,BRE13_A,BRL13_R,BRL13_A,IME13_R,IME13_A,IML13_R,IML13_A,IME14_R,IME14_A,IML14_R,IML14_A,QE13_R,QE13_A,QL13_R,QL13_A,QE14_R,QE14_A,QL14_R,QL14_A,lrt_P,p_P,lrt_Y_im,p_Y_im,lrt_Y_q,p_Y_q,lrt_B_br13,p_B_br13,lrt_B_im13,p_B_im13,lrt_B_q13,p_B_q13,lrt_B_im14,p_B_im14,lrt_B_q14,p_B_q14])
+#                    like.writerow([scaff,pos,BRE13_R,BRE13_A,BRL13_R,BRL13_A,IME13_R,IME13_A,IML13_R,IML13_A,IME14_R,IME14_A,IML14_R,IML14_A,QE13_R,QE13_A,QL13_R,QL13_A,QE14_R,QE14_A,QL14_R,QL14_A,lrt_P,p_P,lrt_Y_im,p_Y_im,lrt_Y_q,p_Y_q,lrt_B_br13,p_B_br13,lrt_B_im13,p_B_im13,lrt_B_q13,p_B_q13,lrt_B_im14,p_B_im14,lrt_B_q14,p_B_q14])
+                    like.writerow([scaff,pos,lrt_B_br13,p_B_br13,"BR13"])
+                    like.writerow([scaff,pos,lrt_B_im13,p_B_im13,"IM13"])
+                    like.writerow([scaff,pos,lrt_B_q13,p_B_q13,"Q13"])
+                    like.writerow([scaff,pos,lrt_B_im14,p_B_im14,"IM14"])
+                    like.writerow([scaff,pos,lrt_B_q14,p_B_q14,"Q14"])
+
                 if file2!=0:
-                    out2x.writerow([scaff,pos,BRE13_R,BRE13_A,BRL13_R,BRL13_A,IME13_R,IME13_A,IML13_R,IML13_A,IME14_R,IME14_A,IML14_R,IML14_A,QE13_R,QE13_A,QL13_R,QL13_A,QE14_R,QE14_A,QL14_R,QL14_A,lrt_B_im_M12,p_B_im_M12,lrt_B_im_M13,p_B_im_M13,lrt_B_im_M23,p_B_im_M23,lrt_B_q_M12,p_B_q_M12,lrt_B_q_M13,p_B_q_M13,lrt_B_q_M23,p_B_q_M23,lrt_B_13_M12,p_B_13_M12,lrt_B_13_M13,p_B_13_M13,lrt_B_13_M23,p_B_13_M23,lrt_B_14_M12,p_B_14_M12,lrt_B_14_M13,p_B_14_M13,lrt_B_14_M23,p_B_14_M23])
+                    out2x.writerow([scaff,pos,lrt_B_im_M12,p_B_im_M12,lrt_B_im_M13,p_B_im_M13,lrt_B_im_M23,p_B_im_M23,"IM"])
+                    out2x.writerow([scaff,pos,lrt_B_q_M12,p_B_q_M12,lrt_B_q_M13,p_B_q_M13,lrt_B_q_M23,p_B_q_M23,"Q"])
+                    out2x.writerow([scaff,pos,lrt_B_13_M12,p_B_13_M12,lrt_B_13_M13,p_B_13_M13,lrt_B_13_M23,p_B_13_M23,"2013"])
+                    out2x.writerow([scaff,pos,lrt_B_14_M12,p_B_14_M12,lrt_B_14_M13,p_B_14_M13,lrt_B_14_M23,p_B_14_M23,"2014"])
+                    
                 if file3!=0:
                     out3x.writerow([lrt_B_im13,p_B_im13,lrt_B_q13,p_B_q13,lrt_B_13_M12,p_B_13_M12,lrt_B_13_M13,p_B_13_M13,lrt_B_13_M23,p_B_13_M23,pime13,piml13,pqe13,pql13])   
                     out4x.writerow([lrt_B_im14,p_B_im14,lrt_B_q14,p_B_q14,lrt_B_14_M12,p_B_14_M12,lrt_B_14_M13,p_B_14_M13,lrt_B_14_M23,p_B_14_M23,pime14,piml14,pqe14,pql14])   
-                    out5x.writerow([lrt_B_im14,p_B_im14,lrt_B_im13,p_B_im13,lrt_B_im_M12,p_B_im_M12,lrt_B_im_M13,p_B_im_M13,lrt_B_im_M23,p_B_im_M23,pime13,piml13,pime14,piml14])   
-                    out6x.writerow([lrt_B_q14,p_B_q14,lrt_B_q13,p_B_q13,lrt_B_14_M12,p_B_q_M12,lrt_B_q_M13,p_B_q_M13,lrt_B_q_M23,p_B_q_M23,pqe13,pql13,pqe14,pql14])   
+                    out5x.writerow([scaff,pos,lrt_B_im14,p_B_im14,lrt_B_im13,p_B_im13,lrt_B_im_M12,p_B_im_M12,lrt_B_im_M13,p_B_im_M13,lrt_B_im_M23,p_B_im_M23,pime13,piml13,pime14,piml14])   
+                    out6x.writerow([scaff,pos,lrt_B_q14,p_B_q14,lrt_B_q13,p_B_q13,lrt_B_q_M12,p_B_q_M12,lrt_B_q_M13,p_B_q_M13,lrt_B_q_M23,p_B_q_M23,pqe13,pql13,pqe14,pql14])   
 
                 """determine windows and print to file"""
 #                if sites==1:
@@ -1261,6 +1306,17 @@ with open(INPUT_FILE,"rb") as sites_file:
     print "p_B_14_M12_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_B_14_M12_cutoff, l, len(pvals_B_14_M12))
     print "p_B_14_M13_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_B_14_M13_cutoff, ll, len(pvals_B_14_M13))
     print "p_B_14_M23_cutoff = %.19f ; num_sig_tests = %d ; num_tests = %d" % (p_B_14_M23_cutoff, lll, len(pvals_B_14_M23))     
+    print "number polymorphic 2013 IM Only = ", polim
+    print "number polymorphic 2013 Q Only = ", polq
+    print "number polymorphic 2013 BR Only = ", polbr
+    print "number polymorphic 2013 IM Q = ", polimq
+    print "number polymorphic 2013 IM BR = ", polimbr
+    print "number polymorphic 2013 Q BR Only = ", polqbr
+    print "number polymorphic 2013 IM Q BR = ", polimqbr
+    print "number polymorphic 2013 total = ", polim+polq+polbr+polimq+polimbr+polqbr+polimqbr   
+    print "number polymorphic 2014 IM Only = ", polim1 
+    print "number polymorphic 2014 Q Only = ", polq1
+    print "number polymorphic 2014 IM Q = ", polimq1
     print "number of sites fixed for alt = ",fixed
     print "filtered sites = ", filtered
     print "number of sites =", sites

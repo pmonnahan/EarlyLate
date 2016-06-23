@@ -9,11 +9,14 @@ Created on Wed May  4 17:33:01 2016
 """
 Created on Mon Mar 28 10:50:52 2016
 
-Purpose: Parametric bootstrapping/simulation of data from Early/Late study.
-Want to observe what results/figures will look like under a range of conditions,
-where we control the degree of divergence between Early and Late bulks.
-How strong or consistent of a signal is required before our means of observing 
-idiosyncrasy of genetic variation disappears?
+Purpose: Simulate data using a range of values for the fraction of sites under selection (f0) as well as effect sizes (ES). 
+Record the proportion of sites that exceed certain lrt values (10 and 15).  Use this to find a set of parameters that
+most closely match the observed distributions of lrts for the test of model 1 versus model 2. (consistent effects).
+
+Use this to guide input of f0 and ES for EL_parametric_sim.py
+
+
+
 
 """
 

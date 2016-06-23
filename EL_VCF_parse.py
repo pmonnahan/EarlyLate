@@ -9,12 +9,12 @@ import sys
 
 #AF = allele frequency analysis; RN = read number analysis
 
-def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/EarlyLate/EL.massive.Jan16.vcf", outfilepath0="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt", outfilepath1="/Users/patrick/Documents/Research/EarlyLate/read_depth_massiveJuan16.txt", outfilepath6="/Users/patrick/Documents/Research/EarlyLate/counts_parsed_8-11-15.txt",outfilepath10="/Users/patrick/Documents/Research/EarlyLate/counts_dt_SandP_RN250_10-11-15.txt"):
+def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/EarlyLate/EL.massive.Jan16.vcf", outfilepath0="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250_22-6-16.txt", outfilepath1="/Users/patrick/Documents/Research/EarlyLate/read_depth_massiveJan16_22-6-16.txt", outfilepath6="/Users/patrick/Documents/Research/EarlyLate/counts_parsed_8-11-15.txt",outfilepath10="/Users/patrick/Documents/Research/EarlyLate/counts_dt_SandP_RN250_22-6-16.txt"):
     src  =open(infilepath, "rU")
 #    in0  =open(inpath1, "rU")
-#    out0 =open(outfilepath0, "w")
-#    out1 =open(outfilepath1, "w")
-#    out10=open(outfilepath10,"w")
+    out0 =open(outfilepath0, "w")
+    out1 =open(outfilepath1, "w")
+    out10=open(outfilepath10,"w")
          
     
 
@@ -50,6 +50,7 @@ def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/Ear
         elif cols[0] == "#CHROM":
             for i in range(len(cols)):
                 print i,cols[i]
+            out1.write("scaff"+"\t"+"position"+"\t"+"num_reads"+"\t"+"BRE13"+"\t"+"BRL13"+"\t"+"BR13"+"\t"+"IME14"+"\t"+"IML14"+"\t"+"IME13"+"\t"+"IML13"+"\t"+"IM"+"\t"+"QE14"+"\t"+"QL14"+"\t"+"QE13"+"\t"+"QL13"+"\t"+"Q"+"\n")
             out0.write("Scaff"+"\t"+"pos"+"\t"+"ref"+"\t"+"alt"+"\t"+"BRE13_R"+"\t"+"BRE13_A"+"\t"+"BRL13_R"+"\t"+"BRL13_A"+"\t"+"IME14_R"+"\t"+"IME14_A"+"\t"+"IML14_R"+"\t"+"IML14_A"+"\t"+"IME13_R"+"\t"+"IME13_A"+"\t"+"IML13_R"+"\t"+"IML13_A"+"\t"+"QE14_R"+"\t"+"QE14_A"+"\t"+"QL14_R"+"\t"+"QL14_A"+"\t"+"QE13_R"+"\t"+"QE13_A"+"\t"+"QL13_R"+"\t"+"QL13_A"+"\n")
             out10.write("Scaff"+"\t"+"pos"+"\t"+"ref"+"\t"+"alt"+"\t"+"BRE13_R"+"\t"+"BRE13_A"+"\t"+"BRL13_R"+"\t"+"BRL13_A"+"\t"+"IME14_R"+"\t"+"IME14_A"+"\t"+"IML14_R"+"\t"+"IML14_A"+"\t"+"IME13_R"+"\t"+"IME13_A"+"\t"+"IML13_R"+"\t"+"IML13_A"+"\t"+"QE14_R"+"\t"+"QE14_A"+"\t"+"QL14_R"+"\t"+"QL14_A"+"\t"+"QE13_R"+"\t"+"QE13_A"+"\t"+"QL13_R"+"\t"+"QL13_A"+"\n")
         else:
@@ -161,6 +162,9 @@ def main(inpath1="black0.txt", infilepath="/Users/patrick/Documents/Research/Ear
             if line_idx % 100000 == 0:
                 print line_idx
     
+    out1.close()
+    out0.close()
+    out10.close()    
     
     print "Mean read depth across samples ",raw_read_count/depth_cc      
     print "number of sites for RN analysis = ", cutsites

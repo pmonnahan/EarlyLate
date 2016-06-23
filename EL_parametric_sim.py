@@ -20,7 +20,7 @@ import numpy as np
 #import matplotlib.pyplot as plt
 import sys
 
-def simulate(ES,f0,Test_type):
+def simulate(ES,f0,Test_type,Sim_type):
     start = timeit.default_timer()
     
     INPUT_FILE="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt"
@@ -56,7 +56,7 @@ def simulate(ES,f0,Test_type):
     #ES=0.5 
     #f0=0.01
     
-    Sim_Type="Neutral"
+    Sim_Type=Sim_type
     Test_Type=Test_type
     
     timestr = time.strftime("%Y%m%d-%H%M")
@@ -307,7 +307,7 @@ def simulate(ES,f0,Test_type):
         for i,site in enumerate(sites_file):
     #        if i == 0:
     #            print site
-            if i>0 and i%10==0:
+            if i>0 : #and i%10==0
                 if Sim_Type == "MixtureDist":
                     rx=np.random.uniform()
                     if rx>f0:
@@ -1294,5 +1294,6 @@ if __name__ == '__main__':
     ES=float(sys.argv[1]) #Effect size
     f0=float(sys.argv[2]) #fraction of selected sites
     TT=str(sys.argv[3]) #Test Type: "2013","2014","IM","Q"
+    ST=str(sys.argv[4]) #Simulation Type: "Neutral", "MixtureDist","All_Constant"
     print sys.argv[1],sys.argv[2],sys.argv[3]
-    simulate(ES,f0,TT)
+    simulate(ES,f0,TT,ST)
