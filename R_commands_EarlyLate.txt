@@ -1,0 +1,857 @@
+EL["BRE_R"]=EL$BRE14_R+EL$BRE13_R
+EL["BRE_A"]=EL$BRE14_A+EL$BRE13_A
+EL["BRL_R"]=EL$BRL13_R
+EL["BRL_A"]=EL$BRL13_A
+EL["IME_R"]=EL$IME14_R+EL$IME13_R
+EL["IME_A"]=EL$IME14_A+EL$IME13_A
+EL["IML_R"]=EL$IML14_R+EL$IML13_R
+EL["IML_A"]=EL$IML14_A+EL$IML13_A
+EL["QE_R"]=EL$QE14_R+EL$QE13_R
+EL["QE_A"]=EL$QE14_A+EL$QE13_A
+EL["QL_R"]=EL$QL14_R+EL$QL13_R
+EL["QL_A"]=EL$QL14_A+EL$QL13_A
+ EL["BR_R"]=EL$BRE_R+EL$BRL_R
+ EL["BR_A"]=EL$BRE_A+EL$BRL_A
+ EL["IM_A"]=EL$IME_A+EL$IML_A
+ EL["IM_R"]=EL$IME_R+EL$IML_R
+ EL["Q_R"]=EL$QE_R+EL$QL_R
+ EL["Q_A"]=EL$QE_A+EL$QL_A
+ EL["Q14_R"]=EL$QE14_R+EL$QL14_R
+ EL["Q14_A"]=EL$QE14_A+EL$QL14_A
+ EL["IM14_R"]=EL$IME14_R+EL$IML14_R
+ EL["IM14_A"]=EL$IME14_A+EL$IML14_A
+ EL["IM13_R"]=EL$IME13_R+EL$IML13_R
+ EL["IM13_A"]=EL$IME13_A+EL$IML13_A
+ EL["Q13_R"]=EL$QE13_R+EL$QL13_R
+ EL["Q13_A"]=EL$QE13_A+EL$QL13_A
+ EL["BR13_A"]=EL$BRE13_A+EL$BRL13_A
+ EL["BR13_R"]=EL$BRE13_R+EL$BRL13_R
+ EL["BR_T"]=EL$BR_A+EL$BR_R
+ EL["Q_T"]=EL$Q_A+EL$Q_R
+ EL["IM_T"]=EL$IM_A+EL$IM_R
+ EL["IM14_T"]=EL$IM14_A+EL$IM14_R
+ EL["IM13_T"]=EL$IM13_A+EL$IM13_R
+ EL["BR13_T"]=EL$BR13_A+EL$BR13_R
+ EL["BR14_T"]=EL$BRE14_A+EL$BRE14_R
+ EL["Q13_T"]=EL$Q13_A+EL$Q13_R
+ EL["Q14_T"]=EL$Q14_A+EL$Q14_R
+EL["BRE13_T"]=EL$BRE13_R + EL$BRE13_A
+EL["BRL13_T"]=EL$BRL13_R + EL$BRL13_A
+EL["BRE14_T"]=EL$BRE14_R + EL$BRE14_A
+EL["IME13_T"]=EL$IME13_R + EL$IME13_A
+EL["IML13_T"]=EL$IML13_R + EL$IML13_A
+EL["IME14_T"]=EL$IME14_R + EL$IME14_A
+EL["IML14_T"]=EL$IML14_R + EL$IML14_A
+EL["QE13_T"]=EL$QE13_R + EL$QE13_A
+EL["QL13_T"]=EL$QL13_R + EL$QL13_A
+EL["QL14_T"]=EL$QL14_R + EL$QL14_A
+EL["QE14_T"]=EL$QE14_R + EL$QE14_A
+
+
+EL["BRpol"]=(EL$BR_R>0 & EL$BR_A>0)*1
+EL["IMpol"]=(EL$IM_R>0 & EL$IM_A>0)*1
+EL["Qpol"]=(EL$Q_R>0 & EL$Q_A>0)*1
+EL["BR14pol"]=(EL$BRE14_R>0 & EL$BRE14_A>0)*1
+EL["IM14pol"]=(EL$IM14_R>0 & EL$IM14_A>0)*1
+EL["Q14pol"]=(EL$Q14_R>0 & EL$Q14_A>0)*1
+EL["BR13pol"]=(EL$BR13_R>0 & EL$BR13_A>0)*1
+EL["IM13pol"]=(EL$IM13_R>0 & EL$IM13_A>0)*1
+EL["Q13pol"]=(EL$Q13_R>0 & EL$Q13_A>0)*1
+EL["IML14pol"]=(EL$IML14_R>0 & EL$IML14_A>0)*1
+EL["IME14pol"]=(EL$IME14_R>0 & EL$IME14_A>0)*1
+EL["IME13pol"]=(EL$IME13_R>0 & EL$IME13_A>0)*1
+EL["IML13pol"]=(EL$IML13_R>0 & EL$IML13_A>0)*1
+EL["QL14pol"]=(EL$QL14_R>0 & EL$QL14_A>0)*1
+EL["QE14pol"]=(EL$QE14_R>0 & EL$QE14_A>0)*1
+EL["QE13pol"]=(EL$QE13_R>0 & EL$QE13_A>0)*1
+EL["QL13pol"]=(EL$QL13_R>0 & EL$QL13_A>0)*1
+EL["BRE14pol"]=(EL$BRE14_R>0 & EL$BRE14_A>0)*1
+EL["BRE13pol"]=(EL$BRE13_R>0 & EL$BRE13_A>0)*1
+EL["BRL13pol"]=(EL$BRL13_R>0 & EL$BRL13_A>0)*1
+
+EL["pIML14"]=EL$IML14_R/(EL$IML14_R + EL$IML14_A)
+EL["pIME14"]=EL$IME14_R/(EL$IME14_R + EL$IME14_A)
+EL["pIME13"]=EL$IME13_R/(EL$IME13_R + EL$IME13_A)
+EL["pIML13"]=EL$IML13_R/(EL$IML13_R + EL$IML13_A)
+EL["pQL14"]=EL$QL14_R/(EL$QL14_R + EL$QL14_A)
+EL["pQE14"]=EL$QE14_R/(EL$QE14_R + EL$QE14_A)
+EL["pQE13"]=EL$QE13_R/(EL$QE13_R + EL$QE13_A)
+EL["pQL13"]=EL$QL13_R/(EL$QL13_R + EL$QL13_A)
+EL["pBRE14"]=EL$BRE14_R/(EL$BRE14_R + EL$BRE14_A)
+EL["pBRE13"]=EL$BRE13_R/(EL$BRE13_R + EL$BRE13_A)
+EL["pBRL13"]=EL$BRL13_R/(EL$BRL13_R + EL$BRL13_A)
+EL["pBR14"]=EL$BRE14_R/(EL$BRE14_R + EL$BRE14_A)
+EL["pIM14"]=(EL$pIME14 + EL$pIML14)/2
+EL["pQ14"]=(EL$pQE14 + EL$pQL14)/2
+EL["pBR13"]=(EL$pBRE13 + EL$pBRL13)/2
+EL["pIM13"]=(EL$pIME13 + EL$pIML13)/2
+EL["pQ13"]=(EL$pQE13 + EL$pQL13)/2
+
+EL["pBR"]=(EL$pBR13 + EL$pBR14)/2
+EL["pIM"]=(EL$pIM13 + EL$pIM14)/2
+EL["pQ"]=(EL$pQ13 + EL$pQ14)/2
+EL["pBRE"]=(EL$pBRE13 + EL$pBRE14)/2
+EL["pBRL"]=(EL$pBRL13 + EL$pBRL14)/2
+EL["pIME"]=(EL$pIME13 + EL$pIME14)/2
+EL["pIML"]=(EL$pIML13 + EL$pIML14)/2
+EL["pQE"]=(EL$pQE13 + EL$pQE14)/2
+EL["pQL"]=(EL$pQL13 + EL$pQL14)/2
+
+
+
+
+EL["pE"]=mean(c(EL$pBRE,EL$pIME,EL$pQE))
+EL["pL"]=mean(c(EL$pBRL,EL$pIML,EL$pQL))
+
+EL["dpE_pL"]=EL$pE-EL$pL
+EL["dpBR_pIM"]=EL$pBR-EL$pIM
+EL["dpBR_pQ"]=EL$pBR-EL$pQ
+EL["dpIM_pQ"]=EL$pIM-EL$pQ
+EL["dpBR14_pIM14"]=EL$pBR14-EL$pIM14
+EL["dpBR14_pQ14"]=EL$pBR14-EL$pQ14
+EL["dpIM14_pQ14"]=EL$pIM14-EL$pQ14
+EL["dpBR13_pIM13"]=EL$pBR13-EL$pIM13
+EL["dpBR13_pQ13"]=EL$pBR13-EL$pQ13
+EL["dpIM13_pQ13"]=EL$pIM13-EL$pQ13
+EL["dpBR13_pIM14"]=EL$pBR13-EL$pIM14
+EL["dpBR13_pQ14"]=EL$pBR13-EL$pQ14
+EL["dpIM13_pQ14"]=EL$pIM13-EL$pQ14
+EL["dpBR14_pIM13"]=EL$pBR14-EL$pIM13
+EL["dpBR14_pQ13"]=EL$pBR14-EL$pQ13
+EL["dpIM14_pQ13"]=EL$pIM14-EL$pQ13
+EL["dpBR13_pBR14"]=EL$pBR13-EL$pBR14
+EL["dpQ13_pQ14"]=EL$pQ13-EL$pQ14
+EL["dpIM13_pIM14"]=EL$pIM13-EL$pIM14
+
+EL["dpIME13_pIML13"]=EL$pIME13-EL$pIML13
+EL["dpIME13_pIML14"]=EL$pIME13-EL$pIML14
+EL["dpIME13_pIME14"]=EL$pIME13-EL$pIME14
+EL["dpIML13_pIML14"]=EL$pIML13-EL$pIML14
+EL["dpIML13_pIME14"]=EL$pIML13-EL$pIME14
+EL["dpIME14_pIML14"]=EL$pIME14-EL$pIML14
+EL["dpQE13_pQL13"]=EL$pQE13-EL$pQL13
+EL["dpQE13_pQL14"]=EL$pQE13-EL$pQL14
+EL["dpQE13_pQE14"]=EL$pQE13-EL$pQE14
+EL["dpQL13_pQL14"]=EL$pQL13-EL$pQL14
+EL["dpQL13_pQE14"]=EL$pQL13-EL$pQE14
+EL["dpQE14_pQL14"]=EL$pQE14-EL$pQL14
+EL["dpBRE13_pBRL13"]=EL$pBRE13-EL$pBRL13
+EL["dpBRE13_pBRE14"]=EL$pBRE13-EL$pBRE14
+EL["dpBRL13_pBRE14"]=EL$pBRL13-EL$pBRE14
+EL["dpBRE_dpBRL"]=EL$pBRE-EL$pBRL
+EL["dpIME_dpIML"]=EL$pIME-EL$pIML
+EL["dpQE_dpQL"]=EL$pQE-EL$pQL
+
+EL["dpIME13_pQE13"]=EL$pIME13-EL$pQE13
+EL["dpIME13_pQL13"]=EL$pIME13-EL$pQL13
+EL["dpIME13_pQE14"]=EL$pIME13-EL$pQE14
+EL["dpIME13_pQL14"]=EL$pIME13-EL$pQL14
+EL["dpIME13_pBRE13"]=EL$pIME13-EL$pBRE13
+EL["dpIME13_pBRL13"]=EL$pIME13-EL$pBRL13
+EL["dpIME13_pBRE14"]=EL$pIME13-EL$pBRE14
+
+EL["dpIME14_pQE13"]=EL$pIME14-EL$pQE13
+EL["dpIME14_pQL13"]=EL$pIME14-EL$pQL13
+EL["dpIME14_pQE14"]=EL$pIME14-EL$pQE14
+EL["dpIME14_pQL14"]=EL$pIME14-EL$pQL14
+EL["dpIME14_pBRE13"]=EL$pIME14-EL$pBRE13
+EL["dpIME14_pBRL13"]=EL$pIME14-EL$pBRL13
+EL["dpIME14_pBRE14"]=EL$pIME14-EL$pBRE14
+
+EL["dpIML13_pQE13"]=EL$pIML13-EL$pQE13
+EL["dpIML13_pQL13"]=EL$pIML13-EL$pQL13
+EL["dpIML13_pQE14"]=EL$pIML13-EL$pQE14
+EL["dpIML13_pQL14"]=EL$pIML13-EL$pQL14
+EL["dpIML13_pBRE13"]=EL$pIML13-EL$pBRE13
+EL["dpIML13_pBRL13"]=EL$pIML13-EL$pBRL13
+EL["dpIML13_pBRE14"]=EL$pIML13-EL$pBRE14
+
+EL["dpIML14_pQE13"]=EL$pIML14-EL$pQE13
+EL["dpIML14_pQL13"]=EL$pIML14-EL$pQL13
+EL["dpIML14_pQE14"]=EL$pIML14-EL$pQE14
+EL["dpIML14_pQL14"]=EL$pIML14-EL$pQL14
+EL["dpIML14_pBRE13"]=EL$pIML14-EL$pBRE13
+EL["dpIML14_pBRL13"]=EL$pIML14-EL$pBRL13
+EL["dpIML14_pBRE14"]=EL$pIML14-EL$pBRE14
+
+EL["dpBRE13_pQE13"]=EL$pBRE13-EL$pQE13
+EL["dpBRE13_pQL13"]=EL$pBRE13-EL$pQL13
+EL["dpBRE13_pQE14"]=EL$pBRE13-EL$pQE14
+EL["dpBRE13_pQL14"]=EL$pBRE13-EL$pQL14
+
+EL["dpBRE14_pQE13"]=EL$pBRE14-EL$pQE13
+EL["dpBRE14_pQL13"]=EL$pBRE14-EL$pQL13
+EL["dpBRE14_pQE14"]=EL$pBRE14-EL$pQE14
+EL["dpBRE14_pQL14"]=EL$pBRE14-EL$pQL14
+
+EL["dpBRL13_pQE13"]=EL$pBRL13-EL$pQE13
+EL["dpBRL13_pQL13"]=EL$pBRL13-EL$pQL13
+EL["dpBRL13_pQE14"]=EL$pBRL13-EL$pQE14
+EL["dpBRL13_pQL14"]=EL$pBRL13-EL$pQL14
+
+#FINAL VARIANCE ESTIMATION METHOD:
+Python programs to jacknife contrast variances to determine their VarCovar matrix.  
+IM:
+psu=read.csv("~/Documents/Research/EarlyLate/Current_Files/JackVars10-IM.minDP25.csv")
+psu=psu[,-c(1:2)]
+vcmat=cov(psu) #csv of psuedovalues calculated from jackknifed estimates
+M=matrix(c(1,1,1,0,0,0,1,0,0,1,1,0,0,1,0,1,0,1,0,0,1,0,1,1),nrow=6,ncol=4)
+z=matrix(c(0.020229974,0.02459085,0.038233896,0.025742683,0.037012219,0.034221787),nrow=6,ncol=1) #Contrast vars calculated from Jacknife program
+vars=solve(t(M)%*%solve(vcmat)%*%M)%*%t(M)%*%solve(vcmat)%*%z
+
+Q:
+psu.Q=read.csv("~/Documents/Research/EarlyLate/Current_Files/JackVars10-Q.minDP25.csv")
+psu.Q=psu.Q[,-c(1:2)]
+vcmat.Q=cov(psu.Q) #csv of psuedovalues calculated from jackknifed estimates
+z.Q=matrix(c(0.0237778504485,0.025767914,0.047290215,0.029574602,0.042698042,0.0440015066162),nrow=6,ncol=1)
+vars.Q=solve(t(M)%*%solve(vcmat.Q)%*%M)%*%t(M)%*%solve(vcmat.Q)%*%z.Q
+
+
+#READ DEPTH ANALYSIS:
+EL=read.table("~/Documents/Research/EarlyLate/Current_Files/read_depth_massiveJan16_22-6-16.txt",head=T)
+
+EL["sBRE13_T"]=EL$BRE13/40
+EL["sBRL13_T"]=EL$BRL13/36
+EL["sIME13_T"]=EL$IME13/37
+EL["sIML13_T"]=EL$IML13/56
+EL["sIME14_T"]=EL$IME14/46
+EL["sIML14_T"]=EL$IML14/47
+EL["sQE13_T"]=EL$QE13/42
+EL["sQL13_T"]=EL$QL13/34
+EL["sQL14_T"]=EL$QL14/45
+EL["sQE14_T"]=EL$QE14/46
+
+EL=EL[EL$scaff=="sNNffold_1" | EL$scaff=="sNNffold_2" | EL$scaff=="sNNffold_3" | EL$scaff=="sNNffold_4" | EL$scaff=="sNNffold_5" | EL$scaff=="sNNffold_6" | EL$scaff=="sNNffold_7" | EL$scaff=="sNNffold_8" | EL$scaff=="sNNffold_9" | EL$scaff=="sNNffold_10" | EL$scaff=="sNNffold_11" | EL$scaff=="sNNffold_12" | EL$scaff=="sNNffold_13" | EL$scaff=="sNNffold_14" ,]
+EL$scaff=factor(EL$scaff,levels=c("sNNffold_1","sNNffold_2","sNNffold_3","sNNffold_4","sNNffold_5","sNNffold_6","sNNffold_7","sNNffold_8","sNNffold_9","sNNffold_10","sNNffold_11","sNNffold_12","sNNffold_13","sNNffold_14"))
+levels(EL$scaff)=c("1","2","3","4","5","6","7","8","9","10","11","12","13","14")
+EL=rename(EL,c("position"="pos"))
+
+EL.14=EL[EL$scaff=="14",]
+EL.8=EL[EL$scaff=="8",]
+EL.10=EL[EL$scaff=="10",]
+EL.2=EL[EL$scaff=="2",]
+EL.14.R1 = EL.14[EL.14$pos > 18444914  & EL.14$pos < 18455157,]
+EL.14.R1 = EL.14[EL.14$pos > 18430914  & EL.14$pos < 18487157,]
+EL.2.R1=EL.2[EL.2$pos > 2340424 & EL.2$pos < 2340731,]
+EL.8.R1=EL.8[EL.8$pos > 23522451 & EL.8$pos <23522874,]
+EL.8.R2=EL.8[EL.8$pos > 23534999 & EL.8$pos <23535076,]
+EL.10.R1=EL.10[EL.10$pos > 652584 & EL.10$pos <= 652658 ,]
+
+EL.IM.m=melt(EL[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.Q.m=melt(EL[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+
+EL.10.R1.IM=melt(EL.10.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.10.R1.Q=melt(EL.10.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.14.R1.IM=melt(EL.14.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.14.R1.Q=melt(EL.14.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.8.R2.IM=melt(EL.8.R2[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.8.R2.Q=melt(EL.8.R2[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.8.R1.IM=melt(EL.8.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.8.R1.Q=melt(EL.8.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.2.R1.IM=melt(EL.2.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.2.R1.Q=melt(EL.2.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+
+EL.10.R1.IM.p=melt(EL.10.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.10.R1.Q.p=melt(EL.10.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.14.R1.IM.p=melt(EL.14.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.14.R1.Q.p=melt(EL.14.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.8.R2.IM.p=melt(EL.8.R2[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.8.R2.Q.p=melt(EL.8.R2[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.8.R1.IM.p=melt(EL.8.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.8.R1.Q.p=melt(EL.8.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.2.R1.IM.p=melt(EL.2.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.2.R1.Q.p=melt(EL.2.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+
+
+EL.RD.IM.plot=ggplot(EL.IM.m,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+facet_wrap(~scaff)+ylab("Standardized Read Depth")+ggtitle("Iron Mountain")+xlab("Position (Mb)")+scale_color_discrete(name="Sample",breaks=c("sIME13_T","sIML13_T","sIME14_T","sIML14_T"),labels=c("Early 2013","Late 2013","Early 2014","Late 2014"))+scale_y_continuous(limits = c(0, 1000))+theme_bw()+theme(axis.title.x=element_text(size=20),axis.title.y=element_text(size=20),axis.text.x = element_text(size=16),axis.text.y=element_text(size=16),strip.text.x=element_text(size=16),legend.text=element_text(size=16),legend.title=element_text(size=20))
+
+EL.RD.IM.plot2=ggplot(EL.IM.m,aes(x=pos/1000000,y=value,color=variable))+geom_point(size=0.75)+facet_wrap(~scaff)+ylab("Standardized Read Depth")+ggtitle("Iron Mountain")+xlab("Position (Mb)")+scale_color_discrete(name="Sample",breaks=c("sIME13_T","sIML13_T","sIME14_T","sIML14_T"),labels=c("Early 2013","Late 2013","Early 2014","Late 2014"))+scale_y_continuous(limits = c(0, 1000))+theme_bw()+theme(axis.title.x=element_text(size=20),axis.title.y=element_text(size=20),axis.text.x = element_text(size=16),axis.text.y=element_text(size=16),strip.text.x=element_text(size=16),legend.text=element_text(size=16),legend.title=element_text(size=20))
+EL.RD.Q.plot=ggplot(EL.Q.m,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+facet_wrap(~scaff)+ylab("Standardized Read Depth")+ggtitle("Quarry")+xlab("Position (Mb)")+scale_color_discrete(name="Sample",breaks=c("sQE13_T","sQL13_T","sQE14_T","sQL14_T"),labels=c("Early 2013","Late 2013","Early 2014","Late 2014"))+scale_y_continuous(limits = c(0, 1000))+theme_bw()+theme(axis.title.x=element_text(size=20),axis.title.y=element_text(size=20),axis.text.x = element_text(size=16),axis.text.y=element_text(size=16),strip.text.x=element_text(size=16),legend.text=element_text(size=16),legend.title=element_text(size=20))
+EL.RD.Q.plot2=ggplot(EL.Q.m,aes(x=pos/1000000,y=value,color=variable))+geom_point(size=0.75)+facet_wrap(~scaff)+ylab("Standardized Read Depth")+ggtitle("Quarry")+xlab("Position (Mb)")+scale_color_discrete(name="Sample",breaks=c("sQE13_T","sQL13_T","sQE14_T","sQL14_T"),labels=c("Early 2013","Late 2013","Early 2014","Late 2014"))+scale_y_continuous(limits = c(0, 1000))+theme_bw()+theme(axis.title.x=element_text(size=20),axis.title.y=element_text(size=20),axis.text.x = element_text(size=16),axis.text.y=element_text(size=16),strip.text.x=element_text(size=16),legend.text=element_text(size=16),legend.title=element_text(size=20))
+
+jpeg("~/Documents/Research/EarlyLate/Current_Files/Manuscript/Figures/RD.IM.AllChroms.jpeg",width=800,height=500)
+EL.RD.IM.plot2
+dev.off()
+
+jpeg("~/Documents/Research/EarlyLate/Current_Files/Manuscript/Figures/RD.Q.AllChroms.jpeg",width=800,height=500)
+EL.RD.Q.plot2
+dev.off()
+
+EL.10.R1.IM.plot=ggplot(EL.10.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 10 R1")+ylab("Read Depth")
+EL.10.R1.Q.plot=ggplot(EL.10.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 10 R1")+ylab("Read Depth")
+EL.14.R1.IM.plot=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 14 R1")+ylab("Read Depth")
+EL.14.R1.Q.plot=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 14 R1")+ylab("Read Depth")
+EL.8.R2.IM.plot=ggplot(EL.8.R2.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R2")+ylab("Read Depth")
+EL.8.R2.Q.plot=ggplot(EL.8.R2.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R2")+ylab("Read Depth")
+EL.8.R1.IM.plot=ggplot(EL.8.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R1")+ylab("Read Depth")
+EL.8.R1.Q.plot=ggplot(EL.8.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R1")+ylab("Read Depth")
+EL.2.R1.IM.plot=ggplot(EL.2.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 2 R1")+ylab("Read Depth")
+EL.2.R1.Q.plot=ggplot(EL.2.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 2 R1")+ylab("Read Depth")
+
+EL.10.R1.IMp.plot=ggplot(EL.10.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 10 R1")+ylab("Ref Freq")
+EL.10.R1.Qp.plot=ggplot(EL.10.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 10 R1")+ylab("Ref Freq")
+EL.14.R1.IMp.plot=ggplot(EL.14.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 14 R1")+ylab("Ref Freq")
+EL.14.R1.Qp.plot=ggplot(EL.14.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 14 R1")+ylab("Ref Freq")
+EL.8.R2.IMp.plot=ggplot(EL.8.R2.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R2.Qp.plot=ggplot(EL.8.R2.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R1.IMp.plot=ggplot(EL.8.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R1")+ylab("Ref Freq")
+EL.8.R1.Qp.plot=ggplot(EL.8.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R1")+ylab("Ref Freq")
+EL.2.R1.IMp.plot=ggplot(EL.2.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 2 R1")+ylab("Ref Freq")
+EL.2.R1.Qp.plot=ggplot(EL.2.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 2 R1")+ylab("Ref Freq")
+
+EL.10.R1.IM.plot2=ggplot(EL.10.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 10 R1")+ylab("Read Depth")
+EL.10.R1.Q.plot2=ggplot(EL.10.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 10 R1")+ylab("Read Depth")
+EL.14.R1.IM.plot2=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 14 R1")+ylab("Read Depth")
+EL.14.R1.Q.plot2=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 14 R1")+ylab("Read Depth")
+EL.8.R2.IM.plot2=ggplot(EL.8.R2.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R2")+ylab("Read Depth")
+EL.8.R2.Q.plot2=ggplot(EL.8.R2.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R2")+ylab("Read Depth")
+EL.8.R1.IM.plot2=ggplot(EL.8.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R1")+ylab("Read Depth")
+EL.8.R1.Q.plot2=ggplot(EL.8.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R1")+ylab("Read Depth")
+EL.2.R1.IM.plot2=ggplot(EL.2.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 2 R1")+ylab("Read Depth")
+EL.2.R1.Q.plot2=ggplot(EL.2.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 2 R1")+ylab("Read Depth")
+
+EL.10.R1.IMp.plot2=ggplot(EL.10.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 10 R1")+ylab("Ref Freq")
+EL.10.R1.Qp.plot2=ggplot(EL.10.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 10 R1")+ylab("Ref Freq")
+EL.14.R1.IMp.plot2=ggplot(EL.14.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 14 R1")+ylab("Ref Freq")
+EL.14.R1.Qp.plot2=ggplot(EL.14.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 14 R1")+ylab("Ref Freq")
+EL.8.R2.IMp.plot2=ggplot(EL.8.R2.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R2.Qp.plot2=ggplot(EL.8.R2.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R1.IMp.plot2=ggplot(EL.8.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R1")+ylab("Ref Freq")
+EL.8.R1.Qp.plot2=ggplot(EL.8.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R1")+ylab("Ref Freq")
+EL.2.R1.IMp.plot2=ggplot(EL.2.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 2 R1")+ylab("Ref Freq")
+EL.2.R1.Qp.plot2=ggplot(EL.2.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 2 R1")+ylab("Ref Freq")
+
+colMeans(EL.14.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.2.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.8.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.8.R2[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.10.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+
+EL.14.R1.IM.plot=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Iron Mountain")+ylab("Read Depth")+xlab("Position")+theme(axis.title.x=element_blank(),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))+ylim(c(0,7))
+EL.14.R1.Q.plot=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Quarry")+ylab("Read Depth")+xlab("Position")+theme(axis.title.x=element_blank(),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),plot.title=element_text(size=24), legend.title=element_text(size=24),legend.text=element_text(size=20),legend.key.size =  unit(0.5, "in"))+labs(color="Bulk")+scale_color_discrete(breaks=c("sQE13_T", "sQL13_T", "sQE14_T","sQL14_T"),labels=c("Early 2013", "Late 2013", "Early 2014", "Late 2014"))+scale_x_continuous(labels=c("18.445","","","","18.455"))+ylim(c(1,7))
+EL.14.R1.IMp.plot=ggplot(EL.14.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ylab("Ref Freq")+xlab("Position (Mb)")+theme(axis.title.x=element_text(size=24),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))
+EL.14.R1.Qp.plot=ggplot(EL.14.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ylab("Ref Freq")+xlab("Position (Mb)")+theme(axis.title.x=element_text(size=24),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))
+EL.14.R1.Q.plot.nonlegend=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Quarry")+ylab("Read Depth")+xlab("Position (Mb)")+theme(axis.title.x=element_text(size=24),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))+ylim(c(0,7))
+
+EL.14.R1.IM.plot=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ylab("Read Depth")+xlab("Position")+theme(axis.title.x=element_text(size=22),axis.title.y=element_text(size=22),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18), legend.title=element_text(size=22),legend.text=element_text(color=18),legend.key.size =  unit(0.4, "in"))+labs(color="Bulk")+ylim(c(0,7))+scale_color_discrete(breaks=c("sIME13_T", "sIML13_T", "sIME14_T","sIML14_T"),labels=c("Early 2013", "Late 2013", "Early 2014", "Late 2014"))+theme_bw()
+
+grid.arrange(EL.10.R1.IM.plot,EL.10.R1.Q.plot,EL.14.R1.IM.plot,EL.14.R1.Q.plot,EL.8.R2.IM.plot,EL.8.R2.Q.plot,EL.8.R1.IM.plot,EL.8.R1.Q.plot,EL.2.R1.IM.plot,EL.2.R1.Q.plot,ncol=4)
+
+
+#VENN DIAGRAMS
+
+#PBY_test_Venn:
+grid.newpage()
+  venn.plot <- draw.triple.venn(area1    = 13423,
+                                area2    = 4515013,
+                                area3    = 8787,
+                                n12      = 8751,
+                                n23      = 5611,
+                                n13      = 2667,                                
+                                n123     = 1856,
+                                category = c("Bulk","Pop","Year"),
+                                cat.pos  = c(320, 20, 160),
+                                cat.dist = c(0.05, 0.05, 0.05),
+                                fill     = c("yellow", "grey", "purple"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 2,
+                                cat.cex  = 2,
+                                cat.col  = c("yellow", "grey", "purple"))
+  grid.draw(venn.plot)
+
+#Pass Filter Venn  
+grid.newpage()
+  poly.venn <- draw.triple.venn(area1    = 3798948,
+                                area2    = 4248012,
+                                area3    = 3715897,
+                                n12      = 2416806,
+                                n23      = 2480095,
+                                n13      = 2628188,
+                                n123     = 1895145,
+                                category = c("IM","Q","BR"),
+                                cat.pos  = c(340, 20, 160),
+                                cat.dist = c(0.05, 0.05, 0.05),
+                                fill     = c("green", "blue", "red"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 1.5,
+                                cat.cex  = 2,
+                                cat.col  = c("green", "blue", "red"))
+  grid.draw(poly.venn)
+
+grid.newpage()
+poly.venn2 <- draw.pairwise.venn(area1    = 3378649,
+                                area2    = 3980079,
+                                cross.area = 2084129,
+                                category = c("IM","Q"),
+                                cat.pos  = c(340, 20),
+                                cat.dist = c(0.05, 0.05),
+                                fill     = c("green", "blue"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 1.5,
+                                cat.cex  = 2,
+                                cat.col  = c("green", "blue"))
+  grid.draw(poly.venn2)
+
+#Sig Sites Venn:
+
+c.ind.13=dcast(ind[,c("scaff","pos","pop","sigBim13")],scaff+pos~pop)
+#Note: sigBim13 is a 0 1 indicator for ALL populations not just im 13.  The pop variable specifies year/pop.
+c.ind.13[is.na(c.ind.13)]=0
+
+grid.newpage()
+  venn.plot <- draw.triple.venn(area1    = 230,
+                                area2    = 8281,
+                                area3    = 80,
+                                n12      = 3,
+                                n23      = 3,
+                                n13      = 0,
+                                n123     = 0,
+                                category = c("IM","Q","BR"),
+                                cat.pos  = c(200, 0, 160),
+                                cat.dist = c(0.05, 0.05, 0.05),
+                                fill     = c("green", "blue", "red"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 2,
+                                cat.cex  = 2,
+                                cat.col  = c("green", "blue", "red"))
+  grid.draw(venn.plot)
+
+#3MB windows Venn:
+grid.newpage()
+ MB.venn <- draw.triple.venn(area1    = 55,
+                               area2    = 191,
+                               area3    = 49,
+                               n12      = 52,
+                               n23      = 49,
+                               n13      = 32,
+                               n123     = 32,
+                               category = c("IM","Q","BR"),
+                               cat.pos  = c(200, 160, 0),
+                               cat.dist = c(0.05, 0.05, 0.05),
+                               fill     = c("green", "blue", "red"),
+                               alpha    = 0.3,
+                               lty      = "blank",
+                               cex      = 2,
+                               cat.cex  = 2,
+                               cat.col  = c("green", "blue", "red"))
+ grid.draw(MB.venn)
+
+#30kb windows Venn:
+grid.newpage()
+ kb.venn <- draw.triple.venn(area1    = 155,
+                               area2    = 4064,
+                               area3    = 72,
+                               n12      = 92,
+                               n23      = 40,
+                               n13      = 0,
+                               n123     = 0,
+                               category = c("IM","Q","BR"),
+                               cat.pos  = c(200, 160, 0),
+                               cat.dist = c(0.05, 0.05, 0.05),
+                               fill     = c("green", "blue", "red"),
+                               alpha    = 0.3,
+                               lty      = "blank",
+                               cex      = 2,
+                               cat.cex  = 2,
+                               cat.col  = c("green", "blue", "red"))
+ grid.draw(kb.venn)
+
+
+#Allelel frequency stuff: Data saved in EL_Likelihood_PerPop11-26-15.RData
+sum.vars=summarySE(af,"var.dp","pop")
+means=ggplot(data=sum.means,aes(x=factor(pop,labels=c("IM 2013","IM 2014","Q 2013","Q 2014")),y=mean.dp))+geom_errorbar(aes(ymin=mean.dp-ci,ymax=mean.dp+ci,width=0.5))+geom_point()+ylab(expression(paste(Delta,p[EL])))+theme_bw()+theme(axis.title.x=element_blank(),axis.text.x=element_text(size=20),axis.title.y=element_text(size=25),axis.text.y=element_text(size=18))
+vars=ggplot(data=sum.vars,aes(x=factor(pop,labels=c("IM 2013","IM 2014","Q 2013","Q 2014")),y=var.dp))+geom_errorbar(aes(ymin=var.dp-ci,ymax=var.dp+ci,width=0.5))+geom_point()+ylab(expression(paste("Var[",Delta,p[EL],"]")))+theme_bw()+theme(axis.title.x=element_blank(),axis.text.x=element_text(size=20),axis.title.y=element_text(size=25),axis.text.y=element_text(size=18))
+
+af.plot.all=ggplot(data=af[af$pop==3,],aes(y=mean.dp,x=window/1000000))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))
+af.plot.all.Q13=ggplot(data=af[af$pop==2,],aes(y=mean.dp,x=window/1000000))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))
+af.plot.all.IM14=ggplot(data=af[af$pop==1,],aes(y=mean.dp,x=window/1000000))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))
+
+grid.arrange(af.plot.all,af.plot.all.Q13,af.plot.all.IM13,nrow=3)
+
+
+##08-05-2016
+
+#Power Graphs
+
+#Old versions...just 0 and -0.5 for dp 14
+P=read.csv("~/Documents/Research/EarlyLate/Current_Files/PowerGraphs.csv")
+P$dp14=as.factor(P$dp14)
+P.m=melt(P,id.vars=c("dp13","dp14"))
+
+P.plot=ggplot(data=P.m,aes(x=dp13,y=value))+geom_line(aes(color=dp14,linetype=variable))+geom_point(aes(shape=dp14,color=dp14),size=2)+ylab("LRT")+xlab(expression(paste(Delta,p[1])))+scale_color_manual(name=expression(paste(Delta,p[2])),values=c("blue","black"),labels=c("-0.5","0.0"))+scale_linetype(name="Test Type",labels=c("M1 v. M2","M2 v. M3"))+scale_shape_manual(name=expression(paste(Delta,p[2])),values=c(15,16),labels=c("-0.5","0.0"))+xlim(0.0,1.0)+theme_bw()+theme(axis.title.y=element_text(size=16),axis.text.y=element_text(size=13),axis.title.x=element_text(size=16),axis.text.x=element_text(size=13),legend.title=element_text(size=14),legend.text=element_text(size=12))
+
+P.plot.bw=ggplot(data=P.m,aes(x=dp13,y=value))+geom_line(aes(color=dp14,linetype=variable))+geom_point(aes(shape=dp14,color=dp14),size=3)+ylab("LRT")+xlab(expression(paste(Delta,p[1])))+scale_color_manual(name=expression(paste(Delta,p[2])),values=c("black","black"))+scale_linetype(name="Test Type",labels=c("M1 v. M2","M2 v. M3"))+scale_shape_manual(name=expression(paste(Delta,p[2])),values=c(4,16),labels=c("-0.5","0.0"))+xlim(0.0,1.0)+theme_bw()+theme(axis.title.y=element_text(size=16),axis.text.y=element_text(size=13),axis.title.x=element_text(size=16),axis.text.x=element_text(size=13),legend.title=element_text(size=14),legend.text=element_text(size=12))
+
+#Uses more values for dp14
+library(grid)
+P=read.csv("~/Documents/Research/EarlyLate/Current_Files/PowerGraphs.csv")
+P["dps"]=(P$dp14-P$dp13)/P$dp14
+P$dp14=as.factor(P$dp14)
+P.m=melt(P,id.vars=c("dp13","dp14","dps"))
+
+P.plot.bw=ggplot(data=P.m,aes(x=dp13,y=value))+geom_line(aes(color=dp14,linetype=variable))+ylab("LRT")+xlab(expression(paste(Delta,p[1])))+scale_color_manual(name=expression(paste(Delta,p[2])),values=c("black","blue","red"))+scale_linetype(name="Test Type",labels=c("M1 v. M2","M2 v. M3"))+xlim(0.0,1.0)+theme_bw()+theme(axis.title.y=element_text(size=16),axis.text.y=element_text(size=13),axis.title.x=element_text(size=16),axis.text.x=element_text(size=13),legend.title=element_text(size=14),legend.text=element_text(size=12))
+
+P.dps.bw=ggplot(data=subset(P.m,P.m$dp14!="0"),aes(x=dps,y=value))+geom_line(aes(color=dp14,linetype=variable))+ylab("LRT")+xlab(expression(paste("(",Delta,p[2],"-",Delta,p[1],") / ",Delta,p[2])))+scale_color_manual(name=expression(paste(Delta,p[2])),values=c("red","blue","black"))+scale_linetype(name="Test Type",labels=c("M1 v. M2","M2 v. M3"))+xlim(1.0,3.0)+theme_bw()+theme(axis.title.y=element_text(size=16),axis.text.y=element_text(size=13),axis.title.x=element_text(size=16),axis.text.x=element_text(size=13),legend.title=element_text(size=14),legend.text=element_text(size=12))
+
+grid.draw(cbind(ggplotGrob(P.plot.bw), ggplotGrob(P.dps.bw), size="last"))
+
+
+
+
+
+#Manhattan Plots
+ind=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_IndTests_20160602-0925_sig.csv",na.strings="-")
+int=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Interactions_20160602-0925_sig.csv",na.strings="-")
+
+ind.14=ind[ind$scaff=="sNNffold_1" | ind$scaff=="sNNffold_2" | ind$scaff=="sNNffold_3" | ind$scaff=="sNNffold_4" | ind$scaff=="sNNffold_5" | ind$scaff=="sNNffold_6" | ind$scaff=="sNNffold_7" | ind$scaff=="sNNffold_8" | ind$scaff=="sNNffold_9" | ind$scaff=="sNNffold_10" | ind$scaff=="sNNffold_11" | ind$scaff=="sNNffold_12" | ind$scaff=="sNNffold_13" | ind$scaff=="sNNffold_14" ,]
+int.14=int[int$scaff=="sNNffold_1" | int$scaff=="sNNffold_2" | int$scaff=="sNNffold_3" | int$scaff=="sNNffold_4" | int$scaff=="sNNffold_5" | int$scaff=="sNNffold_6" | int$scaff=="sNNffold_7" | int$scaff=="sNNffold_8" | int$scaff=="sNNffold_9" | int$scaff=="sNNffold_10" | int$scaff=="sNNffold_11" | int$scaff=="sNNffold_12" | int$scaff=="sNNffold_13" | int$scaff=="sNNffold_14" ,]
+int.14$scaff=factor(int.14$scaff,levels=c("sNNffold_1","sNNffold_2","sNNffold_3","sNNffold_4","sNNffold_5","sNNffold_6","sNNffold_7","sNNffold_8","sNNffold_9","sNNffold_10","sNNffold_11","sNNffold_12","sNNffold_13","sNNffold_14"))
+levels(int.14$scaff)=c("1","2","3","4","5","6","7","8","9","10","11","12","13","14")
+ind.14$scaff=factor(ind.14$scaff,levels=c("sNNffold_1","sNNffold_2","sNNffold_3","sNNffold_4","sNNffold_5","sNNffold_6","sNNffold_7","sNNffold_8","sNNffold_9","sNNffold_10","sNNffold_11","sNNffold_12","sNNffold_13","sNNffold_14"))
+levels(ind.14$scaff)=c("1","2","3","4","5","6","7","8","9","10","11","12","13","14")
+
+ind.14["neglogp"]=-log10(ind.14$p_B)
+int.14["neglogp_M12"]=-log10(int.14$p_B_M12)
+int.14["neglogp_M13"]=-log10(int.14$p_B_M13)
+int.14["neglogp_M23"]=-log10(int.14$p_B_M23)
+
+ind.14.2013=ind.14[ind.14$pop =="Q13" | ind.14$pop=="IM13" | ind.14$pop=="BR13",]
+ind.14.2014=ind.14[ind.14$pop =="Q14" | ind.14$pop=="IM14",]
+
+ind.14.2013.scaff8=ind.14.2013[ind.14.2013$scaff=="8",]
+ind.14.2013.scaff8.inv=subset(ind.14.2013.scaff8,(pos>1500000 & pos<7000000))
+
+ind.plot.2013=ggplot(data=ind.14.2013,aes(y=neglogp,x=pos/1000000,color=pop))+geom_point(data=ind.14.2013[ind.14.2013$pop=="Q13",],size=0.75,aes(color=factor(pop,labels=c("Q"))))+geom_point(data=ind.14.2013[ind.14.2013$pop!="Q13",],size=0.75,aes(y=neglogp,x=pos/1000000,color=factor(pop,labels=c("BR","IM"))))+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression(paste("-log"["10"],"(p)")))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5),labels=c("5","","15",""))+theme_bw()+theme(axis.title.x=element_text(size=20),axis.title.y=element_text(size=20),axis.text.x = element_text(size=16),axis.text.y=element_text(size=16),legend.position="none",strip.text.x=element_text(size=16))
+
+ind.plot.2014=ggplot(data=ind.14.2014,aes(y=neglogp,x=pos/1000000,color=pop))+geom_point(data=ind.14.2014[ind.14.2014$pop=="Q14",],aes(color=factor(pop,labels=c("Q"))))+geom_point(data=ind.14.2014[ind.14.2014$pop!="Q14",],aes(y=neglogp,x=pos/1000000,color=factor(pop,labels=c("IM"))))+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("green","blue"))+ylab(expression("Divergence b/n Early and Late"))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+
+M12.plot=ggplot(data=int.14[int.14$sigB_M12==1,],aes(y=neglogp_M12,x=pos/1000000,color=pop))+geom_point(data=int.14[int.14$pop=="Q" & int.14$sigB_M12==1,],aes(color=factor(pop,labels=c("Q"))),size=0.75)+geom_point(data=int.14[int.14$pop!="Q" & int.14$sigB_M12==1,],aes(y=neglogp_M12,x=pos/1000000,color=factor(pop,labels=c("2013","2014","IM"))),size=0.75)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("#FF00FF","#00FFFF","#FF9933","black"))+ylab(expression(paste("-log"["10"],"(p)")))+xlab("Genomic Position (Mb)")+labs(color="Context")+scale_x_continuous(breaks = seq(5, 20, by = 5),labels=c("5","","15",""))+theme_bw()
+
+M23.plot=ggplot(data=int.14[int.14$sigB_M23==1,],aes(y=neglogp_M23,x=pos/1000000,color=pop))+geom_point(data=int.14[int.14$pop=="Q" & int.14$sigB_M23==1,],aes(color=factor(pop,labels=c("Q"))),size=0.75)+geom_point(data=int.14[int.14$pop!="Q" & int.14$sigB_M23==1,],aes(y=neglogp_M23,x=pos/1000000,color=factor(pop,labels=c("2013","2014","IM"))),size=0.75)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("#FF00FF","#00FFFF","#FF9933","black"))+ylab(expression(paste("-log"["10"],"(p)")))+xlab("Genomic Position (Mb)")+labs(color="Context")+scale_x_continuous(breaks = seq(5, 20, by = 5),labels=c("5","","15",""))+theme_bw()
+
+M13.plot=ggplot(data=int.14[int.14$sigB_M13==1,],aes(y=neglogp_M13,x=pos/1000000,color=pop))+geom_point(data=int.14[int.14$pop=="Q" & int.14$sigB_M13==1,],aes(color=factor(pop,labels=c("Q"))),size=0.75)+geom_point(data=int.14[int.14$pop!="Q" & int.14$sigB_M13==1,],aes(y=neglogp_M13,x=pos/1000000,color=factor(pop,labels=c("2013","2014","IM"))),size=0.75)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("#FF00FF","#00FFFF","#FF9933","black"))+ylab(expression(paste("-log"["10"],"(p)")))+xlab("Genomic Position (Mb)")+labs(color="Context")+scale_x_continuous(breaks = seq(5, 20, by = 5),labels=c("5","","15",""))+theme_bw()
+
+M12.plot.scaff8=ggplot(data=int.14[int.14$sigB_M12==1 & int.14$scaff=="8",],aes(y=neglogp_M12,x=pos/1000000,color=pop))+geom_point(data=int.14[int.14$pop=="Q" & int.14$sigB_M12==1 & int.14$scaff=="8",],aes(color=factor(pop,labels=c("Q"))),size=0.75)+geom_point(data=int.14[int.14$pop!="Q" & int.14$sigB_M12==1 & int.14$scaff=="8",],aes(y=neglogp_M12,x=pos/1000000,color=factor(pop,labels=c("2013","2014","IM"))),size=0.75)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("#FF00FF","#00FFFF","#FF9933","black"))+ylab(expression(paste("-log"["10"],"(p)")))+xlab("Genomic Position (Mb)")+labs(color="Context")+scale_x_continuous(breaks = seq(5, 20, by = 5),labels=c("5","","15",""))+theme_bw()
+
+M23.plot.scaff8=ggplot(data=int.14[int.14$sigB_M23==1 & int.14$scaff=="8",],aes(y=neglogp_M23,x=pos/1000000,color=pop))+geom_point(data=int.14[int.14$pop=="Q" & int.14$sigB_M23==1 & int.14$scaff=="8",],aes(color=factor(pop,labels=c("Q"))),size=0.75)+geom_point(data=int.14[int.14$pop!="Q" & int.14$sigB_M23==1 & int.14$scaff=="8",],aes(y=neglogp_M23,x=pos/1000000,color=factor(pop,labels=c("2013","IM"))),size=0.75)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("#FF00FF","#FF9933","black"))+ylab(expression(paste("-log"["10"],"(p)")))+xlab("Genomic Position (Mb)")+labs(color="Context")+scale_x_continuous(breaks = seq(5, 20, by = 5),labels=c("5","","15",""))+theme_bw()
+
+scaff8sig=hist(ind.14.2013$pos,breaks=20)
+
+tapply(ind.14.2014$sigBim13,ind.14.2014$scaff,sum)
+tapply(ind.14.2013$sigBim13,ind.14.2013$scaff,sum)
+
+tapply(ind.14.2013$sigBim13,ind.14.2013$scaff,sum)/tapply(ind.14.2013$pos,ind.14.2013$scaff,max)
+tapply(ind.14.2014$sigBim13,ind.14.2014$scaff,sum)/tapply(ind.14.2014$pos,ind.14.2014$scaff,max)
+
+
+with(ind.14.2014,tapply(sigBim13,list(scaff,pop),sum))
+with(ind.14.2013,tapply(sigBim13,list(scaff,pop),sum))
+
+nrow(int.14[int.14$scaff=="sNNffold_8" & int.14$pos<5000000 &int.14$pop=="Q",])
+
+ind.inv = ind.14[ind.14$pos<5000000,]
+ind.inv = ind.inv[ind.inv$scaff=="8",]
+
+
+##Correlation in Delta P plots--several versions
+
+sel13=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim13_ParamSim_0.080.41MixtureDist20160506-2115.csv",na.strings="-")
+
+selim2=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimIM_ParamSim_0.20.26MixtureDist20160508-1939.csv",na.strings="-")
+sel144=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim14_ParamSim_0.160.24MixtureDist20160508-1957.csv",na.strings="-")
+sel143=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim14_ParamSim_0.150.24MixtureDist20160508-1943.csv",na.strings="-")
+sel142=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim14_ParamSim_0.060.32MixtureDist20160508-1932.csv",na.strings="-")
+selq2=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimQ_ParamSim_0.10.38MixtureDist20160508-1927.csv",na.strings="-")
+sel14=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim14_ParamSim_0.1450.23MixtureDist20160506-2125.csv",na.strings="-")
+selq=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimQ_ParamSim_0.0650.43MixtureDist20160506-2101.csv",na.strings="-")
+selim=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimIM_ParamSim_0.20.25MixtureDist20160506-1025.csv",na.strings="-")
+
+relq=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimQ_RealData_20160508-1324.csv",na.strings="-")
+relim=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimIM_RealData_20160508-1324.csv",na.strings="-")
+rel13=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim_20160426-1935.csv",na.strings="-")
+rel14=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim14_RealData_20160508-1324.csv",na.strings="-")
+rel14=rel14[!is.na(rel14$lrt_B_14_M12),]
+relq=relq[!is.na(relq$lrt_B_q_M12),]
+rel13=rel13[!is.na(rel13$lrt_B_13_M12),]
+relim=relim[!is.na(relim$lrt_B_im_M12),]
+
+nel13=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim_20160408-2033.csv",na.strings="-") #Neutral
+N=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim_ParamSimNeutral0.0_20160408-2027.csv",na.strings="-")
+
+selq["dp14"]=selq$pqe14-selq$pql14
+selq["dp13"]=selq$pqe13-selq$pql13
+relq["dp14"]=relq$pqe14-relq$pql14
+relq["dp13"]=relq$pqe13-relq$pql13
+selim["dp13"]=selim$pime13-selim$piml13
+relim["dp13"]=relim$pime13-relim$piml13
+selim["dp14"]=selim$pime14-selim$piml14
+relim["dp14"]=relim$pime14-relim$piml14
+sel14["dpim"]=sel14$pime14-sel14$piml14
+rel14["dpim"]=rel14$pime14-rel14$piml14
+sel14["dpq"]=sel14$pqe14-sel14$pql14
+rel14["dpq"]=rel14$pqe14-rel14$pql14
+sel13["dpim"]=sel13$pime13-sel13$piml13
+rel13["dpim"]=rel13$pime13-rel13$piml13
+sel13["dpq"]=sel13$pqe13-sel13$pql13
+rel13["dpq"]=rel13$pqe13-rel13$pql13
+sel142["dpim"]=sel142$pime14-sel142$piml14
+sel142["dpq"]=sel142$pqe14-sel142$pql14
+selim2["dp13"]=selim2$pime13-selim2$piml13
+selim2["dp14"]=selim2$pime14-selim2$piml14
+selq2["dp14"]=selq2$pqe14-selq2$pql14
+selq2["dp13"]=selq2$pqe13-selq2$pql13
+
+#Write files for enrichment analysis
+write.csv(ind[ind$sigBim13==1 & ind$pop=="IM13",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM13.SigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==1 & ind$pop=="IM14",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM14.SigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==1 & ind$pop=="Q13",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q13.SigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==1 & ind$pop=="Q14",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q14.SigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==1 & ind$pop=="BR13",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/BR13.SigIndTests.csv",row.names = F)
+write.csv(int[int$sigB_M12==1 & int$pop=="Q",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q.M12Tests.csv",row.names = F)
+write.csv(int[int$sigB_M23==1 & int$pop=="Q",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q.M23Tests.csv",row.names = F)
+write.csv(int[int$sigB_M13==1 & int$pop=="Q",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q.M13Tests.csv",row.names = F)
+write.csv(int[int$sigB_M12==1 & int$pop=="IM",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM.M12Tests.csv",row.names = F)
+write.csv(int[int$sigB_M23==1 & int$pop=="IM",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM.M23Tests.csv",row.names = F)
+write.csv(int[int$sigB_M13==1 & int$pop=="IM",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM.M13Tests.csv",row.names = F)
+write.csv(int[int$sigB_M12==1 & int$pop=="2013",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/13.M12Tests.csv",row.names = F)
+write.csv(int[int$sigB_M23==1 & int$pop=="2013",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/13.M23Tests.csv",row.names = F)
+write.csv(int[int$sigB_M13==1 & int$pop=="2013",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/13.M13Tests.csv",row.names = F)
+write.csv(int[int$sigB_M12==1 & int$pop=="2014",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/14.M12Tests.csv",row.names = F)
+write.csv(int[int$sigB_M23==1 & int$pop=="2014",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/14.M23Tests.csv",row.names = F)
+write.csv(int[int$sigB_M13==1 & int$pop=="2014",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/14.M13Tests.csv",row.names = F)
+
+write.csv(ind[ind$sigBim13==0 & ind$pop=="IM13",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM13.NonSigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==0 & ind$pop=="IM14",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM14.NonSigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==0 & ind$pop=="Q13",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q13.NonSigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==0 & ind$pop=="Q14",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q14.NonSigIndTests.csv",row.names = F)
+write.csv(ind[ind$sigBim13==0 & ind$pop=="BR13",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/BR13.NonSigIndTests.csv",row.names = F)
+write.csv(int[int$sigB_M12==0 & int$pop=="Q",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q.M12TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M23==0 & int$pop=="Q",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q.M23TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M13==0 & int$pop=="Q",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/Q.M13TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M12==0 & int$pop=="IM",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM.M12TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M23==0 & int$pop=="IM",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM.M23TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M13==0 & int$pop=="IM",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/IM.M13TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M12==0 & int$pop=="2013",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/13.M12TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M23==0 & int$pop=="2013",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/13.M23TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M13==0 & int$pop=="2013",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/13.M13TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M12==0 & int$pop=="2014",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/14.M12TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M23==0 & int$pop=="2014",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/14.M23TestsNon.csv",row.names = F)
+write.csv(int[int$sigB_M13==0 & int$pop=="2014",],"/Volumes/avery/Research/EarlyLate/Current_Files/GeneSearch/Data/14.M13TestsNon.csv",row.names = F)
+
+## DElta P plots with real and simulated data plotted separately.  1 versus 2 indicates different orientation of axes.
+P.q.1=ggplot(relq[sample(which(relq$lrt_B_q13<15),size=100000),],aes(x=dp13,y=dp14))+geom_point(color="grey")+geom_point(data=relq[relq$lrt_B_q13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relq[relq$lrt_B_q13>15,],color="black",method="lm")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.q.2=ggplot(relq[sample(which(relq$lrt_B_q14<15),size=100000),],aes(x=dp14,y=dp13))+geom_point(color="grey")+geom_point(data=relq[relq$lrt_B_q14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relq[relq$lrt_B_q14>15,],color="black",method="lm")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.q.2s=ggplot(selq[sample(which(selq$lrt_B_q14<15),size=100000),],aes(x=dp14,y=dp13))+geom_point(color="grey")+geom_point(data=selq[selq$lrt_B_q14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=selq[selq$lrt_B_q14>15,],color="black",method="lm")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.q.1s=ggplot(selq[sample(which(selq$lrt_B_q13<15),size=100000),],aes(x=dp13,y=dp14))+geom_point(color="grey")+geom_point(data=selq[selq$lrt_B_q13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=selq[selq$lrt_B_q13>15,],color="black",method="lm")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.im.1=ggplot(relim[sample(which(relim$lrt_B_im13<15),size=100000),],aes(x=dp13,y=dp14))+geom_point(color="grey")+geom_point(data=relim[relim$lrt_B_im13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relim[relim$lrt_B_im13>15,],color="black",method="lm")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.im.2=ggplot(relim[sample(which(relim$lrt_B_im14<15),size=100000),],aes(x=dp14,y=dp13))+geom_point(color="grey")+geom_point(data=relim[relim$lrt_B_im14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relim[relim$lrt_B_im14>15,],color="black",method="lm")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.im.1s=ggplot(selim[sample(which(selim$lrt_B_im13<15),size=100000),],aes(x=dp13,y=dp14))+geom_point(color="grey")+geom_point(data=selim[selim$lrt_B_im13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=selim[selim$lrt_B_im13>15,],color="black",method="lm")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.im.2s=ggplot(selim[sample(which(selim$lrt_B_im14<15),size=100000),],aes(x=dp14,y=dp13))+geom_point(color="grey")+geom_point(data=selim[selim$lrt_B_im14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=selim[selim$lrt_B_im14>15,],color="black",method="lm")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.14.1=ggplot(rel14[sample(which(rel14$lrt_B_im14<15),size=100000),],aes(x=dpim,y=dpq))+geom_point(color="grey")+geom_point(data=rel14[rel14$lrt_B_im14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel14[rel14$lrt_B_im14>15,],color="black",method="lm")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.14.2=ggplot(rel14[sample(which(rel14$lrt_B_q14<15),size=100000),],aes(x=dpq,y=dpim))+geom_point(color="grey")+geom_point(data=rel14[rel14$lrt_B_q14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel14[rel14$lrt_B_q14>15,],color="black",method="lm")+ylab(expression(paste("IM ",Delta,"p")))+xlab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.14.1s=ggplot(sel14[sample(which(sel14$lrt_B_im14<15),size=100000),],aes(x=dpim,y=dpq))+geom_point(color="grey")+geom_point(data=sel14[sel14$lrt_B_im14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=sel14[sel14$lrt_B_im14>15,],color="black",method="lm")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.14.2s=ggplot(sel14[sample(which(sel14$lrt_B_q14<15),size=100000),],aes(x=dpq,y=dpim))+geom_point(color="grey")+geom_point(data=sel14[sel14$lrt_B_q14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=sel14[sel14$lrt_B_q14>15,],color="black",method="lm")+ylab(expression(paste("IM ",Delta,"p")))+xlab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.13.1=ggplot(rel13[sample(which(rel13$lrt_B_im13<15),size=100000),],aes(x=dpim,y=dpq))+geom_point(color="grey")+geom_point(data=rel13[rel13$lrt_B_im13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel13[rel13$lrt_B_im13>15,],color="black",method="lm")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.13.2=ggplot(rel13[sample(which(rel13$lrt_B_q13<15),size=100000),],aes(x=dpq,y=dpim))+geom_point(color="grey")+geom_point(data=rel13[rel13$lrt_B_q13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel13[rel13$lrt_B_q13>15,],color="black",method="lm")+ylab(expression(paste("IM ",Delta,"p")))+xlab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.13.1s=ggplot(sel13[sample(which(sel13$lrt_B_im13<15),size=100000),],aes(x=dpim,y=dpq))+geom_point(color="grey")+geom_point(data=sel13[sel13$lrt_B_im13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=sel13[sel13$lrt_B_im13>15,],color="black",method="lm")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.13.2s=ggplot(sel13[sample(which(sel13$lrt_B_q13<15),size=100000),],aes(x=dpq,y=dpim))+geom_point(color="grey")+geom_point(data=sel13[sel13$lrt_B_q13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=sel13[sel13$lrt_B_q13>15,],color="black",method="lm")+ylab(expression(paste("IM ",Delta,"p")))+xlab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+#Plots real data both sig and nonsig as well as a solid line going through the points.  Plots dashed line which is slope through simulated sig values
+P.13.1.2=ggplot(rel13[sample(which(rel13$lrt_B_im13<15),size=100000),],aes(x=dpim,y=dpq))+geom_point(color="grey")+geom_point(data=rel13[rel13$lrt_B_im13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel13[rel13$lrt_B_im13>15,],color="black",method="lm",se=F)+geom_smooth(data=sel13[sel13$lrt_B_im13>15,],color="black",method="lm",linetype="dashed",se=F)+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.13.2.2=ggplot(rel13[sample(which(rel13$lrt_B_q13<15),size=100000),],aes(x=dpq,y=dpim))+geom_point(color="grey")+geom_point(data=rel13[rel13$lrt_B_q13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel13[rel13$lrt_B_q13>15,],color="black",method="lm",se=F)+geom_smooth(data=sel13[sel13$lrt_B_q13>15,],color="black",method="lm",linetype="dashed",se=F)+ylab(expression(paste("IM ",Delta,"p")))+xlab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.14.1.2=ggplot(rel14[sample(which(rel14$lrt_B_im14<15),size=100000),],aes(x=dpim,y=dpq))+geom_point(color="grey")+geom_point(data=rel14[rel14$lrt_B_im14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel14[rel14$lrt_B_im14>15,],color="black",method="lm")+geom_smooth(data=sel14[sel14$lrt_B_im14>15,],color="black",method="lm",linetype="dashed",se=F)+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.14.2.2=ggplot(rel14[sample(which(rel14$lrt_B_q14<15),size=100000),],aes(x=dpq,y=dpim))+geom_point(color="grey")+geom_point(data=rel14[rel14$lrt_B_q14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=rel14[rel14$lrt_B_q14>15,],color="black",method="lm")+geom_smooth(data=sel14[sel14$lrt_B_q14>15,],color="black",method="lm",linetype="dashed",se=F)+ylab(expression(paste("IM ",Delta,"p")))+xlab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.q.1.2=ggplot(relq[sample(which(relq$lrt_B_q13<15),size=100000),],aes(x=dp13,y=dp14))+geom_point(color="grey")+geom_point(data=relq[relq$lrt_B_q13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relq[relq$lrt_B_q13>15,],color="black",method="lm")+geom_smooth(data=selq[selq$lrt_B_q13>15,],color="black",method="lm",linetype="dashed",se=F)+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.q.2.1=ggplot(relq[sample(which(relq$lrt_B_q14<15),size=100000),],aes(x=dp14,y=dp13))+geom_point(color="grey")+geom_point(data=relq[relq$lrt_B_q14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relq[relq$lrt_B_q14>15,],color="black",method="lm")+geom_smooth(data=selq[selq$lrt_B_q14>15,],color="black",method="lm",linetype="dashed",se=F)+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.im.1.2=ggplot(relim[sample(which(relim$lrt_B_im13<15),size=100000),],aes(x=dp13,y=dp14))+geom_point(color="grey")+geom_point(data=relim[relim$lrt_B_im13>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relim[relim$lrt_B_im13>15,],color="black",method="lm")+geom_smooth(data=selim[selim$lrt_B_im14>15,],color="black",method="lm",linetype="dashed",se=F)+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+P.im.2.2=ggplot(relim[sample(which(relim$lrt_B_im14<15),size=100000),],aes(x=dp14,y=dp13))+geom_point(color="grey")+geom_point(data=relim[relim$lrt_B_im14>15,],color="red")+geom_smooth(method="lm",se=F)+geom_smooth(data=relim[relim$lrt_B_im14>15,],color="black",method="lm")+geom_smooth(data=selim[selim$lrt_B_im14>15,],color="black",method="lm",linetype="dashed",se=F)+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+#Plots only sig values (>15 LRT) for both sim and real data as well as lines through both sets of points.
+P.13.1.3=ggplot(rel13[rel13$lrt_B_im13>15,],aes(x=dpim,y=dpq))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=sel13[sel13$lrt_B_im13>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=sel13[sel13$lrt_B_im13>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.13.2.3=ggplot(rel13[rel13$lrt_B_q13>15,],aes(x=dpq,y=dpim))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=sel13[sel13$lrt_B_q13>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=sel13[sel13$lrt_B_q13>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("IM ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.14.1.3=ggplot(rel14[rel14$lrt_B_im14>15,],aes(x=dpim,y=dpq))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=sel14[sel14$lrt_B_im14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=sel14[sel14$lrt_B_im14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.14.2.3=ggplot(rel14[rel14$lrt_B_q14>15,],aes(x=dpq,y=dpim))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=sel14[sel14$lrt_B_q14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=sel14[sel14$lrt_B_q14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("IM ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.14.1.3b=ggplot(rel14[rel14$lrt_B_im14>15,],aes(x=dpim,y=dpq))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=sel142[sel142$lrt_B_im14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=sel142[sel142$lrt_B_im14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.14.2.3b=ggplot(rel14[rel14$lrt_B_q14>15,],aes(x=dpq,y=dpim))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=sel142[sel142$lrt_B_q14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=sel142[sel142$lrt_B_q14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("IM ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.im.1.3=ggplot(relim[relim$lrt_B_im13>15,],aes(x=dp13,y=dp14))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selim[selim$lrt_B_im13>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selim[selim$lrt_B_im13>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.im.2.3=ggplot(relim[relim$lrt_B_im14>15,],aes(x=dp14,y=dp13))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selim[selim$lrt_B_im14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selim[selim$lrt_B_im14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.im.1.3b=ggplot(relim[relim$lrt_B_im13>15,],aes(x=dp13,y=dp14))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selim2[selim2$lrt_B_im13>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selim2[selim2$lrt_B_im13>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.im.2.3b=ggplot(relim[relim$lrt_B_im14>15,],aes(x=dp14,y=dp13))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selim2[selim2$lrt_B_im14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selim2[selim2$lrt_B_im14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.q.1.3=ggplot(relq[relq$lrt_B_q13>15,],aes(x=dp13,y=dp14))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selq[selq$lrt_B_q13>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selq[selq$lrt_B_q13>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.q.2.3=ggplot(relq[relq$lrt_B_q14>15,],aes(x=dp14,y=dp13))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selq[selq$lrt_B_q14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selq[selq$lrt_B_q14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.q.1.3b=ggplot(relq[relq$lrt_B_q13>15,],aes(x=dp13,y=dp14))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selq2[selq2$lrt_B_q13>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selq2[selq2$lrt_B_q13>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2013 ",Delta,"p")))+ylab(expression(paste("2014 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+P.q.2.3b=ggplot(relq[relq$lrt_B_q14>15,],aes(x=dp14,y=dp13))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=selq2[selq2$lrt_B_q14>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=selq2[selq2$lrt_B_q14>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("2014 ",Delta,"p")))+ylab(expression(paste("2013 ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+
+grid.arrange(P.13.1.3,P.13.2.3,nrow=1)
+grid.arrange(P.14.1.3,P.14.2.3,nrow=1)
+grid.arrange(P.14.1.3b,P.14.2.3b,nrow=1)
+grid.arrange(P.q.1.3,P.q.2.3,nrow=1)
+grid.arrange(P.q.1.3b,P.q.2.3b,nrow=1)
+grid.arrange(P.im.1.3,P.im.2.3,nrow=1)
+grid.arrange(P.im.1.3b,P.im.2.3b,nrow=1)
+
+
+ggplot(covdat[covdat$lrt_cut==15,],aes(x=Test,y=m,fill=Data))+geom_bar(stat="identity",position=position_dodge())+geom_errorbar(data=covdat[covdat$lrt_cut==15,],aes(ymin=low,ymax=up),position=position_dodge(0.9),width=0.25)+ylab(expression(paste("Cov[",Delta,"p]")))+theme_bw()
+ggplot(covdat[covdat$lrt_cut==15 & covdat$Data=="Simulation",],aes(x=Test,y=m),color="none")+geom_bar(stat="identity",fill="white",color="black")+geom_point(data=covdat[covdat$lrt_cut==15 & covdat$Data=="Real",],aes(x=Test,y=m),shape=8)+geom_errorbar(data=covdat[covdat$lrt_cut==15,],aes(ymin=low,ymax=up),width=0.25)+ylab(expression(paste("Cov[",Delta,"p]")))+theme_bw()
+
+#Covariance in delta p plots 
+
+pboot=function(dframe.list,reps){
+  lower=c()
+  upper=c()
+  covmeans=c()
+  names=c()
+  for(j in dframe.list){
+    clist=c()
+    for(i in 1:reps){
+      xx=j[sample(nrow(j),nrow(j),replace=T),]
+      covar=cov(xx[,15],xx[,16],use="pairwise.complete.obs")
+      clist=c(clist,covar)
+    }
+    lower=c(lower,quantile(clist,probs=c(0.05)))
+    upper=c(upper,quantile(clist,probs=c(0.95)))
+    covmeans=c(covmeans,mean(clist))
+  }
+  return(c(covmeans,lower,upper))
+}
+
+
+cov(sel13[,15],sel13[,16],use="pairwise.complete.obs")
+pboot(sel13[sel13$lrt_B_13_M13>15,],100) #get CI's for dp covars
+
+covdat=read.csv("~/Documents/Research/EarlyLate/Current_Files/dp_covar_meanAndSE.csv")
+pboot(sel13[sel13$lrt_B_13_M13>15,],100)
+covdat.plot=ggplot(covdat[covdat$lrt_cut==15,],aes(x=Test,y=m,fill=Data))+geom_bar(stat="identity",position=position_dodge(),color="black")+geom_errorbar(data=covdat[covdat$lrt_cut==15,],aes(ymin=low,ymax=up),position=position_dodge(0.9),width=0.25)+ylab(expression(paste("Cov[",Delta,"p]")))+theme_bw()+scale_fill_manual(values=c("grey","red"))+xlab(" ")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+#LRT Power plot
+P.plot=ggplot(data=P.m[P.m$dp14!="0.5",],aes(x=dp13,y=value))+geom_line(aes(color=dp14,linetype=variable))+geom_point(aes(shape=dp14,color=dp14),size=2)+ylab("LRT")+xlab(expression(paste(Delta,p[13])))+scale_color_manual(name=expression(paste(Delta,p[14])),values=c("blue","black","red"),labels=c("-0.5","0.0","0.5"))+scale_linetype(name="Test Type",labels=c("M1 v. M2","M2 v. M3"))+scale_shape_manual(name=expression(paste(Delta,p[14])),values=c(15,16,17),labels=c("-0.5","0.0","0.5"))+xlim(0.0,0.5)+ylim(0.0,25.0)
+
+#LRT distributions: simulated vs. observed
+grid.arrange(ggplot(data=sel13,aes(x=lrt_B_13_M12))+geom_density()+geom_density(data=rel13,color="red")+geom_density(data=N,color="green")+coord_cartesian(xlim=c(3,12.5),ylim=c(0.0,0.03)),ggplot(data=sel13,aes(x=lrt_B_13_M23))+geom_density()+geom_density(data=rel13,color="red")+geom_density(data=N,color="green")+coord_cartesian(xlim=c(3,12.5),ylim=c(0.0,0.03)),nrow=1)
+
+# Delta_P versus chromosome position plots
+af=read.table("~/Documents/Research/EarlyLate/Current_Files/EL.deltaP.full.txt",head=T)
+af1=af[af$Chromosome==c("sNNffold_8","sNNffold_11","sNNffold_10","sNNffold_1"),]
+
+af.plot.all.Q14=ggplot(data=af1[af1$pop=="QE14",],aes(y=dp,x=pos))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+geom_smooth()+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))+ggtitle("Quarry 2014")
+af.plot.all.Q13=ggplot(data=af1[af1$pop=="QE13",],aes(y=dp,x=pos))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+geom_smooth()+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))+ggtitle("Quarry 2013")
+af.plot.all.IM14=ggplot(data=af1[af1$pop=="IME14",],aes(y=dp,x=pos))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+geom_smooth()+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))+ggtitle("Iron Mountain 2014")
+
+#Berg plots
+relq["SS"]=(relq$dp14-relq$dp13)^2
+relim["SS"]=(relim$dp14-relim$dp13)^2
+relq["inv"]=(relq$scaff=="sNNffold_8" & relq$pos<5000000)*1
+relim["inv"]=(relim$scaff=="sNNffold_8" & relim$pos<5000000)*1
+relq$inv=as.factor(relq$inv)
+relim$inv=as.factor(relim$inv)
+
+#BAD WAY OF FILTERING.  THINK ABOUT IF MAX DP13 WAS LOW, LIKE 0.2.  THIS SCHEME WILL SELECT SITES WITH DP 14 CLOSE TO POINT 0.2.  MEANING THAT THE SELECTED SNPS DEPENDS WHETHER YOU USE DP13 OR DP14 AS A CRITERIA.  WHAT ABOUT JUST PLOTTING THE SITES SIGNIFICANT FOR M1 V M2 TEST?
+relq.cb= relq[relq$SS < quantile(relq$SS,0.10,na.rm=T) & relq$dp13 > quantile(relq$dp13,0.90,na.rm=T),]
+relim.cb= relim[relim$SS < quantile(relim$SS,0.10,na.rm=T) & relim$dp13 > quantile(relim$dp13,0.90,na.rm=T),]
+
+#Better filtration method based stricty on sites with highest consistent effect test
+relim.cb1=subset(relim,(relim$lrt_B_im_M12 > quantile(relim$lrt_B_im_M12,0.9995,na.rm=T) & relim$dp13>0))
+relq.cb1=subset(relq,(relq$lrt_B_q_M12 > quantile(relq$lrt_B_q_M12,0.9995,na.rm=T) & relq$dp13>0))
+relim.cb2=subset(relim,(relim$lrt_B_im_M12 > quantile(relim$lrt_B_im_M12,0.9995,na.rm=T) & relim$dp13<0))
+relq.cb2=subset(relq,(relq$lrt_B_q_M12 > quantile(relq$lrt_B_q_M12,0.9995,na.rm=T) & relq$dp13<0))
+
+relq.cb1["id"]=paste(relq.cb1$scaff,relq.cb1$pos)
+relq.cb2["id"]=paste(relq.cb2$scaff,relq.cb2$pos)
+relim.cb1["id"]=paste(relim.cb1$scaff,relim.cb1$pos)
+relim.cb2["id"]=paste(relim.cb2$scaff,relim.cb2$pos)
+
+relq.cb["inv"]=(relq.cb$scaff=="sNNffold_8" & relq.cb$pos<5000000)*1
+relim.cb["inv"]=(relim.cb$scaff=="sNNffold_8" & relim.cb$pos<5000000)*1
+relq.cb$inv=as.factor(relq.cb$inv)
+relim.cb$inv=as.factor(relim.cb$inv)
+
+
+
+relim.cb1.m=melt(relim.cb1[,c("pime14","piml14","pime13","piml13","pos","scaff","inv","id")],id=c("scaff","pos","inv","id"))
+relq.cb1.m=melt(relq.cb1[,c("pqe14","pql14","pqe13","pql13","pos","scaff","inv","id")],id=c("scaff","pos","inv","id"))
+relim.cb2.m=melt(relim.cb2[,c("pime14","piml14","pime13","piml13","pos","scaff","inv","id")],id=c("scaff","pos","inv","id"))
+relq.cb2.m=melt(relq.cb2[,c("pqe14","pql14","pqe13","pql13","pos","scaff","inv","id")],id=c("scaff","pos","inv","id"))
+
+Berg.plot.IM1=ggplot(relim.cb1.m,aes(y=value,x=factor(variable,labels=c("2013 Early","2013 Late","2014 Early","2014 Late")),color=inv))+geom_point()+geom_line(aes(group=relim.cb1.m$id),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))+ggtitle("Iron Mountain")
+Berg.plot.Q1=ggplot(relq.cb1.m,aes(y=value,x=factor(variable,labels=c("2013 Early","2013 Late","2014 Early","2014 Late")),color=inv))+geom_point()+geom_line(aes(group=relq.cb1.m$id),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))+ggtitle("Quarry")
+Berg.plot.IM2=ggplot(relim.cb2.m,aes(y=value,x=factor(variable,labels=c("2013 Early","2013 Late","2014 Early","2014 Late")),color=inv))+geom_point()+geom_line(aes(group=relim.cb2.m$id),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))+ggtitle("Iron Mountain")
+Berg.plot.Q2=ggplot(relq.cb2.m,aes(y=value,x=factor(variable,labels=c("2013 Early","2013 Late","2014 Early","2014 Late")),color=inv))+geom_point()+geom_line(aes(group=relq.cb2.m$id),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))+ggtitle("Quarry")
+
+Berg.plot.IM1=ggplot(relim.cb1.m,aes(y=value,x=factor(variable,labels=c("'13 Early","'13 Late","'14 Early","'14 Late")),color=inv))+geom_point()+geom_line(aes(group=relim.cb1.m$id),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+Berg.plot.Q1=ggplot(relq.cb1.m,aes(y=value,x=factor(variable,labels=c("'13 Early","'13 Late","'14 Early","'14 Late")),color=inv))+geom_point()+geom_line(aes(group=relq.cb1.m$id),alpha=0.1)+ylab("Reference Frequency")+theme(axis.title.x=element_blank(),axis.title.y=element_text(size=16),axis.text.x = element_blank(),axis.text.y=element_text(size=13),legend.position="none")
+Berg.plot.IM2=ggplot(relim.cb2.m,aes(y=value,x=factor(variable,labels=c("'13 Early","'13 Late","'14 Early","'14 Late")),color=inv))+geom_point()+geom_line(aes(group=relim.cb2.m$id),alpha=0.1)+xlab("Bulk")+theme(axis.title.x=element_text(size=16),axis.title.y=element_blank(),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+Berg.plot.Q2=ggplot(relq.cb2.m,aes(y=value,x=factor(variable,labels=c("'13 Early","'13 Late","'14 Early","'14 Late")),color=inv))+geom_point()+geom_line(aes(group=relq.cb2.m$id),alpha=0.1)+theme(axis.title.x=element_blank(),axis.title.y=element_blank(),axis.text.x = element_blank(),axis.text.y=element_text(size=13),legend.position="none")
+
+
+Berg.plot.IM1=ggplot(relim.cb1.m,aes(y=value,x=factor(variable,labels=c("'13 Early","'13 Late","'14 Early","'14 Late")),color=inv))+geom_point()+geom_line(aes(group=relim.cb1.m$id),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_blank(),axis.title.y=element_blank(),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+Berg.plot.Q1=ggplot(relq.cb1.m,aes(y=value,x=factor(variable,labels=c("'13 Early","'13 Late","'14 Early","'14 Late")),color=inv))+geom_point()+geom_line(aes(group=relq.cb1.m$id),alpha=0.1)+ylab("Reference Frequency")+theme(axis.title.x=element_blank(),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13),legend.position="none")
+
+#Known Aleles plot
+dp=read.csv("~/Documents/Research/EarlyLate/Current_Files/DeltaP.KnownAlleles.csv")
+
+dp=dp[dp$Pop!="BR13",]
+dp1=dp[dp$Feature!="Inv5",]
+dp1=dp1[dp1$Feature!="genome",]
+dp1=dp1[dp1$Feature!="Inv10",]
+dp.g=dp[dp$Feature=="genome",]
+
+dp.g1=dp.g
+dp.g1$Feature="inv6"
+dp.g2=dp.g
+dp.g2$Feature="Inv8"
+dp.g3=dp.g
+dp.g3$Feature="Drive"
+
+dp.g=rbind(dp.g1,dp.g2,dp.g3)
+rm(dp.g1,dp.g2,dp.g3)
+
+dp1$Feature=factor(dp1$Feature)
+dp1$Pop=factor(dp1$Pop)
+
+dp.plot=ggplot(dp1,aes(x=Feature,y=meanDP,fill=Pop))+geom_bar(stat="identity",color="black",position=position_dodge())+geom_errorbar(data=dp1,aes(ymin=meanDP-2*SE,ymax=meanDP+2*SE),position=position_dodge(0.9),width=0.25)+geom_point(data=dp.g,aes(y=meanDP,x=Feature,fill=Pop,legend=FALSE),position=position_dodge(width=0.9),shape=8)+scale_x_discrete(breaks=c("Drive","inv6","Inv8"),labels=c("D","inv6","inv8"))+scale_fill_discrete(name="Sample",breaks=c("IM13","IM14","Q13","Q14"),labels=c("IM 2013","IM 2014","Q 2013","Q 2014"))+ylab(expression(paste("Mean ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_blank(),axis.text.x=element_text(size=20,face="italic"),legend.title=element_blank(),legend.text=element_text(size=16),axis.title.y=element_text(size=20),axis.text.y=element_text(size=16))+guides(fill = guide_legend(override.aes = list(shape = NA)))
+
+## Gives count, mean, standard deviation, standard error of the mean, and confidence interval (default 95%).
+##   data: a data frame.
+##   measurevar: the name of a column that contains the variable to be summariezed
+##   groupvars: a vector containing names of columns that contain grouping variables
+##   na.rm: a boolean that indicates whether to ignore NA's
+##   conf.interval: the percent range of the confidence interval (default is 95%)
+summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
+                      conf.interval=.95, .drop=TRUE) {
+    library(plyr)
+
+    # New version of length which can handle NA's: if na.rm==T, don't count them
+    length2 <- function (x, na.rm=FALSE) {
+        if (na.rm) sum(!is.na(x))
+        else       length(x)
+    }
+
+    # This does the summary. For each group's data frame, return a vector with
+    # N, mean, and sd
+    datac <- ddply(data, groupvars, .drop=.drop,
+      .fun = function(xx, col) {
+        c(N    = length2(xx[[col]], na.rm=na.rm),
+          mean = mean   (xx[[col]], na.rm=na.rm),
+          sd   = sd     (xx[[col]], na.rm=na.rm)
+        )
+      },
+      measurevar
+    )
+
+    # Rename the "mean" column    
+    datac <- rename(datac, c("mean" = measurevar))
+
+    datac$se <- datac$sd / sqrt(datac$N)  # Calculate standard error of the mean
+
+    # Confidence interval multiplier for standard error
+    # Calculate t-statistic for confidence interval: 
+    # e.g., if conf.interval is .95, use .975 (above/below), and use df=N-1
+    ciMult <- qt(conf.interval/2 + .5, datac$N-1)
+    datac$ci <- datac$se * ciMult
+
+    return(datac)
+}

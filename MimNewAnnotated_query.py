@@ -84,9 +84,9 @@ def main(input_file):
             if i>1:
                 site=site.strip('\n')
                 site=site.split(",")
-#                scaff=site[0].split('"')
-#                scaff=int(scaff[1].split("_")[1])
-                scaff=int(site[0])
+                scaff=site[0].split('"')
+                scaff=int(scaff[1].split("_")[1])
+#                scaff=int(site[0])
                 
                 snp=float(site[1])
     #            if scaff==999:
@@ -111,10 +111,11 @@ def main(input_file):
 #                        print snp,lower_bound,upper[j]
                         #writer.writerow([scaff,snp,lower_bound,upper_bound,counts[i][0],counts[i][1],counts[i][2],counts[i][3],counts[i][4],counts[i][5],counts[i][6],counts[i][7],counts[i][8],counts[i][9],counts[i][10],counts[i][11],counts[i][12],counts[i][13],counts[i][14],counts[i][15],counts[i][16],counts[i][17],counts[i][18],counts[i][19],counts[i][20],counts[i][21],counts[i][22],counts[i][23],line[0],line[4],line[5],line[6],line[7],line[8],line[9],line[10]])
     #                    print line                    
-                        writer1.writerow([scaff,snp,lower_bound,upper[j]]+info)
+#                        writer1.writerow([scaff,snp,lower_bound,upper[j]]+info)
                         if geneids[j]!=previd:
                             d.writelines(str(geneids[j])+"\n")
                             numhits+=1
+                            writer1.writerow([scaff,snp,lower_bound,upper[j]]+info[j])
                         previd=geneids[j]
     #                    if sigY[i] == '0':
     #                        pass

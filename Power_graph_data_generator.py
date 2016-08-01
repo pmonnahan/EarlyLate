@@ -49,8 +49,8 @@ for i in range(0,22):
         viml13=(0.025+(1/(iml13r+iml13a)))
         ximl13=2*math.asin(piml13**0.5)
             
-        pime14=0.5
-        piml14=0.5
+        pime14=0.625
+        piml14=0.375
         vime14=(0.025+(1/(ime14r+ime14a)))
         xime14=2*math.asin(pime14**0.5)
         viml14=(0.025+(1/(iml14r+iml14a)))
