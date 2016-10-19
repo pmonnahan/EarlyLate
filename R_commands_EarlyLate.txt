@@ -397,16 +397,26 @@ poly.venn2 <- draw.pairwise.venn(area1    = 3378649,
 
 #Sig Sites Venn:
 
-c.ind.13=dcast(ind[,c("scaff","pos","pop","sigBim13")],scaff+pos~pop)
+nind=read.csv("/Volumes/avery/EL_Likelihoods_IndTests_20160602-0925_nonsig.csv",na.strings='-')
+ind1=rbind(ind,nind)
+c.ind.13=dcast(ind1[,c("scaff","pos","pop","sigBim13")],scaff+pos~pop)
+vennCounts(c.ind.13[,c("BR13","IM13","Q13")])
+
+#OR
+
+c.ind.13.1=c.ind.13  #Includes all tests not just those that pass filter in all three populations.
+c.ind.13.1[is.na(c.ind.13.1)]=0
+vennCounts(c.ind.13.1[,c("BR13","IM13","Q13")])
+
 #Note: sigBim13 is a 0 1 indicator for ALL populations not just im 13.  The pop variable specifies year/pop.
-c.ind.13[is.na(c.ind.13)]=0
+
 
 grid.newpage()
-  venn.plot <- draw.triple.venn(area1    = 230,
-                                area2    = 8281,
-                                area3    = 80,
-                                n12      = 3,
-                                n23      = 3,
+  venn.plot <- draw.triple.venn(area1    = 590,
+                                area2    = 9450,
+                                area3    = 15,
+                                n12      = 1,
+                                n23      = 0,
                                 n13      = 0,
                                 n123     = 0,
                                 category = c("IM","Q","BR"),
@@ -420,7 +430,24 @@ grid.newpage()
                                 cat.col  = c("green", "blue", "red"))
   grid.draw(venn.plot)
 
-#3MB windows Venn:
+#1MB windows Venn:
+Mb=transform(c.ind.13.1,group=cut(pos,breaks=seq(0,30000000,1000000)))
+Mb$group=paste(Mb$scaff,Mb$group)
+Mb$group=as.factor(Mb$group)
+Mbres <- do.call(data.frame,aggregate(cbind(BR13,IM13,IM14,Q13,Q14)~group, Mb,FUN=function(x) c(Sum=sum(x))))
+MbdNew <- data.frame(group=levels(Mb$group))
+MbdNew=merge(Mbres, MbdNew, all=TRUE)
+vennCounts(MbdNew[,c("BR13","IM13","Q13")])
+  BR13 IM13 Q13 Counts
+1    0    0   0   1147
+2    0    0   1    169
+3    0    1   0     10
+4    0    1   1    199
+5    1    0   0      0
+6    1    0   1      4
+7    1    1   0      0
+8    1    1   1      8
+
 grid.newpage()
  MB.venn <- draw.triple.venn(area1    = 55,
                                area2    = 191,
@@ -441,6 +468,23 @@ grid.newpage()
  grid.draw(MB.venn)
 
 #30kb windows Venn:
+kb=transform(c.ind.13.1,group=cut(pos,breaks=seq(0,30000000,30000)))
+kb$group=paste(kb$scaff,kb$group)
+kb$group=as.factor(kb$group)
+res <- do.call(data.frame,aggregate(cbind(BR13,IM13,IM14,Q13,Q14)~group, kb,FUN=function(x) c(Sum=sum(x))))
+dNew <- data.frame(group=levels(kb$group))
+dNew=merge(res, dNew, all=TRUE)
+vennCounts(dNew[,c("BR13","IM13","Q13")])
+  BR13 IM13 Q13 Counts
+1    0    0   0   7144
+2    0    0   1   3640
+3    0    1   0    197
+4    0    1   1    234
+5    1    0   0      4
+6    1    0   1      8
+7    1    1   0      0
+8    1    1   1      0
+
 grid.newpage()
  kb.venn <- draw.triple.venn(area1    = 155,
                                area2    = 4064,

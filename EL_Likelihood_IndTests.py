@@ -15,7 +15,7 @@ import timeit
 
 start = timeit.default_timer()
 
-INPUT_FILE="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt"
+INPUT_FILE="/Users/patrick/Documents/Research/EarlyLate/Current_Files/counts_massiveJan16_AF250.txt"
 #OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
 #OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
 OUTDIR="/Volumes/avery/Research/EarlyLate/"
@@ -23,7 +23,7 @@ OUTDIR="/Volumes/avery/Research/EarlyLate/"
 timestr = time.strftime("%Y%m%d-%H%M")
 file1=0
 file2=0
-file3=0
+file3=1
 file6=0
 
 #filters
@@ -149,7 +149,6 @@ with open(INPUT_FILE,"rb") as sites_file:
         if i>0:
             site=site.strip("\n")
             site=site.split("\t")
-            print len(site)
             scaff=site[0]
             scaff=scaff
             pos=float(site[1])

@@ -5,7 +5,7 @@ import math
 import sys
 
 
-DIR="/Users/patrick/Documents/Research/EarlyLate/"
+DIR="/Users/patrick/Documents/Google Drive/EarlyLate/Current_Files/"
 #comparison = 5 # 0 to 5
 #out1 =open(comparison+".IM.txt","w")
 
@@ -17,7 +17,7 @@ zmeans=[0.0,0.0]
 vmeans=[0.0,0.0]
 cores=[]
 for comparison in range (0,6):
-    src  =open(DIR+"Q.dz.minDP25.txt", "rU")
+    src  =open(DIR+"IM.dz.minDP25.txt", "rU")
     for line_idx, line in enumerate(src):
         cols = line.replace('\n', '').split('\t') 
         try:
