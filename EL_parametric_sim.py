@@ -174,45 +174,27 @@ def simulate(ES,f0,Test_type,Sim_type):
     
     #USED ONLY IN WINDOW CALCULATIONS FOR NUM SIG SNPS IN A WINDOW...BASED ON PREVIOUS RUN AND FDR CALC
     p_Y_im_cutoff = 0.000037
-    p_YCB_im_cutoff = 0.000007
     p_B_im13_cutoff = 0.000018735352155
-    p_Y_br_cutoff = 0.000010
     p_B_br13_cutoff = 3.47E-07
     p_Y_q_cutoff = 0.000106
     p_B_q13_cutoff = 0.000160195
-    p_YCB_q_cutoff = 0.000017
     
     
     #BS variance factor : Paired + Single
-    vb1=0.031943454869850194944 
-    vb2=0.032900188828741155911
-    vb3=0.027101898310498844652 
+    vb1=0.03225929 #These values (BR ONLY) were calculated just prior to resubmission of ms.  Was unable to locate original files that produced the above v terms.  Attempted to recreate data but numbers changed slightly/increased.
+    vb2=0.03552918 #Change of v terms had very littel effect on results.  14 significant tests instead of 15.
+    vb3=0.01646089
     
-    vi1=0.0141406715106648095404 #With new data the variance calculations were similar to old data except for 2014...Early var was similar to late var and vice versa.
-    vi2=0.0200071498211230672237 #Should run through calc with old data to confirm that there wasn't an error
-    vi3=0.0066349383482011761726 #Calculated with minimum depth of 25
+    vi1=0.0141406715106648095404
+    vi2=0.0200071498211230672237
+    vi3=0.0066349383482011761726 
     vi4=0.0110139598993814532418
     
-    vq1=0.0152782122396757438776
-    vq2=0.0212079200267419748505
-    vq3=0.0082510518410872438211
-    vq4=0.0130222983597531889038
-    
-#    vb1=0.031943454869850194944 
-#    vb2=0.032900188828741155911
-#    vb3=0.027101898310498844652 
-#    
-#    vi1=0.01275 #With new data the variance calculations were similar to old data except for 2014...Early var was similar to late var and vice versa.
-#    vi2=0.01275 #Should run through calc with old data to confirm that there wasn't an error
-#    vi3=0.01275 #Calculated with minimum depth of 25
-#    vi4=0.01275
-#    
-#    vq1=0.01275
-#    vq2=0.01275
-#    vq3=0.01275
-#    vq4=0.01275
-    
-    
+    vq1=0.01524366
+    vq2=0.02004908
+    vq3=0.00833159
+    vq4=0.01379415
+
     if file1 !=0:
         EL_Likelihoods=open(OUTDIR+"EL_Likelihoods_ParamSim" +Sim_Type+str(effect_size)+ "_"+ timestr + ".csv","wb")
         like=csv.writer(EL_Likelihoods,delimiter=",",dialect='excel')
