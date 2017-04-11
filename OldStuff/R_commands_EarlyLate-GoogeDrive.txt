@@ -1,96 +1,3 @@
-Genetics Resubmission:
-cci=read.table("~/Documents/Research/EarlyLate/Current_Files/IM.dz.minDP25.txt")
-cci['id']=paste(cci$V1,cci$V2)
-im.inv8=cci[cci$V1=='sNNffold_8' & cci$V2 > 1500000 & cci$V2 < 7000000,]
-im.inv5=cci[cci$V1=='sNNffold_5' & cci$V2 > 10000000 & cci$V2 < 18000000,]
-im.inv6=cci[cci$V1=='sNNffold_6' & cci$V2 > 1340000 & cci$V2 < 7610000,]
-im.inv10=cci[cci$V1=='sNNffold_10' & cci$V2 > 2000000 & cci$V2 < 6000000,]
-im.d1=cci[cci$V1=='sNNffold_11' & cci$V2 > 5700000 & cci$V2 < 11600000,]
-im.d2=cci[cci$V1=='sNNffold_11' & cci$V2 > 13900000 & cci$V2 < 14100000,]
-im.d3=cci[cci$V1=='sNNffold_11' & cci$V2 > 16600000 & cci$V2 < 21100000,]
-cci=cci[!cci$id %in% im.inv8$id,]
-cci=cci[!cci$id %in% im.inv5$id,]
-cci=cci[!cci$id %in% im.inv6$id,]
-cci=cci[!cci$id %in% im.inv10$id,]
-cci=cci[!cci$id %in% im.d1$id,]
-cci=cci[!cci$id %in% im.d2$id,]
-cci=cci[!cci$id %in% im.d3$id,]
-write.table(cci[,-ncol(cci)],file="/Users/patrick/Documents/Research/EarlyLate/Current_Files/IM.dz.minDP25.noInversions.txt",row.names=F,col.names=F,sep="\t",quote=F)
-
-ccq=read.table("~/Documents/Research/EarlyLate/Current_Files/Q.dz.minDP25.txt")
-ccq['id']=paste(ccq$V1,ccq$V2)
-q.inv8=ccq[ccq$V1=='sNNffold_8' & ccq$V2 > 1500000 & ccq$V2 < 7000000,]
-q.inv5=ccq[ccq$V1=='sNNffold_5' & ccq$V2 > 10000000 & ccq$V2 < 18000000,]
-q.inv6=ccq[ccq$V1=='sNNffold_6' & ccq$V2 > 1340000 & ccq$V2 < 7610000,]
-q.inv10=ccq[ccq$V1=='sNNffold_10' & ccq$V2 > 2000000 & ccq$V2 < 6000000,]
-q.d1=ccq[ccq$V1=='sNNffold_11' & ccq$V2 > 5700000 & ccq$V2 < 11600000,]
-q.d2=ccq[ccq$V1=='sNNffold_11' & ccq$V2 > 13900000 & ccq$V2 < 14100000,]
-q.d3=ccq[ccq$V1=='sNNffold_11' & ccq$V2 > 16600000 & ccq$V2 < 21100000,]
-ccq=ccq[!ccq$id %in% q.inv8$id,]
-ccq=ccq[!ccq$id %in% q.inv5$id,]
-ccq=ccq[!ccq$id %in% q.inv6$id,]
-ccq=ccq[!ccq$id %in% q.inv10$id,]
-ccq=ccq[!ccq$id %in% q.d1$id,]
-ccq=ccq[!ccq$id %in% q.d2$id,]
-ccq=ccq[!ccq$id %in% q.d3$id,]
-write.table(ccq[,-ncol(ccq)],file="/Users/patrick/Documents/Research/EarlyLate/Current_Files/Q.dz.minDP25.noInversions.txt",row.names=F,col.names=F,sep="\t",quote=F)
-
-Nest Analysis:
-br=read.table("~/Documents/Research/EarlyLate/BR14_counts.txt",head=T)
-EL=read.table("~/Documents/Research/EarlyLate/Current_Files/counts_massiveJan16_AF250.txt",head=T)
-EL1=EL[,-c(seq(3,61))]
-IME=EL1[EL1$IME13_T!=0 & EL1$IME14_T!=0,c("Scaff","pos","IME13_T","IME14_T","pIME13","pIME14")]
-IML=EL1[EL1$IML13_T!=0 & EL1$IML14_T!=0,c("Scaff","pos","IML13_T","IML14_T","pIML13","pIML14")]
-QE=EL1[EL1$QE13_T!=0 & EL1$QE14_T!=0,c("Scaff","pos","QE13_T","QE14_T","pQE13","pQE14")]
-QL=EL1[EL1$QL13_T!=0 & EL1$QL14_T!=0,c("Scaff","pos","QL13_T","QL14_T","pQL13","pQL14")]
-BRE=EL1[EL1$BRE13_T!=0 & EL1$BRE14_T!=0,c("Scaff","pos","BRE13_T","BRE14_T","pBRE13","pBRE14")]
-Q=EL[EL$QE13_T!=0 & EL$QE14_T!=0 & EL$QL13_T!=0 & EL$QL14_T!=0,c("Scaff","pos","Q13_T","Q14_T","pQ13","pQ14")]
-
-IME1=IME[IME$IME13_T>=25 & IME$IME14_T>=25,]
-IME1=IME1[IME1$pIME13!=1.0 & IME1$pIME14!=1.0,]
-IME1=IME1[IME1$IME13_T<=100 & IME1$IME14_T<=100,]
-
-IML1=IML[IML$IML13_T>=25 & IML$IML14_T>=25,]
-IML1=IML1[IML1$pIML13!=1.0 & IML1$pIML14!=1.0,]
-IML1=IML1[IML1$IML13_T<=100 & IML1$IML14_T<=100,]
-
-QE1=QE[QE$QE13_T>=25 & QE$QE14_T>=25,]
-QE1=QE1[QE1$pQE13!=1.0 & QE1$pQE14!=1.0,]
-QE1=QE1[QE1$QE13_T<=100 & QE1$QE14_T<=100,]
-
-BRE1=BRE[BRE$BRE13_T>=25 & BRE$BRE14_T>=25,]
-BRE1=BRE1[BRE1$pBRE13!=1.0 & BRE1$pBRE14!=1.0,]
-BRE1=BRE1[BRE1$BRE13_T<=100 & BRE1$BRE14_T<=100,]
-
-QL1=QL[QL$QL13_T>=25 & QL$QL14_T>=25,]
-QL1=QL1[QL1$pQL13!=1.0 & QL1$pQL14!=1.0,]
-QL1=QL1[QL1$QL13_T<=100 & QL1$QL14_T<=100,]
-
-Q=Q[Q$Q13_T>=25 & Q$Q14_T>=25,]
-Q=Q[Q$pQ13!=1.0 & Q$pQ14!=1.0,]
-Q=Q[Q$Q13_T<=200 & Q$Q14_T<=200,]
-
-
-estimateNe(IME1$pIME13,IME1$pIME14,IME1$IME13_T,IME1$IME14_T,t=1,ploidy=2,poolSize=c(100,100),method=c("P.planII", "JR.planII","W.planII","P.alt.2step.planII"),truncAF=0.05)
-estimateNe(IML1$pIML13,IML1$pIML14,IML1$IML13_T,IML1$IML14_T,t=1,ploidy=2,poolSize=c(100,100),method=c("P.planII", "JR.planII","W.planII","P.alt.2step.planII"),truncAF=0.05)
-estimateNe(QE1$pQE13,QE1$pQE14,QE1$QE13_T,QE1$QE14_T,t=1,ploidy=2,poolSize=c(100,100),method=c("P.planII", "JR.planII","W.planII","P.alt.2step.planII"),truncAF=0.05)
-estimateNe(BRE1$pBRE13,BRE1$pBRE14,BRE1$BRE13_T,BRE1$BRE14_T,t=1,ploidy=2,poolSize=c(100,100),method=c("P.planII", "JR.planII","W.planII","P.alt.2step.planII"),truncAF=0.05)
-estimateNe(QL1$pQL13,QL1$pQL14,QL1$QL13_T,QL1$QL14_T,t=1,ploidy=2,poolSize=c(100,100),method=c("P.planII", "JR.planII","W.planII","P.alt.2step.planII"),truncAF=0.05)
-
-estimateNe(Q$pQ13,Q$pQ14,Q$Q13_T,Q$Q14_T,t=1,ploidy=2,poolSize=c(200,200),method=c("P.planII", "JR.planII","W.planII","P.alt.2step.planII"),truncAF=0.05)
-
-estimateNe(Q$Scaff,Q$pos,Q$pQ13,Q$pQ14,Q$Q13_T,Q$Q14_T,wndSize=1000,unit="SNP",t=1,ploidy=2,poolSize=c(200,200),method=c("P.planII", "JR.planII","W.planII","P.alt.2step.planII"),truncAF=0.05)
-
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="IM",]$lrt_B_M12)(10)
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="IM",]$lrt_B_M12)(15)
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="Q",]$lrt_B_M12)(10)
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="Q",]$lrt_B_M12)(15)
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="2013",]$lrt_B_M12)(10)
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="2013",]$lrt_B_M12)(15)
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="2014",]$lrt_B_M12)(10)
-1 - ecdf(EL[!is.na(EL$lrt_B_M12) & EL$pop=="2014",]$lrt_B_M12)(15)
-
-
 EL["BRE_R"]=EL$BRE14_R+EL$BRE13_R
 EL["BRE_A"]=EL$BRE14_A+EL$BRE13_A
 EL["BRL_R"]=EL$BRL13_R
@@ -283,76 +190,20 @@ EL["dpBRL13_pQE14"]=EL$pBRL13-EL$pQE14
 EL["dpBRL13_pQL14"]=EL$pBRL13-EL$pQL14
 
 #FINAL VARIANCE ESTIMATION METHOD:
-
-
-EL["zbre14"]=(2*asin(EL$pBRE14^0.5))
-EL["zbre13"]=(2*asin(EL$pBRE13^0.5))
-EL["zbrl13"]=(2*asin(EL$pBRL13^0.5))
-
-
-EL["Z_BR13"]=(EL$zbre13-EL$zbrl13)
-EL["V_BR13"]=(((1/(EL$BRE13_R+EL$BRE13_A))+1/(EL$BRL13_R+EL$BRL13_A)))
-EL["Z_BRE"]=(EL$zbre14-EL$zbre13)
-EL["V_BRE"]=(((1/(EL$BRE14_R+EL$BRE14_A))+1/(EL$BRE13_R+EL$BRE13_A)))
-EL["Z_BREL"]=(EL$zbre14-EL$zbrl13)
-EL["V_BREL"]=(((1/(EL$BRE14_R+EL$BRE14_A))+1/(EL$BRL13_R+EL$BRL13_A)))
-
-min.cov=25
-max.cov=100
-p.min=0.05
-p.max=0.95
-
-
-#OR:  OTHER VERSION OF CALCULING VARIANCE USING IQR
-EL.BR1=EL[EL$pBR13 > p.min &EL$pBR13 < p.max & EL$BRE13_T > min.cov & EL$BRE13_T < max.cov & EL$BRL13_T > min.cov & EL$BRL13_T < max.cov,]
-vb12=(((quantile(EL.BR1$Z_BR13,0.25,na.rm=T) - quantile(EL.BR1$Z_BR13,0.75,na.rm=T))/1.349)^2)-mean(EL.BR1$V_BR13,na.rm=T)
-rm(EL.BR1)
-EL.BR2=EL[EL$pBRE > p.min &EL$pBRE < p.max & EL$BRE13_T > min.cov & EL$BRE13_T < max.cov & EL$BRE14_T > min.cov & EL$BRE14_T < max.cov,]
-vb13=(((quantile(EL.BR2$Z_BRE,0.25,na.rm=T) - quantile(EL.BR2$Z_BRE,0.75,na.rm=T))/1.349)^2)-mean(EL.BR2$V_BRE,na.rm=T)
-rm(EL.BR2)
-EL.BR3=EL[((EL$pBRL13 + EL$pBRE14)/2) > p.min & ((EL$pBRL13 + EL$pBRE14)/2) < p.max & EL$BRL13_T > min.cov & EL$BRL13_T < max.cov & EL$BRE14_T > min.cov & EL$BRE14_T < max.cov,]
-vb23=(((quantile(EL.BR3$Z_BREL,0.25,na.rm=T) - quantile(EL.BR3$Z_BREL,0.75,na.rm=T))/1.349)^2)-mean(EL.BR3$V_BREL,na.rm=T)
-rm(EL.BR3)
-
-cf0f1.br = vb13
-cf0s0.br = vb12
-cs0f1.br = vb23
-
-vbre13 = 1/2 * (cf0f1.br + cf0s0.br - cs0f1.br)
-vbre14 = 1/2 * (cf0f1.br - cf0s0.br + cs0f1.br)
-vbrl13 = 1/2 * (-cf0f1.br + cf0s0.br + cs0f1.br)`
-
 Python programs to jacknife contrast variances to determine their VarCovar matrix.  
 IM:
 psu=read.csv("~/Documents/Research/EarlyLate/Current_Files/JackVars10-IM.minDP25.csv")
 psu=psu[,-c(1:2)]
-vcmat=cov(psu,use="complete.obs") #csv of psuedovalues calculated from jackknifed estimates
+vcmat=cov(psu) #csv of psuedovalues calculated from jackknifed estimates
 M=matrix(c(1,1,1,0,0,0,1,0,0,1,1,0,0,1,0,1,0,1,0,0,1,0,1,1),nrow=6,ncol=4)
-##For min DP 10
-z=matrix(c(0.0168431334072,0.0196886050734,0.0261808415606,0.0257170951654,0.0286825903026,0.0308887462359),nrow=6,ncol=1) #Contrast vars calculated from Jacknife program
-##For min DP 25
 z=matrix(c(0.01851147326969735, 0.020959379533656612, 0.027083842287051525, 0.026592688560749395, 0.029434622813682122, 0.031259834484207286),nrow=6,ncol=1) #Contrast vars calculated from Jacknife program
-
-## For min DP 25 with inversions removed 
-psu=read.csv("~/Documents/Research/EarlyLate/Current_Files/JackVars10-IM.minDP25.noInversions.csv")
-z=matrix(c(0.01850335059764327, 0.020975689483154744, 0.027053972490498582, 0.02656865159040745, 0.029370021777744955, 0.03110076613399576),nrow=6,ncol=1)
-
 vars=solve(t(M)%*%solve(vcmat)%*%M)%*%t(M)%*%solve(vcmat)%*%z
 
 Q:
 psu.Q=read.csv("~/Documents/Research/EarlyLate/Current_Files/JackVars10-Q.minDP25.csv")
 psu.Q=psu.Q[,-c(1:2)]
-vcmat.Q=cov(psu.Q,use="complete.obs") #csv of psuedovalues calculated from jackknifed estimates
-##For min DP 10
-z.Q=matrix(c(0.020885949978,0.0227838739841,0.0302754980172,0.029718133352,0.0326431112014,0.0349521637997),nrow=6,ncol=1)
-##For min DP 25
-z.Q=matrix(c(0.022285577710987693,0.023590016918129987,0.02969547257209769,0.02946807959641448,0.031671046381656756,0.033682885310882565
-),nrow=6,ncol=1)
-## For min DP 25 with inversions removed 
-psu.Q=read.csv("~/Documents/Research/EarlyLate/Current_Files/JackVars10-Q.minDP25.noInversions.csv")
-z.Q=matrix(c(0.021966630405397453, 0.02292794636682461, 0.028796235036743667, 0.028496888509440765, 0.03070550469554144, 0.032566145853100165),nrow=6,ncol=1)
-
-
+vcmat.Q=cov(psu.Q) #csv of psuedovalues calculated from jackknifed estimates
+z.Q=matrix(c(0.022285577710987693, 0.023590016918129987, 0.02969547257209769, 0.02946807959641448, 0.031671046381656756, 0.033682885310882565),nrow=6,ncol=1)
 vars.Q=solve(t(M)%*%solve(vcmat.Q)%*%M)%*%t(M)%*%solve(vcmat.Q)%*%z.Q
 
 
@@ -509,27 +360,6 @@ grid.newpage()
                                 cat.col  = c("yellow", "grey", "purple"))
   grid.draw(venn.plot)
 
-#No pass Venn
-
-grid.newpage()
-  poly.venn <- draw.triple.venn(area1    = 6213972,
-                                area2    = 7168534,
-                                area3    = 6128578,
-                                n12      = 5511594,
-                                n23      = 5427098,
-                                n13      = 5525900,
-                                n123     = 4971652,
-                                category = c("IM","Q","BR"),
-                                cat.pos  = c(340, 20, 160),
-                                cat.dist = c(0.05, 0.05, 0.05),
-                                fill     = c("green", "blue", "red"),
-                                alpha    = 0.3,
-                                lty      = "blank",
-                                cex      = 1.5,
-                                cat.cex  = 2,
-                                cat.col  = c("green", "blue", "red"))
-  grid.draw(poly.venn)
-
 #Pass Filter Venn  
 grid.newpage()
   poly.venn <- draw.triple.venn(area1    = 3798948,
@@ -566,35 +396,17 @@ poly.venn2 <- draw.pairwise.venn(area1    = 3378649,
   grid.draw(poly.venn2)
 
 #Sig Sites Venn:
-ind=read.csv("/Users/monnahap/Documents/Research/EarlyLate/EL_Likelihoods_IndTests_20170406-1007_sig.csv",na.strings='-')
-nind=read.csv("/Users/monnahap/Documents/Research/EarlyLate/EL_Likelihoods_IndTests_20170406-1007_nonsig.csv",na.strings='-')
-ind1=rbind(ind,nind)
-c.ind.13=dcast(ind1[,c("scaff","pos","pop","sigBim13")],scaff+pos~pop)
-vennCounts(c.ind.13[,c("BR13","IM13","Q13")])
 
-#OR
-
-c.ind.13.1=c.ind.13  #Includes all tests not just those that pass filter in all three populations.
-c.ind.13.1[is.na(c.ind.13.1)]=0
-vennCounts(c.ind.13.1[,c("BR13","IM13","Q13")])
-
+c.ind.13=dcast(ind[,c("scaff","pos","pop","sigBim13")],scaff+pos~pop)
 #Note: sigBim13 is a 0 1 indicator for ALL populations not just im 13.  The pop variable specifies year/pop.
+c.ind.13[is.na(c.ind.13)]=0
 
-  BR13 IM13 Q13  Counts
-1    0    0   0 8068899
-2    0    0   1   10911
-3    0    1   0     587
-4    0    1   1       2
-5    1    0   0      13
-6    1    0   1       0
-7    1    1   0       0
-8    1    1   1       0
 grid.newpage()
-  venn.plot <- draw.triple.venn(area1    = 587+2,
-                                area2    = 10911+2,
-                                area3    = 13,
-                                n12      = 2,
-                                n23      = 0,
+  venn.plot <- draw.triple.venn(area1    = 230,
+                                area2    = 8281,
+                                area3    = 80,
+                                n12      = 3,
+                                n23      = 3,
                                 n13      = 0,
                                 n123     = 0,
                                 category = c("IM","Q","BR"),
@@ -608,33 +420,15 @@ grid.newpage()
                                 cat.col  = c("green", "blue", "red"))
   grid.draw(venn.plot)
 
-#1MB windows Venn:
-Mb=transform(c.ind.13.1,group=cut(pos,breaks=seq(0,30000000,1000000)))
-Mb$group=paste(Mb$scaff,Mb$group)
-Mb$group=as.factor(Mb$group)
-Mbres <- do.call(data.frame,aggregate(cbind(BR13,IM13,IM14,Q13,Q14)~group, Mb,FUN=function(x) c(Sum=sum(x))))
-MbdNew <- data.frame(group=levels(Mb$group))
-MbdNew=merge(Mbres, MbdNew, all=TRUE)
-vennCounts(MbdNew[,c("BR13","IM13","Q13")])
-
-  BR13 IM13 Q13 Counts
-1    0    0   0   1188
-2    0    0   1    179
-3    0    1   0      9
-4    0    1   1    201
-5    1    0   0      0
-6    1    0   1      4
-7    1    1   0      0
-8    1    1   1      7
-
+#3MB windows Venn:
 grid.newpage()
- MB.venn <- draw.triple.venn(area1    = 201+9+7,
-                               area2    = 179+201+4+7,
-                               area3    = 4+7,
-                               n12      = 7,
-                               n23      = 7+201,
-                               n13      = 7+4+201,
-                               n123     = 7,
+ MB.venn <- draw.triple.venn(area1    = 55,
+                               area2    = 191,
+                               area3    = 49,
+                               n12      = 52,
+                               n23      = 49,
+                               n13      = 32,
+                               n123     = 32,
                                category = c("IM","Q","BR"),
                                cat.pos  = c(200, 160, 0),
                                cat.dist = c(0.05, 0.05, 0.05),
@@ -647,30 +441,13 @@ grid.newpage()
  grid.draw(MB.venn)
 
 #30kb windows Venn:
-kb=transform(c.ind.13.1,group=cut(pos,breaks=seq(0,30000000,30000)))
-kb$group=paste(kb$scaff,kb$group)
-kb$group=as.factor(kb$group)
-res <- do.call(data.frame,aggregate(cbind(BR13,IM13,IM14,Q13,Q14)~group, kb,FUN=function(x) c(Sum=sum(x))))
-dNew <- data.frame(group=levels(kb$group))
-dNew=merge(res, dNew, all=TRUE)
-vennCounts(dNew[,c("BR13","IM13","Q13")])
-  BR13 IM13 Q13 Counts
-1    0    0   0   6890
-2    0    0   1   3962
-3    0    1   0    171
-4    0    1   1    262
-5    1    0   0      4
-6    1    0   1      7
-7    1    1   0      0
-8    1    1   1      0
-
 grid.newpage()
- kb.venn <- draw.triple.venn(area1    = 171+262,
-                               area2    = 3962+262+7,
-                               area3    = 11,
-                               n12      = 262,
-                               n23      = 7,
-                               n13      = 4,
+ kb.venn <- draw.triple.venn(area1    = 155,
+                               area2    = 4064,
+                               area3    = 72,
+                               n12      = 92,
+                               n23      = 40,
+                               n13      = 0,
                                n123     = 0,
                                category = c("IM","Q","BR"),
                                cat.pos  = c(200, 160, 0),
@@ -727,8 +504,8 @@ grid.draw(cbind(ggplotGrob(P.plot.bw), ggplotGrob(P.dps.bw), size="last"))
 
 
 #Manhattan Plots
-ind=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_IndTests_20170406-1007_sig.csv",na.strings="-")
-int=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Interactions_20170406-1007_sig.csv",na.strings="-")
+ind=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_IndTests_20160602-0925_sig.csv",na.strings="-")
+int=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Interactions_20160602-0925_sig.csv",na.strings="-")
 
 ind.14=ind[ind$scaff=="sNNffold_1" | ind$scaff=="sNNffold_2" | ind$scaff=="sNNffold_3" | ind$scaff=="sNNffold_4" | ind$scaff=="sNNffold_5" | ind$scaff=="sNNffold_6" | ind$scaff=="sNNffold_7" | ind$scaff=="sNNffold_8" | ind$scaff=="sNNffold_9" | ind$scaff=="sNNffold_10" | ind$scaff=="sNNffold_11" | ind$scaff=="sNNffold_12" | ind$scaff=="sNNffold_13" | ind$scaff=="sNNffold_14" ,]
 int.14=int[int$scaff=="sNNffold_1" | int$scaff=="sNNffold_2" | int$scaff=="sNNffold_3" | int$scaff=="sNNffold_4" | int$scaff=="sNNffold_5" | int$scaff=="sNNffold_6" | int$scaff=="sNNffold_7" | int$scaff=="sNNffold_8" | int$scaff=="sNNffold_9" | int$scaff=="sNNffold_10" | int$scaff=="sNNffold_11" | int$scaff=="sNNffold_12" | int$scaff=="sNNffold_13" | int$scaff=="sNNffold_14" ,]
@@ -774,9 +551,9 @@ tapply(ind.14.2014$sigBim13,ind.14.2014$scaff,sum)/tapply(ind.14.2014$pos,ind.14
 with(ind.14.2014,tapply(sigBim13,list(scaff,pop),sum))
 with(ind.14.2013,tapply(sigBim13,list(scaff,pop),sum))
 
-nrow(int.14[int.14$scaff=="sNNffold_8" & int.14$pos<7000000 & int.14$pos>1500000 & int.14$pop=="Q",])
+nrow(int.14[int.14$scaff=="sNNffold_8" & int.14$pos<5000000 &int.14$pop=="Q",])
 
-ind.inv = ind.14[ind.14$pos<7000000 & ind.14$pos>1500000,]
+ind.inv = ind.14[ind.14$pos<5000000,]
 ind.inv = ind.inv[ind.inv$scaff=="8",]
 
 
@@ -793,8 +570,8 @@ sel14=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim
 selq=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimQ_ParamSim_0.0650.43MixtureDist20160506-2101.csv",na.strings="-")
 selim=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimIM_ParamSim_0.20.25MixtureDist20160506-1025.csv",na.strings="-")
 
-relq=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimQ_RealData_20160802-1438.csv",na.strings="-")
-relim=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimIM_RealData_20160802-1438.csv",na.strings="-")
+relq=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimQ_RealData_20160508-1324.csv",na.strings="-")
+relim=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_SlimIM_RealData_20160508-1324.csv",na.strings="-")
 rel13=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim_20160426-1935.csv",na.strings="-")
 rel14=read.csv("~/Documents/Research/EarlyLate/Current_Files/EL_Likelihoods_Slim14_RealData_20160508-1324.csv",na.strings="-")
 rel14=rel14[!is.na(rel14$lrt_B_14_M12),]
@@ -917,8 +694,6 @@ grid.arrange(P.q.1.3b,P.q.2.3b,nrow=1)
 grid.arrange(P.im.1.3,P.im.2.3,nrow=1)
 grid.arrange(P.im.1.3b,P.im.2.3b,nrow=1)
 
-P.13.1.3=ggplot(rel13[rel13$lrt_B_im13>15,],aes(x=dpim,y=dpq))+geom_point(shape=21,color="black",fill="grey")+geom_point(data=sel13[sel13$lrt_B_im13>15,],shape=21,color="black",fill="red")+geom_smooth(method="lm",se=F,color="black",linetype="dashed")+geom_smooth(data=sel13[sel13$lrt_B_im13>15,],method="lm",se=F,color="red",linetype="dashed")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=20),axis.title.y=element_text(size=20),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.text=element_text(size=18),legend.title=element_text(size=20),legend.key.size=unit(2.5, "cm"))
-
 
 ggplot(covdat[covdat$lrt_cut==15,],aes(x=Test,y=m,fill=Data))+geom_bar(stat="identity",position=position_dodge())+geom_errorbar(data=covdat[covdat$lrt_cut==15,],aes(ymin=low,ymax=up),position=position_dodge(0.9),width=0.25)+ylab(expression(paste("Cov[",Delta,"p]")))+theme_bw()
 ggplot(covdat[covdat$lrt_cut==15 & covdat$Data=="Simulation",],aes(x=Test,y=m),color="none")+geom_bar(stat="identity",fill="white",color="black")+geom_point(data=covdat[covdat$lrt_cut==15 & covdat$Data=="Real",],aes(x=Test,y=m),shape=8)+geom_errorbar(data=covdat[covdat$lrt_cut==15,],aes(ymin=low,ymax=up),width=0.25)+ylab(expression(paste("Cov[",Delta,"p]")))+theme_bw()
@@ -989,8 +764,12 @@ relq.cb2["id"]=paste(relq.cb2$scaff,relq.cb2$pos)
 relim.cb1["id"]=paste(relim.cb1$scaff,relim.cb1$pos)
 relim.cb2["id"]=paste(relim.cb2$scaff,relim.cb2$pos)
 
-relq.cb["id"]=paste(relq.cb$scaff,relq.cb$pos)
-relim.cb["id"]=paste(relim.cb$scaff,relim.cb$pos)
+relq.cb["inv"]=(relq.cb$scaff=="sNNffold_8" & relq.cb$pos<5000000)*1
+relim.cb["inv"]=(relim.cb$scaff=="sNNffold_8" & relim.cb$pos<5000000)*1
+relq.cb$inv=as.factor(relq.cb$inv)
+relim.cb$inv=as.factor(relim.cb$inv)
+
+
 
 relim.cb1.m=melt(relim.cb1[,c("pime14","piml14","pime13","piml13","pos","scaff","inv","id")],id=c("scaff","pos","inv","id"))
 relq.cb1.m=melt(relq.cb1[,c("pqe14","pql14","pqe13","pql13","pos","scaff","inv","id")],id=c("scaff","pos","inv","id"))

@@ -1,0 +1,794 @@
+EL["BRE_R"]=EL$BRE14_R+EL$BRE13_R
+EL["BRE_A"]=EL$BRE14_A+EL$BRE13_A
+EL["BRL_R"]=EL$BRL13_R
+EL["BRL_A"]=EL$BRL13_A
+EL["IME_R"]=EL$IME14_R+EL$IME13_R
+EL["IME_A"]=EL$IME14_A+EL$IME13_A
+EL["IML_R"]=EL$IML14_R+EL$IML13_R
+EL["IML_A"]=EL$IML14_A+EL$IML13_A
+EL["QE_R"]=EL$QE14_R+EL$QE13_R
+EL["QE_A"]=EL$QE14_A+EL$QE13_A
+EL["QL_R"]=EL$QL14_R+EL$QL13_R
+EL["QL_A"]=EL$QL14_A+EL$QL13_A
+ EL["BR_R"]=EL$BRE_R+EL$BRL_R
+ EL["BR_A"]=EL$BRE_A+EL$BRL_A
+ EL["IM_A"]=EL$IME_A+EL$IML_A
+ EL["IM_R"]=EL$IME_R+EL$IML_R
+ EL["Q_R"]=EL$QE_R+EL$QL_R
+ EL["Q_A"]=EL$QE_A+EL$QL_A
+ EL["Q14_R"]=EL$QE14_R+EL$QL14_R
+ EL["Q14_A"]=EL$QE14_A+EL$QL14_A
+ EL["IM14_R"]=EL$IME14_R+EL$IML14_R
+ EL["IM14_A"]=EL$IME14_A+EL$IML14_A
+ EL["IM13_R"]=EL$IME13_R+EL$IML13_R
+ EL["IM13_A"]=EL$IME13_A+EL$IML13_A
+ EL["Q13_R"]=EL$QE13_R+EL$QL13_R
+ EL["Q13_A"]=EL$QE13_A+EL$QL13_A
+ EL["BR13_A"]=EL$BRE13_A+EL$BRL13_A
+ EL["BR13_R"]=EL$BRE13_R+EL$BRL13_R
+ EL["BR_T"]=EL$BR_A+EL$BR_R
+ EL["Q_T"]=EL$Q_A+EL$Q_R
+ EL["IM_T"]=EL$IM_A+EL$IM_R
+ EL["IM14_T"]=EL$IM14_A+EL$IM14_R
+ EL["IM13_T"]=EL$IM13_A+EL$IM13_R
+ EL["BR13_T"]=EL$BR13_A+EL$BR13_R
+ EL["BR14_T"]=EL$BRE14_A+EL$BRE14_R
+ EL["Q13_T"]=EL$Q13_A+EL$Q13_R
+ EL["Q14_T"]=EL$Q14_A+EL$Q14_R
+EL["BRE13_T"]=EL$BRE13_R + EL$BRE13_A
+EL["BRL13_T"]=EL$BRL13_R + EL$BRL13_A
+EL["BRE14_T"]=EL$BRE14_R + EL$BRE14_A
+EL["IME13_T"]=EL$IME13_R + EL$IME13_A
+EL["IML13_T"]=EL$IML13_R + EL$IML13_A
+EL["IME14_T"]=EL$IME14_R + EL$IME14_A
+EL["IML14_T"]=EL$IML14_R + EL$IML14_A
+EL["QE13_T"]=EL$QE13_R + EL$QE13_A
+EL["QL13_T"]=EL$QL13_R + EL$QL13_A
+EL["QL14_T"]=EL$QL14_R + EL$QL14_A
+EL["QE14_T"]=EL$QE14_R + EL$QE14_A
+
+
+EL["BRpol"]=(EL$BR_R>0 & EL$BR_A>0)*1
+EL["IMpol"]=(EL$IM_R>0 & EL$IM_A>0)*1
+EL["Qpol"]=(EL$Q_R>0 & EL$Q_A>0)*1
+EL["BR14pol"]=(EL$BRE14_R>0 & EL$BRE14_A>0)*1
+EL["IM14pol"]=(EL$IM14_R>0 & EL$IM14_A>0)*1
+EL["Q14pol"]=(EL$Q14_R>0 & EL$Q14_A>0)*1
+EL["BR13pol"]=(EL$BR13_R>0 & EL$BR13_A>0)*1
+EL["IM13pol"]=(EL$IM13_R>0 & EL$IM13_A>0)*1
+EL["Q13pol"]=(EL$Q13_R>0 & EL$Q13_A>0)*1
+EL["IML14pol"]=(EL$IML14_R>0 & EL$IML14_A>0)*1
+EL["IME14pol"]=(EL$IME14_R>0 & EL$IME14_A>0)*1
+EL["IME13pol"]=(EL$IME13_R>0 & EL$IME13_A>0)*1
+EL["IML13pol"]=(EL$IML13_R>0 & EL$IML13_A>0)*1
+EL["QL14pol"]=(EL$QL14_R>0 & EL$QL14_A>0)*1
+EL["QE14pol"]=(EL$QE14_R>0 & EL$QE14_A>0)*1
+EL["QE13pol"]=(EL$QE13_R>0 & EL$QE13_A>0)*1
+EL["QL13pol"]=(EL$QL13_R>0 & EL$QL13_A>0)*1
+EL["BRE13pol"]=(EL$BRE13_R>0 & EL$BRE13_A>0)*1
+EL["BRL13pol"]=(EL$BRL13_R>0 & EL$BRL13_A>0)*1
+
+EL["pIML14"]=EL$IML14_R/(EL$IML14_R + EL$IML14_A)
+EL["pIME14"]=EL$IME14_R/(EL$IME14_R + EL$IME14_A)
+EL["pIME13"]=EL$IME13_R/(EL$IME13_R + EL$IME13_A)
+EL["pIML13"]=EL$IML13_R/(EL$IML13_R + EL$IML13_A)
+EL["pQL14"]=EL$QL14_R/(EL$QL14_R + EL$QL14_A)
+EL["pQE14"]=EL$QE14_R/(EL$QE14_R + EL$QE14_A)
+EL["pQE13"]=EL$QE13_R/(EL$QE13_R + EL$QE13_A)
+EL["pQL13"]=EL$QL13_R/(EL$QL13_R + EL$QL13_A)
+EL["pBRE14"]=EL$BRE14_R/(EL$BRE14_R + EL$BRE14_A)
+EL["pBRE13"]=EL$BRE13_R/(EL$BRE13_R + EL$BRE13_A)
+EL["pBRL13"]=EL$BRL13_R/(EL$BRL13_R + EL$BRL13_A)
+EL["pBR14"]=EL$BRE14_R/(EL$BRE14_R + EL$BRE14_A)
+EL["pIM14"]=(EL$pIME14 + EL$pIML14)/2
+EL["pQ14"]=(EL$pQE14 + EL$pQL14)/2
+EL["pBR13"]=(EL$pBRE13 + EL$pBRL13)/2
+EL["pIM13"]=(EL$pIME13 + EL$pIML13)/2
+EL["pQ13"]=(EL$pQE13 + EL$pQL13)/2
+
+EL["pBR"]=(EL$pBR13 + EL$pBR14)/2
+EL["pIM"]=(EL$pIM13 + EL$pIM14)/2
+EL["pQ"]=(EL$pQ13 + EL$pQ14)/2
+EL["pBRE"]=(EL$pBRE13 + EL$pBRE14)/2
+EL["pBRL"]=(EL$pBRL13 + EL$pBRL14)/2
+EL["pIME"]=(EL$pIME13 + EL$pIME14)/2
+EL["pIML"]=(EL$pIML13 + EL$pIML14)/2
+EL["pQE"]=(EL$pQE13 + EL$pQE14)/2
+EL["pQL"]=(EL$pQL13 + EL$pQL14)/2
+
+
+
+
+EL["pE"]=mean(c(EL$pBRE,EL$pIME,EL$pQE))
+EL["pL"]=mean(c(EL$pBRL,EL$pIML,EL$pQL))
+
+EL["dpE_pL"]=EL$pE-EL$pL
+EL["dpBR_pIM"]=EL$pBR-EL$pIM
+EL["dpBR_pQ"]=EL$pBR-EL$pQ
+EL["dpIM_pQ"]=EL$pIM-EL$pQ
+EL["dpBR14_pIM14"]=EL$pBR14-EL$pIM14
+EL["dpBR14_pQ14"]=EL$pBR14-EL$pQ14
+EL["dpIM14_pQ14"]=EL$pIM14-EL$pQ14
+EL["dpBR13_pIM13"]=EL$pBR13-EL$pIM13
+EL["dpBR13_pQ13"]=EL$pBR13-EL$pQ13
+EL["dpIM13_pQ13"]=EL$pIM13-EL$pQ13
+EL["dpBR13_pIM14"]=EL$pBR13-EL$pIM14
+EL["dpBR13_pQ14"]=EL$pBR13-EL$pQ14
+EL["dpIM13_pQ14"]=EL$pIM13-EL$pQ14
+EL["dpBR14_pIM13"]=EL$pBR14-EL$pIM13
+EL["dpBR14_pQ13"]=EL$pBR14-EL$pQ13
+EL["dpIM14_pQ13"]=EL$pIM14-EL$pQ13
+EL["dpBR13_pBR14"]=EL$pBR13-EL$pBR14
+EL["dpQ13_pQ14"]=EL$pQ13-EL$pQ14
+EL["dpIM13_pIM14"]=EL$pIM13-EL$pIM14
+
+EL["dpIME13_pIML13"]=EL$pIME13-EL$pIML13
+EL["dpIME13_pIML14"]=EL$pIME13-EL$pIML14
+EL["dpIME13_pIME14"]=EL$pIME13-EL$pIME14
+EL["dpIML13_pIML14"]=EL$pIML13-EL$pIML14
+EL["dpIML13_pIME14"]=EL$pIML13-EL$pIME14
+EL["dpIME14_pIML14"]=EL$pIME14-EL$pIML14
+EL["dpQE13_pQL13"]=EL$pQE13-EL$pQL13
+EL["dpQE13_pQL14"]=EL$pQE13-EL$pQL14
+EL["dpQE13_pQE14"]=EL$pQE13-EL$pQE14
+EL["dpQL13_pQL14"]=EL$pQL13-EL$pQL14
+EL["dpQL13_pQE14"]=EL$pQL13-EL$pQE14
+EL["dpQE14_pQL14"]=EL$pQE14-EL$pQL14
+EL["dpBRE13_pBRL13"]=EL$pBRE13-EL$pBRL13
+EL["dpBRE13_pBRE14"]=EL$pBRE13-EL$pBRE14
+EL["dpBRL13_pBRE14"]=EL$pBRL13-EL$pBRE14
+EL["dpBRE_dpBRL"]=EL$pBRE-EL$pBRL
+EL["dpIME_dpIML"]=EL$pIME-EL$pIML
+EL["dpQE_dpQL"]=EL$pQE-EL$pQL
+
+EL["dpIME13_pQE13"]=EL$pIME13-EL$pQE13
+EL["dpIME13_pQL13"]=EL$pIME13-EL$pQL13
+EL["dpIME13_pQE14"]=EL$pIME13-EL$pQE14
+EL["dpIME13_pQL14"]=EL$pIME13-EL$pQL14
+EL["dpIME13_pBRE13"]=EL$pIME13-EL$pBRE13
+EL["dpIME13_pBRL13"]=EL$pIME13-EL$pBRL13
+EL["dpIME13_pBRE14"]=EL$pIME13-EL$pBRE14
+
+EL["dpIME14_pQE13"]=EL$pIME14-EL$pQE13
+EL["dpIME14_pQL13"]=EL$pIME14-EL$pQL13
+EL["dpIME14_pQE14"]=EL$pIME14-EL$pQE14
+EL["dpIME14_pQL14"]=EL$pIME14-EL$pQL14
+EL["dpIME14_pBRE13"]=EL$pIME14-EL$pBRE13
+EL["dpIME14_pBRL13"]=EL$pIME14-EL$pBRL13
+EL["dpIME14_pBRE14"]=EL$pIME14-EL$pBRE14
+
+EL["dpIML13_pQE13"]=EL$pIML13-EL$pQE13
+EL["dpIML13_pQL13"]=EL$pIML13-EL$pQL13
+EL["dpIML13_pQE14"]=EL$pIML13-EL$pQE14
+EL["dpIML13_pQL14"]=EL$pIML13-EL$pQL14
+EL["dpIML13_pBRE13"]=EL$pIML13-EL$pBRE13
+EL["dpIML13_pBRL13"]=EL$pIML13-EL$pBRL13
+EL["dpIML13_pBRE14"]=EL$pIML13-EL$pBRE14
+
+EL["dpIML14_pQE13"]=EL$pIML14-EL$pQE13
+EL["dpIML14_pQL13"]=EL$pIML14-EL$pQL13
+EL["dpIML14_pQE14"]=EL$pIML14-EL$pQE14
+EL["dpIML14_pQL14"]=EL$pIML14-EL$pQL14
+EL["dpIML14_pBRE13"]=EL$pIML14-EL$pBRE13
+EL["dpIML14_pBRL13"]=EL$pIML14-EL$pBRL13
+EL["dpIML14_pBRE14"]=EL$pIML14-EL$pBRE14
+
+EL["dpBRE13_pQE13"]=EL$pBRE13-EL$pQE13
+EL["dpBRE13_pQL13"]=EL$pBRE13-EL$pQL13
+EL["dpBRE13_pQE14"]=EL$pBRE13-EL$pQE14
+EL["dpBRE13_pQL14"]=EL$pBRE13-EL$pQL14
+
+EL["dpBRE14_pQE13"]=EL$pBRE14-EL$pQE13
+EL["dpBRE14_pQL13"]=EL$pBRE14-EL$pQL13
+EL["dpBRE14_pQE14"]=EL$pBRE14-EL$pQE14
+EL["dpBRE14_pQL14"]=EL$pBRE14-EL$pQL14
+
+EL["dpBRL13_pQE13"]=EL$pBRL13-EL$pQE13
+EL["dpBRL13_pQL13"]=EL$pBRL13-EL$pQL13
+EL["dpBRL13_pQE14"]=EL$pBRL13-EL$pQE14
+EL["dpBRL13_pQL14"]=EL$pBRL13-EL$pQL14
+
+
+
+
+
+
+#VENN DIAGRAMS
+EL.BF.vc=vennCounts(EL[,c("BRpol","IMpol","Qpol")])
+
+EL.BF.vc=vennCounts(EL[,c("BR13pol","IM13pol","Q13pol","BR14pol","IM14pol","Q14pol")])
+
+EL.BF.vc=vennCounts(EL.BulkFilt[,c("BRE13pol","IME13pol","QE13pol","BRL13pol","IML13pol","QL13pol","BRE14pol","IME14pol","QE14pol","IML14pol","QL14pol")])
+
+
+
+FINAL FORM FOR VARIANCE CALCULATION:
+
+EL["zbre14"]=(2*asin(EL$BRE14_R/EL$BRE14_T))^0.5
+
+EL["Z_BR13"]=(EL$zbre13-EL$zbrl13)
+EL["V_BR13"]=(((1/(EL$BRE13_R+EL$BRE13_A))+1/(EL$BRL13_R+EL$BRL13_A)))
+EL["Z_BRE"]=(EL$zbre14-EL$zbre13)
+EL["V_BRE"]=(((1/(EL$BRE14_R+EL$BRE14_A))+1/(EL$BRE13_R+EL$BRE13_A)))
+EL["Z_BREL"]=(EL$zbre14-EL$zbrl13)
+EL["V_BREL"]=(((1/(EL$BRE14_R+EL$BRE14_A))+1/(EL$BRL13_R+EL$BRL13_A)))
+
+min.cov=25
+max.cov=250
+p.min=0.05
+p.max=0.95
+
+
+#OR:  OTHER VERSION OF CALCULING VARIANCE USING IQR
+EL.BR1=EL[EL$pBR13 > p.min &EL$pBR13 < p.max & EL$BRE13_T > min.cov & EL$BRE13_T < max.cov & EL$BRL13_T > min.cov & EL$BRL13_T < max.cov,]
+vb12=(((quantile(EL.BR1$Z_BR13,0.25,na.rm=T) - quantile(EL.BR1$Z_BR13,0.75,na.rm=T))/1.349)^2)-mean(EL.BR1$V_BR13,na.rm=T)
+rm(EL.BR1)
+EL.BR2=EL[EL$pBRE > p.min &EL$pBRE < p.max & EL$BRE13_T > min.cov & EL$BRE13_T < max.cov & EL$BRE14_T > min.cov & EL$BRE14_T < max.cov,]
+vb13=(((quantile(EL.BR2$Z_BRE,0.25,na.rm=T) - quantile(EL.BR2$Z_BRE,0.75,na.rm=T))/1.349)^2)-mean(EL.BR2$V_BRE,na.rm=T)
+rm(EL.BR2)
+EL.BR3=EL[((EL$pBRL13 + EL$pBRE14)/2) > p.min & ((EL$pBRL13 + EL$pBRE14)/2) < p.max & EL$BRL13_T > min.cov & EL$BRL13_T < max.cov & EL$BRE14_T > min.cov & EL$BRE14_T < max.cov,]
+vb23=(((quantile(EL.BR3$Z_BREL,0.25,na.rm=T) - quantile(EL.BR3$Z_BREL,0.75,na.rm=T))/1.349)^2)-mean(EL.BR3$V_BREL,na.rm=T)
+rm(EL.BR3)
+
+
+cf0f1.br = vb13
+cf0s0.br = vb12
+cs0f1.br = vb23
+
+vbre13 = 1/2 * (cf0f1.br + cf0s0.br - cs0f1.br)
+vbre14 = 1/2 * (cf0f1.br - cf0s0.br + cs0f1.br)
+vbrl13 = 1/2 * (-cf0f1.br + cf0s0.br + cs0f1.br)
+
+NEW VARIANCE ESTIMATION METHOD:
+Python programs to jacknife contrast variances to determine their VarCovar matrix.
+
+IM:
+vcmat=cov(psu,use="complete.obs") #csv of psuedovalues calculated from jackknifed estimates
+M=matrix(c(1,1,1,0,0,0,1,0,0,1,1,0,0,1,0,1,0,1,0,0,1,0,1,1),nrow=6,ncol=4)
+##For min DP 10
+z=matrix(c(0.0168431334072,0.0196886050734,0.0261808415606,0.0257170951654,0.0286825903026,0.0308887462359),nrow=6,ncol=1) #Contrast vars calculated from Jacknife program
+##For min DP 25
+z=matrix(c(0.01851147326969735, 0.020959379533656612, 0.027083842287051525, 0.026592688560749395, 0.029434622813682122, 0.031259834484207286),nrow=6,ncol=1) #Contrast vars calculated from Jacknife program
+
+vars=solve(t(M)%*%solve(vcmat)%*%M)%*%t(M)%*%solve(vcmat)%*%z
+
+Q:
+vcmat.Q=cov(psu.Q,use="complete.obs") #csv of psuedovalues calculated from jackknifed estimates
+##For min DP 10
+z.Q=matrix(c(0.020885949978,0.0227838739841,0.0302754980172,0.029718133352,0.0326431112014,0.0349521637997),nrow=6,ncol=1)
+##For min DP 25
+z.Q=matrix(c(0.022285577710987693,0.023590016918129987,0.02969547257209769,0.02946807959641448,0.031671046381656756,0.033682885310882565
+),nrow=6,ncol=1)
+
+vars.Q=solve(t(M)%*%solve(vcmat.Q)%*%M)%*%t(M)%*%solve(vcmat.Q)%*%z.Q
+
+WINDOW ANALYSIS:
+b_skew=function(x){(quantile(x,0.75,na.rm=TRUE)+quantile(x,0.25,na.rm=TRUE)-2*quantile(x,0.50,na.rm=TRUE))/(quantile(x,0.75,na.rm=TRUE)-quantile(x,0.25,na.rm=TRUE))}
+
+
+COMBINED Analysis:
+
+EL["sBRE13_T"]=EL$BRE13_T/42
+EL["sBRL13_T"]=EL$BRL13_T/38
+EL["sIME13_T"]=EL$IME13_T/40
+EL["sIML13_T"]=EL$IML13_T/59
+EL["sIME14_T"]=EL$IME14_T/49
+EL["sIML14_T"]=EL$IML14_T/50
+EL["sQE13_T"]=EL$QE13_T/45
+EL["sQL13_T"]=EL$QL13_T/37
+EL["sQL14_T"]=EL$QL14_T/49
+EL["sQE14_T"]=EL$QE14_T/48
+
+EL.14=EL[EL$scaff=="sNNffold_1" | EL$scaff=="sNNffold_2" | EL$scaff=="sNNffold_3" | EL$scaff=="sNNffold_4" | EL$scaff=="sNNffold_5" | EL$scaff=="sNNffold_6" | EL$scaff=="sNNffold_7" | EL$scaff=="sNNffold_8" | EL$scaff=="sNNffold_9" | EL$scaff=="sNNffold_10" | EL$scaff=="sNNffold_11" | EL$scaff=="sNNffold_12" | EL$scaff=="sNNffold_13" | EL$scaff=="sNNffold_14" ,]
+EL.14$scaff=factor(EL.14$scaff,levels=c("sNNffold_1","sNNffold_2","sNNffold_3","sNNffold_4","sNNffold_5","sNNffold_6","sNNffold_7","sNNffold_8","sNNffold_9","sNNffold_10","sNNffold_11","sNNffold_12","sNNffold_13","sNNffold_14"))
+levels(EL.14$scaff)=c("1","2","3","4","5","6","7","8","9","10","11","12","13","14")
+P.plot=ggplot(EL.14[EL.14$sigP==1,],aes(x=pos/1000000,y=lrt_P))+geom_point(alpha=0.6)+facet_grid(~scaff,scale="free",space="free_x")+scale_x_continuous(breaks = seq(5, 20, by = 5))+xlab("Genomic Position (Mb)") +ylab(expression("LRT"["P"]))+theme_bw()
+Y.plot=ggplot(EL.14[EL.14$sigY==1,],aes(x=pos/1000000,y=lrt_Y))+geom_point(alpha=0.6)+facet_grid(~scaff,scale="free",space="free_x")+scale_x_continuous(breaks = seq(5, 20, by = 5)) +xlab("Genomic Position (Mb)")+ylab(expression("LRT"["Y"]))+theme_bw()
+B.plot=ggplot(EL.14[EL.14$sigB==1,],aes(x=pos/1000000,y=lrt_B))+geom_point(alpha=0.6)+facet_grid(~scaff,scale="free",space="free_x")+scale_x_continuous(breaks = seq(5, 20, by = 5)) +xlab("Genomic Position (Mb)")+ylab(expression("LRT"["B"]))+theme_bw()
+
+EL.14=EL[EL$scaff=="sNNffold_14",]
+EL.8=EL[EL$scaff=="sNNffold_8",]
+EL.10=EL[EL$scaff=="sNNffold_10",]
+EL.2=EL[EL$scaff=="sNNffold_2",]
+EL.14.R1 = EL.14[EL.14$pos > 18444914  & EL.14$pos < 18455157,]
+EL.14.R1 = EL.14[EL.14$pos > 18430914  & EL.14$pos < 18487157,]
+EL.2.R1=EL.2[EL.2$pos > 2340424 & EL.2$pos < 2340731,]
+EL.8.R1=EL.8[EL.8$pos > 23522451 & EL.8$pos <23522874,]
+EL.8.R2=EL.8[EL.8$pos > 23534999 & EL.8$pos <23535076,]
+EL.10.R1=EL.10[EL.10$pos > 652584 & EL.10$pos <= 652658 ,]
+
+EL.10.R1.IM=melt(EL.10.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.10.R1.Q=melt(EL.10.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.14.R1.IM=melt(EL.14.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.14.R1.Q=melt(EL.14.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.8.R2.IM=melt(EL.8.R2[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.8.R2.Q=melt(EL.8.R2[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.8.R1.IM=melt(EL.8.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.8.R1.Q=melt(EL.8.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+EL.2.R1.IM=melt(EL.2.R1[,c("scaff","pos","sIME13_T", "sIML13_T", "sIME14_T", "sIML14_T")],id.vars=c("scaff","pos"))
+EL.2.R1.Q=melt(EL.2.R1[,c("scaff","pos","sQE13_T", "sQL13_T", "sQE14_T", "sQL14_T")],id.vars=c("scaff","pos"))
+
+EL.10.R1.IM.p=melt(EL.10.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.10.R1.Q.p=melt(EL.10.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.14.R1.IM.p=melt(EL.14.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.14.R1.Q.p=melt(EL.14.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.8.R2.IM.p=melt(EL.8.R2[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.8.R2.Q.p=melt(EL.8.R2[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.8.R1.IM.p=melt(EL.8.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.8.R1.Q.p=melt(EL.8.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+EL.2.R1.IM.p=melt(EL.2.R1[,c("scaff","pos","pIME13", "pIML13", "pIME14", "pIML14")],id.vars=c("scaff","pos"))
+EL.2.R1.Q.p=melt(EL.2.R1[,c("scaff","pos","pQE13", "pQL13", "pQE14", "pQL14")],id.vars=c("scaff","pos"))
+
+EL.10.R1.IM.plot=ggplot(EL.10.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 10 R1")+ylab("Read Depth")
+EL.10.R1.Q.plot=ggplot(EL.10.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 10 R1")+ylab("Read Depth")
+EL.14.R1.IM.plot=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 14 R1")+ylab("Read Depth")
+EL.14.R1.Q.plot=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 14 R1")+ylab("Read Depth")
+EL.8.R2.IM.plot=ggplot(EL.8.R2.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R2")+ylab("Read Depth")
+EL.8.R2.Q.plot=ggplot(EL.8.R2.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R2")+ylab("Read Depth")
+EL.8.R1.IM.plot=ggplot(EL.8.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R1")+ylab("Read Depth")
+EL.8.R1.Q.plot=ggplot(EL.8.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R1")+ylab("Read Depth")
+EL.2.R1.IM.plot=ggplot(EL.2.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 2 R1")+ylab("Read Depth")
+EL.2.R1.Q.plot=ggplot(EL.2.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 2 R1")+ylab("Read Depth")
+
+EL.10.R1.IMp.plot=ggplot(EL.10.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 10 R1")+ylab("Ref Freq")
+EL.10.R1.Qp.plot=ggplot(EL.10.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 10 R1")+ylab("Ref Freq")
+EL.14.R1.IMp.plot=ggplot(EL.14.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 14 R1")+ylab("Ref Freq")
+EL.14.R1.Qp.plot=ggplot(EL.14.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 14 R1")+ylab("Ref Freq")
+EL.8.R2.IMp.plot=ggplot(EL.8.R2.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R2.Qp.plot=ggplot(EL.8.R2.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R1.IMp.plot=ggplot(EL.8.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 8 R1")+ylab("Ref Freq")
+EL.8.R1.Qp.plot=ggplot(EL.8.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 8 R1")+ylab("Ref Freq")
+EL.2.R1.IMp.plot=ggplot(EL.2.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("IM -- LG 2 R1")+ylab("Ref Freq")
+EL.2.R1.Qp.plot=ggplot(EL.2.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Q -- LG 2 R1")+ylab("Ref Freq")
+
+EL.10.R1.IM.plot2=ggplot(EL.10.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 10 R1")+ylab("Read Depth")
+EL.10.R1.Q.plot2=ggplot(EL.10.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 10 R1")+ylab("Read Depth")
+EL.14.R1.IM.plot2=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 14 R1")+ylab("Read Depth")
+EL.14.R1.Q.plot2=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 14 R1")+ylab("Read Depth")
+EL.8.R2.IM.plot2=ggplot(EL.8.R2.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R2")+ylab("Read Depth")
+EL.8.R2.Q.plot2=ggplot(EL.8.R2.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R2")+ylab("Read Depth")
+EL.8.R1.IM.plot2=ggplot(EL.8.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R1")+ylab("Read Depth")
+EL.8.R1.Q.plot2=ggplot(EL.8.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R1")+ylab("Read Depth")
+EL.2.R1.IM.plot2=ggplot(EL.2.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 2 R1")+ylab("Read Depth")
+EL.2.R1.Q.plot2=ggplot(EL.2.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 2 R1")+ylab("Read Depth")
+
+EL.10.R1.IMp.plot2=ggplot(EL.10.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 10 R1")+ylab("Ref Freq")
+EL.10.R1.Qp.plot2=ggplot(EL.10.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 10 R1")+ylab("Ref Freq")
+EL.14.R1.IMp.plot2=ggplot(EL.14.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 14 R1")+ylab("Ref Freq")
+EL.14.R1.Qp.plot2=ggplot(EL.14.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 14 R1")+ylab("Ref Freq")
+EL.8.R2.IMp.plot2=ggplot(EL.8.R2.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R2.Qp.plot2=ggplot(EL.8.R2.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R2")+ylab("Ref Freq")
+EL.8.R1.IMp.plot2=ggplot(EL.8.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 8 R1")+ylab("Ref Freq")
+EL.8.R1.Qp.plot2=ggplot(EL.8.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 8 R1")+ylab("Ref Freq")
+EL.2.R1.IMp.plot2=ggplot(EL.2.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("IM -- LG 2 R1")+ylab("Ref Freq")
+EL.2.R1.Qp.plot2=ggplot(EL.2.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_point()+ggtitle("Q -- LG 2 R1")+ylab("Ref Freq")
+
+colMeans(EL.14.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.2.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.8.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.8.R2[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+colMeans(EL.10.R1[,c("BRE13_R", "BRE13_A", "BRL13_R", "BRL13_A", "BRE14_R", "BRE14_A", "IME13_R", "IME13_A", "IML13_R", "IML13_A", "IME14_R", "IME14_A", "IML14_R", "IML14_A", "QE13_R", "QE13_A", "QL13_R", "QL13_A", "QE14_R", "QE14_A", "QL14_R", "QL14_A","BRE13_T", "BRL13_T", "BRE14_T", "IME13_T", "IML13_T", "IME14_T", "IML14_T","QE13_T", "QL13_T", "QL14_T", "QE14_T")]) 
+
+EL.14.R1.IM.plot=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Iron Mountain")+ylab("Read Depth")+xlab("Position")+theme(axis.title.x=element_blank(),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))+ylim(c(0,7))
+EL.14.R1.Q.plot=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Quarry")+ylab("Read Depth")+xlab("Position")+theme(axis.title.x=element_blank(),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),plot.title=element_text(size=24), legend.title=element_text(size=24),legend.text=element_text(size=20),legend.key.size =  unit(0.5, "in"))+labs(color="Bulk")+scale_color_discrete(breaks=c("sQE13_T", "sQL13_T", "sQE14_T","sQL14_T"),labels=c("Early 2013", "Late 2013", "Early 2014", "Late 2014"))+scale_x_continuous(labels=c("18.445","","","","18.455"))+ylim(c(1,7))
+EL.14.R1.IMp.plot=ggplot(EL.14.R1.IM.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ylab("Ref Freq")+xlab("Position (Mb)")+theme(axis.title.x=element_text(size=24),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))
+EL.14.R1.Qp.plot=ggplot(EL.14.R1.Q.p,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ylab("Ref Freq")+xlab("Position (Mb)")+theme(axis.title.x=element_text(size=24),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))
+EL.14.R1.Q.plot.nonlegend=ggplot(EL.14.R1.Q,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ggtitle("Quarry")+ylab("Read Depth")+xlab("Position (Mb)")+theme(axis.title.x=element_text(size=24),axis.title.y=element_text(size=24),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18),legend.position="none",plot.title=element_text(size=24))+scale_x_continuous(labels=c("18.445","","","","18.455"))+ylim(c(0,7))
+
+EL.14.R1.IM.plot=ggplot(EL.14.R1.IM,aes(x=pos/1000000,y=value,color=variable))+geom_smooth(se=F)+ylab("Read Depth")+xlab("Position")+theme(axis.title.x=element_text(size=22),axis.title.y=element_text(size=22),axis.text.x = element_text(size=18),axis.text.y=element_text(size=18), legend.title=element_text(size=22),legend.text=element_text(color=18),legend.key.size =  unit(0.4, "in"))+labs(color="Bulk")+ylim(c(0,7))+scale_color_discrete(breaks=c("sIME13_T", "sIML13_T", "sIME14_T","sIML14_T"),labels=c("Early 2013", "Late 2013", "Early 2014", "Late 2014"))+theme_bw()
+
+grid.arrange(EL.10.R1.IM.plot,EL.10.R1.Q.plot,EL.14.R1.IM.plot,EL.14.R1.Q.plot,EL.8.R2.IM.plot,EL.8.R2.Q.plot,EL.8.R1.IM.plot,EL.8.R1.Q.plot,EL.2.R1.IM.plot,EL.2.R1.Q.plot,ncol=4)
+
+
+PBY_test_Venn:
+grid.newpage()
+  venn.plot <- draw.triple.venn(area1    = nrow(EL[EL$sigB==1 & !is.na(EL$sigB) & !is.na(EL$sigP) & !is.na(EL$sigY),]),
+                                area2    = nrow(EL[EL$sigP==1 & !is.na(EL$sigB) & !is.na(EL$sigP) & !is.na(EL$sigY),]),
+                                area3    = nrow(EL[EL$sigY==1 & !is.na(EL$sigB) & !is.na(EL$sigP) & !is.na(EL$sigY),]),
+                                n12      = nrow(EL[EL$sigB==1 & EL$sigP==1 & !is.na(EL$sigB) & !is.na(EL$sigP) & !is.na(EL$sigY),]),
+                                n23      = nrow(EL[EL$sigP==1 & EL$sigY==1 & !is.na(EL$sigB) & !is.na(EL$sigP) & !is.na(EL$sigY),]),
+                                n13      = nrow(EL[EL$sigB==1 & EL$sigY==1 & !is.na(EL$sigB) & !is.na(EL$sigP) & !is.na(EL$sigY),]),
+                                n123     = nrow(EL[EL$sigB==1 & EL$sigP==1 & EL$sigY==1 & !is.na(EL$sigB) & !is.na(EL$sigP) & !is.na(EL$sigY),]),
+                                category = c("Bulk","Pop","Year"),
+                                cat.pos  = c(320, 20, 160),
+                                cat.dist = c(0.05, 0.05, 0.05),
+                                fill     = c("yellow", "grey", "purple"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 2,
+                                cat.cex  = 2,
+                                cat.col  = c("yellow", "grey", "purple"))
+  grid.draw(venn.plot)
+
+
+
+
+PER POP Analysis SNPs:
+#With just sig SNPs.
+EL.14=EL.sig[EL.sig$scaff=="sNNffold_1" | EL.sig$scaff=="sNNffold_2" | EL.sig$scaff=="sNNffold_3" | EL.sig$scaff=="sNNffold_4" | EL.sig$scaff=="sNNffold_5" | EL.sig$scaff=="sNNffold_6" | EL.sig$scaff=="sNNffold_7" | EL.sig$scaff=="sNNffold_8" | EL.sig$scaff=="sNNffold_9" | EL.sig$scaff=="sNNffold_10" | EL.sig$scaff=="sNNffold_11" | EL.sig$scaff=="sNNffold_12" | EL.sig$scaff=="sNNffold_13" | EL.sig$scaff=="sNNffold_14" ,]
+EL.14$scaff=factor(EL.14$scaff,levels=c("sNNffold_1","sNNffold_2","sNNffold_3","sNNffold_4","sNNffold_5","sNNffold_6","sNNffold_7","sNNffold_8","sNNffold_9","sNNffold_10","sNNffold_11","sNNffold_12","sNNffold_13","sNNffold_14"))
+levels(EL.14$scaff)=c("1","2","3","4","5","6","7","8","9","10","11","12","13","14")
+
+Q.B=EL.14[EL.14$sigBq>0 & !is.na(EL.14$sigBq),]
+IM.B=EL.14[EL.14$sigBim>0 & !is.na(EL.14$sigBim),]
+BR.B=EL.14[EL.14$sigBbr>0 & !is.na(EL.14$sigBbr),]
+Q.Y=EL.14[EL.14$sigYq>0,]
+IM.Y=EL.14[EL.14$sigYim>0,]
+Q.YCB=EL.14[EL.14$sigYCBq>0,]
+IM.YCB=EL.14[EL.14$sigYCBim>0,]
+
+Q.B["pop"]="Q"
+IM.B["pop"]="IM"
+BR.B["pop"]="BR"
+Q.Y["pop"]="Q"
+IM.Y["pop"]="IM"
+Q.YCB["pop"]="Q"
+IM.YCB["pop"]="IM"
+
+colnames(BR.Y)[25]="lrt_Y"
+colnames(IM.Y)[31]="lrt_Y"
+colnames(Q.Y)[37]="lrt_Y"
+colnames(BR.B)[28]="lrt_B"
+colnames(IM.B)[34]="lrt_B"
+colnames(Q.B)[40]="lrt_B"
+colnames(IM.YCB)[43]="lrt_YCB"
+colnames(Q.YCB)[46]="lrt_YCB"
+
+colnames(BR.Y)[27]="p_Y"
+colnames(IM.Y)[33]="p_Y"
+colnames(Q.Y)[39]="p_Y"
+colnames(BR.B)[30]="p_B"
+colnames(IM.B)[36]="p_B"
+colnames(Q.B)[42]="p_B"
+colnames(IM.YCB)[45]="p_YCB"
+colnames(Q.YCB)[48]="p_YCB"
+
+Y.14=smartbind(IM.Y,Q.Y)
+B.14=smartbind(BR.B,IM.B,Q.B)
+YCB.14=smartbind(IM.YCB,Q.YCB)
+YCB.14["neglogp"]=-log10(YCB.14$p_YCB)
+Y.14["neglogp"]=-log10(Y.14$p_Y)
+B.14["neglogp"]=-log10(B.14$p_B)
+
+B.plot=ggplot(data=B.14,aes(y=lrt_B,x=pos/1000000,color=pop))+geom_point(aes(color=factor(pop,labels=c("Q"))),subset = .(pop == "Q"))+geom_point(aes(y=lrt_B,x=pos/1000000,color=factor(pop,labels=c("BR","IM")),alpha=0.8),subset = .(pop != "Q"))+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression("LRT"["B"]))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+Y.plot=ggplot(data=Y.14,aes(y=lrt_Y,x=pos/1000000,color=pop))+geom_point(aes(color=factor(pop,labels=c("Q"))),subset = .(pop == "Q"))+geom_point(aes(y=lrt_Y,x=pos/1000000,color=factor(pop,labels=c("BR","IM")),alpha=0.8),subset = .(pop != "Q"))+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression("LRT"["Y"]))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+YCB.plot=ggplot(data=YCB.14,aes(y=lrt_YCB,x=pos/1000000,color=pop))+geom_point(alpha=0.5)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("green","blue"))+ylab(expression("LRT"["YCB"]))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+
+B.plot.nonlegend=ggplot(data=B.14,aes(y=lrt_B,x=pos/1000000,color=pop))+geom_point(data=B.14[B.14$pop=="Q",],aes(color=factor(pop,labels=c("Q")),shape=factor(sigYCBq)),alpha=0.6)+geom_point(data=B.14[B.14$pop=="IM" | B.14$pop=="BR",],aes(y=lrt_B,x=pos/1000000,color=factor(pop,labels=c("BR","IM")),shape=factor(sigYCBim)),alpha=0.9)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression("LRT"["B"]))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_blank(),legend.position="none")+theme_bw()
+
+B.plot=ggplot(data=B.14,aes(y=neglogp,x=pos/1000000,color=pop))+geom_point(aes(color=factor(pop,labels=c("Q"))),subset = .(pop == "Q"))+geom_point(aes(y=neglogp,x=pos/1000000,color=factor(pop,labels=c("BR","IM")),alpha=0.8),subset = .(pop != "Q"))+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression("Divergence b/n Early and Late"))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+Y.plot=ggplot(data=Y.14,aes(y=neglogp,x=pos/1000000,color=pop))+geom_point(aes(color=factor(pop,labels=c("Q"))),subset = .(pop == "Q"))+geom_point(aes(y=neglogp,x=pos/1000000,color=factor(pop,labels=c("BR","IM")),alpha=0.8),subset = .(pop != "Q"))+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression("Divergence across years"))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+YCB.plot=ggplot(data=YCB.14,aes(y=neglogp,x=pos/1000000,color=pop))+geom_point(alpha=0.5)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("green","blue"))+ylab(expression("Year-Bulk interaction"))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+
+B.plot.nonlegend=ggplot(data=B.14,aes(y=neglogp,x=pos/1000000,color=pop))+geom_point(data=B.14[B.14$pop=="Q",],aes(color=factor(pop,labels=c("Q")),shape=factor(sigYCBq)),alpha=0.6)+geom_point(data=B.14[B.14$pop=="IM" | B.14$pop=="BR",],aes(y=neglogp,x=pos/1000000,color=factor(pop,labels=c("BR","IM")),shape=factor(sigYCBim)),alpha=0.9)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression(paste("-log"["10"],"(p)")))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_blank(),legend.position="none")+theme_bw()
+
+##These should only consider sites that have sufficient coverage in each population.
+Sites Venn:
+grid.newpage()
+  venn.plot <- draw.triple.venn(area1    = nrow(EL.sig[EL.sig$sigBim==1 & !is.na(EL.sig$sigBbr) & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBim),]),
+                                area2    = nrow(EL.sig[EL.sig$sigBq==1 & !is.na(EL.sig$sigBbr) & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq),]),
+                                area3    = nrow(EL.sig[EL.sig$sigBbr==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                n12      = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBq==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                n23      = nrow(EL.sig[EL.sig$sigBq==1 & EL.sig$sigBbr==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                n13      = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBbr==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                n123     = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBq==1 & EL.sig$sigBbr==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                category = c("IM","Q","BR"),
+                                cat.pos  = c(200, 0, 160),
+                                cat.dist = c(0.05, 0.05, 0.05),
+                                fill     = c("green", "blue", "red"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 2,
+                                cat.cex  = 2,
+                                cat.col  = c("green", "blue", "red"))
+  grid.draw(venn.plot)
+
+grid.newpage()
+  venn.plot <- draw.triple.venn(area1    = nrow(EL.sig[EL.sig$sigBim==1 & !is.na(EL.sig$sigBim),]),
+                                area2    = nrow(EL.sig[EL.sig$sigBq==1  & !is.na(EL.sig$sigBq),]),
+                                area3    = nrow(EL.sig[EL.sig$sigBbr==1 & !is.na(EL.sig$sigBbr),]),
+                                n12      = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBq==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq),]),
+                                n23      = nrow(EL.sig[EL.sig$sigBq==1 & EL.sig$sigBbr==1 & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                n13      = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBbr==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBbr),]),
+                                n123     = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBq==1 & EL.sig$sigBbr==1 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                category = c("IM","Q","BR"),
+                                cat.pos  = c(200, 0, 160),
+                                cat.dist = c(0.05, 0.05, 0.05),
+                                fill     = c("green", "blue", "red"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 2,
+                                cat.cex  = 2,
+                                cat.col  = c("green", "blue", "red"))
+  grid.draw(venn.plot)
+
+##BETTER VERSION
+grid.newpage()
+  venn.plot <- draw.triple.venn(area1    = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$BRE13_T > 25 & EL.sig$BRL13_T & EL.sig$QE13_T > 25 & EL.sig$QL13_T > 25 & EL.sig$IME13_T > 25 & EL.sig$IML13_T > 25 & !is.na(EL.sig$sigBim),]),
+                                area2    = nrow(EL.sig[EL.sig$sigBq==1 & EL.sig$BRE13_T > 25 & EL.sig$BRL13_T & EL.sig$QE13_T > 25 & EL.sig$QL13_T > 25 & EL.sig$IME13_T > 25 & EL.sig$IML13_T > 25 & !is.na(EL.sig$sigBq),]),
+                                area3    = nrow(EL.sig[EL.sig$sigBbr==1 & EL.sig$BRE13_T > 25 & EL.sig$BRL13_T & EL.sig$QE13_T > 25 & EL.sig$QL13_T > 25 & EL.sig$IME13_T > 25 & EL.sig$IML13_T > 25 & !is.na(EL.sig$sigBbr),]),
+                                n12      = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBq==1 & EL.sig$BRE13_T > 25 & EL.sig$BRL13_T & EL.sig$QE13_T > 25 & EL.sig$QL13_T > 25 & EL.sig$IME13_T > 25 & EL.sig$IML13_T > 25 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBq),]),
+                                n23      = nrow(EL.sig[EL.sig$sigBq==1 & EL.sig$sigBbr==1 & EL.sig$BRE13_T > 25 & EL.sig$BRL13_T & EL.sig$QE13_T > 25 & EL.sig$QL13_T > 25 & EL.sig$IME13_T > 25 & EL.sig$IML13_T > 25 & !is.na(EL.sig$sigBq) & !is.na(EL.sig$sigBbr),]),
+                                n13      = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBbr==1 & EL.sig$BRE13_T > 25 & EL.sig$BRL13_T & EL.sig$QE13_T > 25 & EL.sig$QL13_T > 25 & EL.sig$IME13_T > 25 & EL.sig$IML13_T > 25 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBbr),]),
+                                n123     = nrow(EL.sig[EL.sig$sigBim==1 & EL.sig$sigBq==1 & EL.sig$sigBbr==1 & EL.sig$BRE13_T > 25 & EL.sig$BRL13_T & EL.sig$QE13_T > 25 & EL.sig$QL13_T > 25 & EL.sig$IME13_T > 25 & EL.sig$IML13_T > 25 & !is.na(EL.sig$sigBim) & !is.na(EL.sig$sigBbr) & !is.na(EL.sig$sigBq),]),
+                                category = c("IM","Q","BR"),
+                                cat.pos  = c(200, 0, 160),
+                                cat.dist = c(0.05, 0.05, 0.05),
+                                fill     = c("green", "blue", "red"),
+                                alpha    = 0.3,
+                                lty      = "blank",
+                                cex      = 2,
+                                cat.cex  = 2,
+                                cat.col  = c("green", "blue", "red"))
+  grid.draw(venn.plot)
+
+
+3MB windows Venn:
+grid.newpage()
+MB.venn <- draw.triple.venn(area1    = nrow(MB[MB$sigBim==1 & !is.na(MB$sigBbr) & !is.na(MB$sigBq),]),
+                                area2    = nrow(MB[MB$sigBq==1 & !is.na(MB$sigBbr) & !is.na(MB$sigBim),]),
+                                area3    = nrow(MB[MB$sigBbr==1 & !is.na(MB$sigBim) & !is.na(MB$sigBq),]),
+                                n12      = nrow(MB[MB$sigBim==1 & MB$sigBq==1 & !is.na(MB$sigBbr) & !is.na(MB$sigBim) & !is.na(MB$sigBq),]),
+                                n23      = nrow(MB[MB$sigBq==1 & MB$sigBbr==1 & !is.na(MB$sigBim) & !is.na(MB$sigBq) & !is.na(MB$sigBbr),]),
+                                n13      = nrow(MB[MB$sigBim==1 & MB$sigBbr==1 & !is.na(MB$sigBq) & !is.na(MB$sigBim) & !is.na(MB$sigBbr),]),
+                                n123     = nrow(MB[MB$sigBim==1 & MB$sigBq==1 & MB$sigBbr==1 & !is.na(MB$sigBim) & !is.na(MB$sigBq) & !is.na(MB$sigBbr),]),
+                               category = c("IM","Q","BR"),
+                               cat.pos  = c(200, 160, 0),
+                               cat.dist = c(0.05, 0.05, 0.05),
+                               fill     = c("green", "blue", "red"),
+                               alpha    = 0.3,
+                               lty      = "blank",
+                               cex      = 2,
+                               cat.cex  = 2,
+                               cat.col  = c("green", "blue", "red"))
+grid.draw(MB.venn)
+
+1MB windows Venn:
+grid.newpage()
+MB2.venn <- draw.triple.venn(area1    = nrow(MB2[MB2$sigBim==1 & !is.na(MB2$sigBbr) & !is.na(MB2$sigBq),]),
+                                area2    = nrow(MB2[MB2$sigBq==1 & !is.na(MB2$sigBbr) & !is.na(MB2$sigBim),]),
+                                area3    = nrow(MB2[MB2$sigBbr==1 & !is.na(MB2$sigBim) & !is.na(MB2$sigBq),]),
+                                n12      = nrow(MB2[MB2$sigBim==1 & MB2$sigBq==1 & !is.na(MB2$sigBbr) & !is.na(MB2$sigBim) & !is.na(MB2$sigBq),]),
+                                n23      = nrow(MB2[MB2$sigBq==1 & MB2$sigBbr==1 & !is.na(MB2$sigBim) & !is.na(MB2$sigBq) & !is.na(MB2$sigBbr),]),
+                                n13      = nrow(MB2[MB2$sigBim==1 & MB2$sigBbr==1 & !is.na(MB2$sigBq) & !is.na(MB2$sigBim) & !is.na(MB2$sigBbr),]),
+                                n123     = nrow(MB2[MB2$sigBim==1 & MB2$sigBq==1 & MB2$sigBbr==1 & !is.na(MB2$sigBim) & !is.na(MB2$sigBq) & !is.na(MB2$sigBbr),]),
+                               category = c("IM","Q","BR"),
+                               cat.pos  = c(200, 160, 0),
+                               cat.dist = c(0.05, 0.05, 0.05),
+                               fill     = c("green", "blue", "red"),
+                               alpha    = 0.3,
+                               lty      = "blank",
+                               cex      = 2,
+                               cat.cex  = 2,
+                               cat.col  = c("green", "blue", "red"))
+grid.draw(MB2.venn)
+
+
+30kb windows Venn:
+grid.newpage()
+kb.venn <- draw.triple.venn(area1    = nrow(kb[kb$sigBim==1 & !is.na(kb$sigBim) & !is.na(kb$sigBq) & !is.na(kb$sigBbr),]),
+                                area2    = nrow(kb[kb$sigBq==1 & !is.na(kb$sigBim) & !is.na(kb$sigBq) & !is.na(kb$sigBbr),]),
+                                area3    = nrow(kb[kb$sigBbr==1 & !is.na(kb$sigBim) & !is.na(kb$sigBq) & !is.na(kb$sigBbr),]),
+                                n12      = nrow(kb[kb$sigBim==1 & kb$sigBq==1 & !is.na(kb$sigBim) & !is.na(kb$sigBq) & !is.na(kb$sigBbr),]),
+                                n23      = nrow(kb[kb$sigBq==1 & kb$sigBbr==1 & !is.na(kb$sigBim) & !is.na(kb$sigBq) & !is.na(kb$sigBbr),]),
+                                n13      = nrow(kb[kb$sigBim==1 & kb$sigBbr==1 & !is.na(kb$sigBq) & !is.na(kb$sigBim) & !is.na(kb$sigBbr),]),
+                                n123     = nrow(kb[kb$sigBim==1 & kb$sigBq==1 & kb$sigBbr==1 & !is.na(kb$sigBim) & !is.na(kb$sigBq) & !is.na(kb$sigBbr),]),
+                               category = c("IM","Q","BR"),
+                               cat.pos  = c(200, 160, 0),
+                               cat.dist = c(0.05, 0.05, 0.05),
+                               fill     = c("green", "blue", "red"),
+                               alpha    = 0.3,
+                               lty      = "blank",
+                               cex      = 2,
+                               cat.cex  = 2,
+                               cat.col  = c("green", "blue", "red"))
+grid.draw(kb.venn)
+#B.plot=ggplot(data=B.14,aes(y=lrt_B,x=pos/1000000,color=pop))+geom_point(alpha=0.3)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression("LRT"["B"]))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+#Y.plot=ggplot(data=Y.14,aes(y=lrt_Y,x=pos/1000000,color=pop))+geom_point(alpha=0.3)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("red","green","blue"))+ylab(expression("LRT"["Y"]))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+#YCB.plot=ggplot(data=YCB.14,aes(y=lrt_YCB,x=pos/1000000,color=pop))+geom_point(alpha=0.4)+facet_grid(~scaff,scale="free",space="free_x")+scale_colour_manual(values=c("green","blue"))+ylab(expression("LRT"["YCB"]))+xlab("Genomic Position (Mb)")+labs(color="Population")+scale_x_continuous(breaks = seq(5, 20, by = 5))+theme_bw()
+
+#With all tests...sig and nonsig.
+EL=smartbind(EL.sig,EL.non)
+split -b 1000m EL_Likelihoods_PerPop_20151011-1619_nonsig.csv 
+
+EL.nonSample=EL.non[sample(nrow(EL.non),size=1000000,replace=F),]
+
+Q.B=EL[EL$df_B_q>0,]
+IM.B=EL[EL$df_B_im>0,]
+BR.B=EL[EL$df_B_br>0,]
+Q.Y=EL[EL$df_Y_q>0,]
+IM.Y=EL[EL$df_Y_im>0,]
+BR.Y=EL[EL$df_Y_br>0,]
+Q.YCB=EL[EL$df_YCB_q>0,]
+IM.YCB=EL[EL$df_YCB_im>0,]
+
+IM.B["p13IM.PF"]=(IM.B$IME13_T > 25 & IM.B$IML13_T > 25)*1
+IM.B["p14IM.PF"]=(IM.B$IME14_T > 25 & IM.B$IML14_T > 25)*1
+IM.B["pL14.IM"]=IM.B$IML14_R/(IM.B$IML14_R + IM.B$IML14_A)
+IM.B["pE14.IM"]=IM.B$IME14_R/(IM.B$IME14_R + IM.B$IME14_A)
+IM.B["pE13.IM"]=IM.B$IME13_R/(IM.B$IME13_R + IM.B$IME13_A)
+IM.B["pL13.IM"]=IM.B$IML13_R/(IM.B$IML13_R + IM.B$IML13_A)
+IM.B["pE.IM"]=((IM.B$pE13.IM * IM.B$p13IM.PF) + (IM.B$pE14.IM * IM.B$p14IM.PF))/(IM.B$p13IM.PF + IM.B$p14IM.PF)
+IM.B["pL.IM"]=((IM.B$pL13.IM * IM.B$p13IM.PF) + (IM.B$pL14.IM * IM.B$p14IM.PF))/(IM.B$p13IM.PF + IM.B$p14IM.PF)
+
+Q.B["p13Q.PF"]=(Q.B$QE13_T > 25 & Q.B$QL13_T > 25)*1
+Q.B["p14Q.PF"]=(Q.B$QE14_T > 25 & Q.B$QL14_T > 25)*1
+Q.B["pL14.Q"]=Q.B$QL14_R/(Q.B$QL14_R + Q.B$QL14_A)
+Q.B["pE14.Q"]=Q.B$QE14_R/(Q.B$QE14_R + Q.B$QE14_A)
+Q.B["pE13.Q"]=Q.B$QE13_R/(Q.B$QE13_R + Q.B$QE13_A)
+Q.B["pL13.Q"]=Q.B$QL13_R/(Q.B$QL13_R + Q.B$QL13_A)
+Q.B["pE.Q"]=((Q.B$pE13.Q * Q.B$p13Q.PF) + (Q.B$pE14.Q * Q.B$p14Q.PF))/(Q.B$p13Q.PF + Q.B$p14Q.PF)
+Q.B["pL.Q"]=((Q.B$pL13.Q * Q.B$p13Q.PF) + (Q.B$pL14.Q * Q.B$p14Q.PF))/(Q.B$p13Q.PF + Q.B$p14Q.PF)
+
+BR.B["p13BR.PF"]=(BR.B$BRE13_T > 25 & BR.B$BRL13_T > 25)*1
+BR.B["pE13.BR"]=BR.B$BRE13_R/(BR.B$BRE13_R + BR.B$BRE13_A)
+BR.B["pL13.BR"]=BR.B$BRL13_R/(BR.B$BRL13_R + BR.B$BRL13_A)
+BR.B["pE.BR"]=(BR.B$pE13.BR * BR.B$p13BR.PF)/(BR.B$p13BR.PF)
+BR.B["pL.BR"]=BR.B$pL13.BR
+
+IM.B["dp14.IM"]=IM.B$pE14.IM-IM.B$pL14.IM
+IM.B["dp13.IM"]=IM.B$pE13.IM-IM.B$pL13.IM
+IM.B["dp.IM"]=IM.B$pE.IM-IM.B$pL.IM
+Q.B["dp14.Q"]=Q.B$pE14.Q-Q.B$pL14.Q
+Q.B["dp13.Q"]=Q.B$pE13.Q-Q.B$pL13.Q
+Q.B["dp.Q"]=Q.B$pE.Q-Q.B$pL.Q
+BR.B["dp13.BR"]=BR.B$pE13.BR-BR.B$pL13.BR
+BR.B["dp.BR"]=BR.B$pE.BR-BR.B$pL.BR
+
+IM.B.1=merge(IM.B,Q.B[,c("dp14.Q","dp13.Q","dp.Q","pos","scaff")],by=c("scaff","pos"),all.x=TRUE)
+IM.B.m=merge(IM.B.1,BR.B[,c("dp13.BR","dp.BR","pos","scaff")],by=c("scaff","pos"),all.x=TRUE)
+rm(IM.B.1)
+Q.B.1=merge(Q.B,IM.B[,c("dp14.IM","dp13.IM","dp.IM","pos","scaff")],by=c("scaff","pos"),all.x=TRUE)
+Q.B.m=merge(Q.B.1,BR.B[,c("dp13.BR","dp.BR","pos","scaff")],by=c("scaff","pos"),all.x=TRUE)
+rm(Q.B.1)
+
+Q.IM.dp.plot=ggplot(data=Q.B.m,aes(y=dp.IM,x=dp.Q,color=factor(sigBq,labels=c("No","Yes"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m.filt$sigBim),],aes(color=factor(sigBq,labels=c("No"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m.filt$sigBim),],aes(y=dp.IM,x=dp.Q,color=factor(sigBq,labels=c("Yes"))))+geom_smooth(method=lm,se=FALSE,color="black")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("IM ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+Q.BR.dp.plot=ggplot(data=Q.B.m,aes(y=dp13.BR,x=dp13.Q,color=factor(sigBq,labels=c("No","Yes"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m.filt$sigBbr),],aes(color=factor(sigBq,labels=c("No"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.Q,color=factor(sigBq,labels=c("Yes"))))+geom_smooth(method=lm,se=FALSE,color="black")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("BR ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+IM.Q.dp.plot=ggplot(data=IM.B.m,aes(y=dp.Q,x=dp.IM,color=factor(sigBim,labels=c("No","Yes"))))+geom_point(data=IM.B.m[IM.B.m$sigBim==0,],aes(color=factor(sigBim,labels=c("No"))))+geom_point(data=IM.B.m[IM.B.m$sigBim==1,],aes(y=dp.Q,x=dp.IM,color=factor(sigBim,labels=c("Yes"))))+geom_smooth(method=lm,se=FALSE,color="black")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+IM.BR.dp.plot=ggplot(data=IM.B.m,aes(y=dp13.BR,x=dp13.IM,color=factor(sigBim,labels=c("No","Yes"))))+geom_point(data=IM.B.m[IM.B.m$sigBim==0 & !is.na(IM.B.m.filt$sigBbr),],aes(color=factor(sigBim,labels=c("No"))))+geom_point(data=IM.B.m[IM.B.m$sigBim==1 & !is.na(IM.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.IM,color=factor(sigBim,labels=c("Yes"))))+geom_smooth(method=lm,se=FALSE,color="black")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("BR ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+Q.IM.dp.plot13=ggplot(data=Q.B.m,aes(y=dp13.IM,x=dp13.Q,color=factor(sigBq,labels=c("No","Yes"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m.filt$sigBim),],aes(color=factor(sigBq,labels=c("No"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m.filt$sigBim),],aes(y=dp13.IM,x=dp13.Q,color=factor(sigBq,labels=c("Yes"))))+geom_smooth(method=lm,se=FALSE,color="black")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("IM ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+IM.BR.dp.plot=ggplot(data=IM.B.m,aes(y=dp13.BR,x=dp13.IM,color=factor(sigBim,labels=c("No","Yes"))))+geom_point(data=IM.B.m[IM.B.m$sigBim==0 & !is.na(IM.B.m.filt$sigBbr),],aes(color=factor(sigBim,labels=c("No"))))+geom_point(data=IM.B.m[IM.B.m$sigBim==1 & !is.na(IM.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.IM,color=factor(sigBim,labels=c("Yes"))))+geom_smooth(method=lm,se=FALSE,color="black")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("BR ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+Q.BR.dp.plot=ggplot(data=Q.B.m,aes(y=dp13.BR,x=dp13.Q,color=factor(sigBq,labels=c("No","Yes"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m.filt$sigBbr),],aes(color=factor(sigBq,labels=c("No"))))+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.Q,color=factor(sigBq,labels=c("Yes"))))+geom_smooth(method=lm,se=FALSE,color="black")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("BR ",Delta,"p")))+scale_colour_manual(values=c("grey","red"))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+#filtered out CNV regions
+rn10=rownames(IM.B.m[IM.B.m$scaff=="sNNffold_10" & IM.B.m$pos > 652584 & IM.B.m$pos <= 652658,])
+rn8.2=rownames(IM.B.m[IM.B.m$scaff=="sNNffold_8" & IM.B.m$pos > 23534999 & IM.B.m$pos < 23535076,])
+rn8.1=rownames(IM.B.m[IM.B.m$scaff=="sNNffold_8" & IM.B.m$pos > 23522451 & IM.B.m$pos < 23522874,])
+rn2=rownames(IM.B.m[IM.B.m$scaff=="sNNffold_2" & IM.B.m$pos > 2340424 & IM.B.m$pos < 2340731,])
+rn14=rownames(IM.B.m[IM.B.m$scaff=="sNNffold_14" & IM.B.m$pos > 18444914 & IM.B.m$pos < 18455157,])
+IM.B.m.filt=IM.B.m[!rownames(IM.B.m) %in% c(rn10,rn14,rn2,rn8.1,rn8.2),]
+
+
+IM.Q.dp.plot.filt=ggplot(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp.Q,x=dp.IM))+geom_point(color="grey")+geom_point(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp.Q,x=dp.IM),color="red")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp.Q,x=dp.IM),method=lm,se=FALSE,color="black")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp.Q,x=dp.IM),method=lm,se=FALSE,color="blue")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+##USE WITH LIKELIHOOD CALCULATIONS FROM 13 ONLY.
+IM.Q.dp.plot.filt13=ggplot(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM))+geom_point(color="grey")+geom_point(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM),color="red")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM),method=lm,se=FALSE,color="black")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM),method=lm,se=FALSE,color="blue")+xlab(expression(paste("IM 13 ",Delta,"p")))+ylab(expression(paste("Q 13 ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+Q.IM.dp.plot.13=ggplot(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q))+geom_point(color="grey")+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q),color="red")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q),method=lm,se=FALSE,color="black")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q),method=lm,se=FALSE,color="blue")+xlab(expression(paste("Q 13 ",Delta,"p")))+ylab(expression(paste("IM 13 ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+Q.BR.dp.plot.13=ggplot(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBbr),],aes(y=dp.BR,x=dp13.Q))+geom_point(color="grey")+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBbr),],aes(y=dp.BR,x=dp13.Q),color="red")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBbr),],aes(y=dp.BR,x=dp13.Q),method=lm,se=FALSE,color="black")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBbr),],aes(y=dp.BR,x=dp13.Q),method=lm,se=FALSE,color="blue")+xlab(expression(paste("Q 13 ",Delta,"p")))+ylab(expression(paste("BR 13 ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+IM.BR.dp.plot.filt13=ggplot(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.IM))+geom_point(color="grey")+geom_point(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.IM),color="red")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.IM),method=lm,se=FALSE,color="black")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBbr),],aes(y=dp.BR,x=dp13.IM),method=lm,se=FALSE,color="blue")+xlab(expression(paste("IM 13 ",Delta,"p")))+ylab(expression(paste("BR 13 ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+IM14.IM13.dp.plot.filt=ggplot(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & IM.B.m.filt$df_B_im==2,],aes(y=dp14.IM,x=dp13.IM))+geom_point(color="grey")+geom_point(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & IM.B.m.filt$df_B_im==2,],aes(y=dp14.IM,x=dp13.IM),color="red")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & IM.B.m.filt$df_B_im==2,],aes(y=dp14.IM,x=dp13.IM),method=lm,se=FALSE,color="black")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & IM.B.m.filt$df_B_im==2,],aes(y=dp14.IM,x=dp13.IM),method=lm,se=FALSE,color="blue")+xlab(expression(paste("IM 13",Delta,"p")))+ylab(expression(paste("IM 14",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+Q14.Q13.dp.plot.filt=ggplot(data=Q.B.m[Q.B.m$sigBq==0 & Q.B.m$df_B_q==2,],aes(y=dp14.Q,x=dp13.Q))+geom_point(color="grey")+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & Q.B.m$df_B_q==2,],aes(y=dp14.Q,x=dp13.Q),color="red")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==1 & Q.B.m$df_B_q==2,],aes(y=dp14.Q,x=dp13.Q),method=lm,se=FALSE,color="black")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==0 & Q.B.m$df_B_q==2,],aes(y=dp14.Q,x=dp13.Q),method=lm,se=FALSE,color="blue")+xlab(expression(paste("Q 13",Delta,"p")))+ylab(expression(paste("Q 14",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+IM.Q.dp.plot.filt13=ggplot(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM))+geom_point(color="grey")+geom_point(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM),color="red")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM),method=lm,se=FALSE,color="black")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp13.Q,x=dp13.IM),method=lm,se=FALSE,color="blue")+xlab(expression(paste("IM ",Delta,"p")))+ylab(expression(paste("Q ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+Q.IM.dp.plot.13=ggplot(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q))+geom_point(color="grey")+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q),color="red")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q),method=lm,se=FALSE,color="black")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBim),],aes(y=dp13.IM,x=dp13.Q),method=lm,se=FALSE,color="blue")+xlab(expression(paste("Q ",Delta,"p")))+ylab(expression(paste("IM ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+IM.Q.dp.plot.filt14=ggplot(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp14.Q,x=dp14.IM))+geom_point(color="grey")+geom_point(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp14.Q,x=dp14.IM),color="red")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==1 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp14.Q,x=dp14.IM),method=lm,se=FALSE,color="black")+geom_smooth(data=IM.B.m.filt[IM.B.m.filt$sigBim==0 & !is.na(IM.B.m.filt$sigBq),],aes(y=dp14.Q,x=dp14.IM),method=lm,se=FALSE,color="blue")+xlab(expression(paste("IM 14 ",Delta,"p")))+ylab(expression(paste("Q 14 ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+Q.IM.dp.plot.14=ggplot(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBim),],aes(y=dp14.IM,x=dp14.Q))+geom_point(color="grey")+geom_point(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBim),],aes(y=dp14.IM,x=dp14.Q),color="red")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==1 & !is.na(Q.B.m$sigBim),],aes(y=dp14.IM,x=dp14.Q),method=lm,se=FALSE,color="black")+geom_smooth(data=Q.B.m[Q.B.m$sigBq==0 & !is.na(Q.B.m$sigBim),],aes(y=dp14.IM,x=dp14.Q),method=lm,se=FALSE,color="blue")+xlab(expression(paste("Q 14 ",Delta,"p")))+ylab(expression(paste("IM 14 ",Delta,"p")))+theme_bw()+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))
+
+##DO I NEED THIS?
+YCB.B=merge(YCB[,c("scaff","pos","q_YCB","p_YCB")],B,by=c("scaff","pos"))
+YCB.B.Q=YCB.B[YCB.B$pop=="Q",]
+YCB.B.IM=YCB.B[YCB.B$pop=="IM",]
+YCB.CB.Q=YCB.B.Q[YCB.B.Q$SS < quantile(YCB.B.Q$SS,0.10,na.rm=T) & YCB.B.Q$dp13.Q > quantile(YCB.B.Q$dp13.Q,0.90,na.rm=T),]
+YCB.CB.IM=YCB.B.IM[YCB.B.IM$SS < quantile(YCB.B.IM$SS,0.10,na.rm=T) & YCB.B.IM$dp13.IM > quantile(YCB.B.IM$dp13.IM,0.90,na.rm=T),]
+YCB.CB.Q.1=YCB.CB.Q[,c("pL13.Q","pL14.Q","pE13.Q","pE14.Q","pos","scaff")]
+YCB.CB.Q.1=melt(YCB.CB.Q.1,id=c("scaff","pos")
+YCB.CB.IM.1=YCB.CB.IM[,c("pL13.Q","pL14.Q","pE13.Q","pE14.Q","pos","scaff")]
+YCB.CB.IM.1=melt(YCB.CB.IM.1,id=c("scaff","pos")
+YCB.CB.Q.1$variable=factor(YCB.CB.Q.1$variable,levels=c("pE13.Q","pL13.Q","pE14.Q","pL14.Q","start_bp"))
+YCB.CB.IM.1$variable=factor(YCB.CB.IM.1$variable,levels=c("pE13.Q","pL13.Q","pE14.Q","pL14.Q","start_bp"))
+
+EL.sig["SS.Q"]=(EL.sig$dp14.Q-EL.sig$dp13.Q)^2
+EL.sig["SS.IM"]=(EL.sig$dp14.IM-EL.sig$dp13.IM)^2
+EL.sig["CB.Q"]= (EL.sig$SS.Q < quantile(EL.sig$SS.Q,0.25,na.rm=T) & EL.sig$dp13.Q > quantile(EL.sig$dp13.Q,0.75,na.rm=T))*1
+EL.sig["CB.IM"]=(EL.sig$SS.IM < quantile(EL.sig$SS.IM,0.25,na.rm=T) & EL.sig$dp13.IM > quantile(EL.sig$dp13.IM,0.75,na.rm=T))*2 #Factor that stands for whether there is a consistent effect of bulk; one means yes for quarry, two means yes for IM, 3 means yes for both
+EL.CB.IM=EL.sig[EL.sig$CB.IM>0,]
+EL.CB.Q=EL.sig[EL.sig$CB.Q>0,]
+EL.CB.IM=melt(EL.CB.IM[,c("pL13.IM","pL14.IM","pE13.IM","pE14.IM","pos","scaff")],id=c("scaff","pos"))
+EL.CB.Q=melt(EL.CB.Q[,c("pL13.Q","pL14.Q","pE13.Q","pE14.Q","pos","scaff")],id=c("scaff","pos"))
+EL.CB.IM$variable=factor(EL.CB.IM$variable,levels=c("pE13.IM","pL13.IM","pE14.IM","pL14.IM"))
+EL.CB.Q$variable=factor(EL.CB.Q$variable,levels=c("pE13.Q","pL13.Q","pE14.Q","pL14.Q"))
+
+Berg.plot.IM=ggplot(EL.CB.IM,aes(y=value,x=factor(variable,labels=c("2013 Early","2013 Late","2014 Early","2014 Late"))))+geom_point()+geom_line(aes(group=EL.CB.IM$pos),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))+ggtitle("Iron Mountain")
+Berg.plot.Q=ggplot(EL.CB.Q,aes(y=value,x=factor(variable,labels=c("2013 Early","2013 Late","2014 Early","2014 Late"))))+geom_point()+geom_line(aes(group=EL.CB.Q$pos),alpha=0.1)+xlab("Bulk")+ylab("Reference Frequency")+theme(axis.title.x=element_text(size=16),axis.title.y=element_text(size=16),axis.text.x = element_text(size=13),axis.text.y=element_text(size=13))+ggtitle("Quarry")
+
+#Allelel frequency stuff: Data saved in EL_Likelihood_PerPop11-26-15.RData
+sum.means=summarySE(af,"dp","pop")
+sum.vars=summarySE(af,"dpsq","pop")
+means=ggplot(data=sum.means,aes(x=factor(pop,labels=c("IM 2013","IM 2014","Q 2013","Q 2014")),y=dp))+geom_errorbar(aes(ymin=dp-ci,ymax=dp+ci,width=0.5))+geom_point()+ylab(expression(paste(Delta,p[EL])))+theme_bw()+theme(axis.title.x=element_blank(),axis.text.x=element_text(size=25),axis.title.y=element_text(size=35),axis.text.y=element_text(size=22))
+vars=ggplot(data=sum.vars,aes(x=factor(pop,labels=c("IM 2013","IM 2014","Q 2013","Q 2014")),y=dpsq))+geom_errorbar(aes(ymin=dpsq-ci,ymax=dpsq+ci,width=0.5))+geom_point()+ylab(expression(paste(Delta,p[EL]^2)))+theme_bw()+theme(axis.title.x=element_blank(),axis.text.x=element_text(size=25),axis.title.y=element_text(size=35),axis.text.y=element_text(size=22))
+
+af.plot.all=ggplot(data=af[af$Scaff==c(7,8,10,11) & af$pop=="Q14",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Scaff,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))
+af.plot.all.Q13=ggplot(data=af[af$pop=="Q13",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))
+af.plot.all.IM14=ggplot(data=af[af$pop=="IM14",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Chromosome,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24))
+
+af.IM13=ggplot(data=af[(af$Scaff==7 | af$Scaff==8 | af$Scaff==10 | af$Scaff==11) & af$pop=="IM13",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Scaff,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24),axis.text.y=element_text(size=18),axis.text.x=element_text(size=18),strip.text.x=element_text(size=16))+ylim(c(-0.07,0.07))
+af.IM14=ggplot(data=af[(af$Scaff==7 | af$Scaff==8 | af$Scaff==10 | af$Scaff==11) & af$pop=="IM14",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Scaff,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24),axis.text.y=element_text(size=18),axis.text.x=element_text(size=18),strip.text.x=element_text(size=16))+ylim(c(-0.07,0.07))
+af.Q14=ggplot(data=af[(af$Scaff==7 | af$Scaff==8 | af$Scaff==10 | af$Scaff==11) & af$pop=="Q14",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Scaff,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24),axis.text.y=element_text(size=18),axis.text.x=element_text(size=18),strip.text.x=element_text(size=16))+ylim(c(-0.07,0.07))
+af.Q13=ggplot(data=af[(af$Scaff==7 | af$Scaff==8 | af$Scaff==10 | af$Scaff==11) & af$pop=="Q13",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Scaff,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24),axis.text.y=element_text(size=18),axis.text.x=element_text(size=18),strip.text.x=element_text(size=16))+ylim(c(-0.07,0.07))
+af.BR13=ggplot(data=af[(af$Scaff==7 | af$Scaff==8 | af$Scaff==10 | af$Scaff==11) & af$pop=="BR13",],aes(y=dp,x=pos/1000000))+geom_point()+facet_grid(~Scaff,scale="free",space="free_x")+ylab(expression(paste(Delta,p["EL"])))+xlab("Genomic Position (Mb)")+labs(color="Population")+theme_bw()+scale_x_continuous(breaks = seq(5, 20, by = 10))+theme(axis.title.y=element_text(size=24),axis.title.x=element_text(size=24),axis.text.y=element_text(size=18),axis.text.x=element_text(size=18),strip.text.x=element_text(size=16))+ylim(c(-0.07,0.07))
+
+mean(af[af$pop==1 & af$window< 6000000 & af$Chromosome==8,]$mean.dp)
+mean(af[af$pop==1,]$mean.dp)
+
+grid.arrange(af.plot.all,af.plot.all.Q13,af.plot.all.IM13,nrow=3)
+
+
+POPOOLATION:
+FET analysis: #After running through python script that filters columns to retain only the relevant tests.
+IM13=fet[,c('scaff','pos','IME13_IML13')]
+IM13=IM13[IM13$IME13_IML13!=0,]
+IM13["pval"]=10^(-IM13$IME13_IML13)
+IM13=IM13[order(IM13$pval),]
+IM13["qval"]=p.adjust(IM13$pval,method="BH")
+IM13["sig"]=(IM13$qval<0.1)*1
+
+IM14=fet[,c('scaff','pos','IME14_IML14')]
+IM14=IM14[IM14$IME14_IML14!=0,]
+IM14["pval"]=10^(-IM14$IME14_IML14)
+IM14=IM14[order(IM14$pval),]
+IM14["qval"]=p.adjust(IM14$pval,method="BH")
+IM14["sig"]=(IM14$qval<0.1)*1
+
+
+##LOOKING INTO DISPERSION OF LOW READ DEPTH
+EL.Q13.1020=EL[!(EL$QE13_T>20 & EL$QL13_T>20),]
+EL.Q13.1020=EL.Q13.1020[!(EL.Q13.1020$QE13_T<10 | EL.Q13.1020$QL13_T<10),]
+> EL.Q13.1020["ExpRDV"]=(EL.Q13.1020$Z_Q13^2)-(0.0152782122396757438776+0.0212079200267419748505)
+EL.Q13.1020["Disp"]=EL.Q13.1020$ExpRDV-EL.Q13.1020$V_Q13
+EL.Q13.20up["ExpRDV"]=(EL.Q13.20up$Z_Q13^2)-(0.0152782122396757438776+0.0212079200267419748505)
+> EL.Q13.20up["Disp"]=EL.Q13.20up$ExpRDV-EL.Q13.20up$V_Q13
+##
+
+## Gives count, mean, standard deviation, standard error of the mean, and confidence interval (default 95%).
+##   data: a data frame.
+##   measurevar: the name of a column that contains the variable to be summariezed
+##   groupvars: a vector containing names of columns that contain grouping variables
+##   na.rm: a boolean that indicates whether to ignore NA's
+##   conf.interval: the percent range of the confidence interval (default is 95%)
+summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
+                      conf.interval=.95, .drop=TRUE) {
+    library(plyr)
+
+    # New version of length which can handle NA's: if na.rm==T, don't count them
+    length2 <- function (x, na.rm=FALSE) {
+        if (na.rm) sum(!is.na(x))
+        else       length(x)
+    }
+
+    # This does the summary. For each group's data frame, return a vector with
+    # N, mean, and sd
+    datac <- ddply(data, groupvars, .drop=.drop,
+      .fun = function(xx, col) {
+        c(N    = length2(xx[[col]], na.rm=na.rm),
+          mean = mean   (xx[[col]], na.rm=na.rm),
+          sd   = sd     (xx[[col]], na.rm=na.rm)
+        )
+      },
+      measurevar
+    )
+
+    # Rename the "mean" column    
+    datac <- rename(datac, c("mean" = measurevar))
+
+    datac$se <- datac$sd / sqrt(datac$N)  # Calculate standard error of the mean
+
+    # Confidence interval multiplier for standard error
+    # Calculate t-statistic for confidence interval: 
+    # e.g., if conf.interval is .95, use .975 (above/below), and use df=N-1
+    ciMult <- qt(conf.interval/2 + .5, datac$N-1)
+    datac$ci <- datac$se * ciMult
+
+    return(datac)
+}

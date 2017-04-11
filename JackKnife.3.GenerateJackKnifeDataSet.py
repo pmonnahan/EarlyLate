@@ -8,9 +8,9 @@ import sys
 import csv
 
 
-DIR="/Users/patrick/Documents/Research/EarlyLate/"
-INPUT_FILE="Q.dz.minDP25.txt"
-OUTPUT_FILE="JackVars10-Q.minDP25.csv"
+DIR="/Users/patrick/Documents/Research/EarlyLate/Current_Files/"
+INPUT_FILE="Q.dz.minDP25.noInversions.txt"
+OUTPUT_FILE="JackVars10-Q.minDP25.noInversions.csv"
 out1=open(DIR+OUTPUT_FILE,"wb")
 out1x=csv.writer(out1,delimiter=",",dialect='excel')
 Num_Reps=10 #MUST BE A POWER OF TEN

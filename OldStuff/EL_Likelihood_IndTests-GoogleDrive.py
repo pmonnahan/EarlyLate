@@ -15,246 +15,275 @@ import timeit
 
 start = timeit.default_timer()
 
-INPUT_FILE = "/Users/patrick/Documents/Research/EarlyLate/Current_Files/counts_massiveJan16_AF250.txt"
-# OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
-OUTDIR = "/Users/patrick/Documents/Research/EarlyLate/"
-# OUTDIR="/Volumes/avery/Research/EarlyLate/"
+INPUT_FILE="/Users/patrick/Documents/Research/EarlyLate/counts_massiveJan16_AF250.txt"
+#OUTDIR="/Volumes/TOSHIBA EXT/EarlyLate/"
+#OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
+OUTDIR="/Volumes/avery/Research/EarlyLate/"
 
 timestr = time.strftime("%Y%m%d-%H%M")
+file1=0
+file2=0
+file3=0
+file6=0
 
-# Indicator variables used to specify which output files to produce
-file1 = 1
-file2 = 1
-file3 = 1
-file6 = 0
+#filters
+p_min1=0.05
+p_max1=0.95
+p_min=2*math.asin(p_min1**0.5)
+p_max=2*math.asin(p_max1**0.5)
+min_cov=25
+max_cov=100
+window_size=1000000
 
-# filters
-p_min1 = 0.05
-p_max1 = 0.95
-p_min = 2 * math.asin(p_min1**0.5)
-p_max = 2 * math.asin(p_max1**0.5)
-min_cov = 25
-max_cov = 100
-
-# Run Description
-CustomMessage = ""
-
-FDR = 0.1
-
-
-if file1 != 0:
-    EL_Likelihoods = open(OUTDIR + "EL_Likelihoods_IndTests_" + timestr + ".csv", "wb")
-    like = csv.writer(EL_Likelihoods, delimiter=",", dialect='excel')
-    like.writerow(["scaff", "pos", "lrt_B", "p_B", "pop"])
-if file2 != 0:
-    out2 = open(OUTDIR + "EL_Likelihoods_Interactions_" + timestr + ".csv", "wb")
-    out2x = csv.writer(out2, delimiter=",", dialect='excel')
-    out2x.writerow(["scaff", "pos", "lrt_B_M12", "p_B_M12", "lrt_B_M13", "p_B_M13", "lrt_B_M23", "p_B_M23", "pop"])
-if file3 != 0:
-    out3 = open(OUTDIR + "EL_Likelihoods_Slim13_RealData_" + timestr + ".csv", "wb")
-    out3x = csv.writer(out3, delimiter=",", dialect='excel')
-    out3x.writerow(["lrt_B_im13", "p_B_im13", "lrt_B_q13", "p_B_q13", "lrt_B_13_M12", "p_B_13_M12", "lrt_B_13_M13", "p_B_13_M13", "lrt_B_13_M23", "p_B_13_M23", "pime13", "piml13", "pqe13", "pql13"])
-    out4 = open(OUTDIR + "EL_Likelihoods_Slim14_RealData_" + timestr + ".csv", "wb")
-    out4x = csv.writer(out4, delimiter=",", dialect='excel')
-    out4x.writerow(["lrt_B_im14", "p_B_im14", "lrt_B_q14", "p_B_q14", "lrt_B_14_M12", "p_B_14_M12", "lrt_B_14_M13", "p_B_14_M13", "lrt_B_14_M23", "p_B_14_M23", "pime14", "piml14", "pqe14", "pql14"])
-    out5 = open(OUTDIR + "EL_Likelihoods_SlimIM_RealData_" + timestr + ".csv", "wb")
-    out5x = csv.writer(out5, delimiter=",", dialect='excel')
-    out5x.writerow(["scaff", "pos", "lrt_B_im14", "p_B_im14", "lrt_B_im13", "p_B_im13", "lrt_B_im_M12", "p_B_im_M12", "lrt_B_im_M13", "p_B_im_M13", "lrt_B_im_M23", "p_B_im_M23", "pime13", "piml13", "pime14", "piml14"])
-    out6 = open(OUTDIR + "EL_Likelihoods_SlimQ_RealData_" + timestr + ".csv", "wb")
-    out6x = csv.writer(out6, delimiter=",", dialect='excel')
-    out6x.writerow(["scaff", "pos", "lrt_B_q14", "p_B_q14", "lrt_B_q13", "p_B_q13", "lrt_B_q_M12", "p_B_q_M12", "lrt_B_q_M13", "p_B_q_M13", "lrt_B_q_M23", "p_B_q_M23", "pqe13", "pql13", "pqe14", "pql14"])
+#Run Description
+CustomMessage=""
+   
+FDR=0.1
 
 
-vb1 = 0.03225929  # All v-terms re-estimated prior to resubmission to Genetics
-vb2 = 0.03552918
-vb3 = 0.01646089
 
-vi1 = 0.01414067
-vi2 = 0.02000715
-vi3 = 0.00663494
-vi4 = 0.01101396
+jjj=0
+if file1 !=0:
+    EL_Likelihoods=open(OUTDIR+"EL_Likelihoods_IndTests_" + timestr + ".csv","wb")
+    like=csv.writer(EL_Likelihoods,delimiter=",",dialect='excel')
+#    like.writerow(["scaff","pos","lrt_B_br13","p_B_br13","lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_im14","p_B_im14","lrt_B_q14","p_B_q14"])
+    like.writerow(["scaff","pos","lrt_B","p_B","pop"])
+    #like.writerow(["lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_q14","p_B_q14","lrt_YCBq","p_YCBq","lrt_PCB13","p_PCB13"])
+    #like.writerow(["scaff","pos","BRE13_R","BRE13_A","BRL13_R","BRL13_A","BRE14_R","BRE14_A","IME13_R","IME13_A","IML13_R","IML13_A","IME14_R","IME14_A","IML14_R","IML14_A","QE13_R","QE13_A","QL13_R","QL13_A","QE14_R","QE14_A","QL14_R","QL14_A","ll_S","ll_Y","ll_P","ll_B","ll_YP","ll_YB","ll_PB","lrt_Y","p_Y","lrt_y","p_y","lrt_P","p_P","lrt_p","p_p","lrt_B","p_B","lrt_b","p_b"])
+if file2!=0:
+    out2=open(OUTDIR+"EL_Likelihoods_Interactions_" + timestr + ".csv","wb")
+    out2x=csv.writer(out2,delimiter=",",dialect='excel')
+#    out2x.writerow(["scaff","pos","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","lrt_B_13_M12","p_B_13_M12","lrt_B_13_M13","p_B_13_M13","lrt_B_13_M23","p_B_13_M23","lrt_B_14_M12","p_B_14_M12","lrt_B_14_M13","p_B_14_M13","lrt_B_14_M23","p_B_14_M23"])
+    out2x.writerow(["scaff","pos","lrt_B_M12","p_B_M12","lrt_B_M13","p_B_M13","lrt_B_M23","p_B_M23","pop"])
+if file3!=0:
+    out3=open(OUTDIR+"EL_Likelihoods_Slim13_RealData_" + timestr + ".csv","wb")
+    out3x=csv.writer(out3,delimiter=",",dialect='excel')
+    out3x.writerow(["lrt_B_im13","p_B_im13","lrt_B_q13","p_B_q13","lrt_B_13_M12","p_B_13_M12","lrt_B_13_M13","p_B_13_M13","lrt_B_13_M23","p_B_13_M23","pime13","piml13","pqe13","pql13"])
+    out4=open(OUTDIR+"EL_Likelihoods_Slim14_RealData_" + timestr + ".csv","wb")
+    out4x=csv.writer(out4,delimiter=",",dialect='excel')
+    out4x.writerow(["lrt_B_im14","p_B_im14","lrt_B_q14","p_B_q14","lrt_B_14_M12","p_B_14_M12","lrt_B_14_M13","p_B_14_M13","lrt_B_14_M23","p_B_14_M23","pime14","piml14","pqe14","pql14"])
+    out5=open(OUTDIR+"EL_Likelihoods_SlimIM_RealData_" + timestr + ".csv","wb")
+    out5x=csv.writer(out5,delimiter=",",dialect='excel')
+    out5x.writerow(["scaff","pos","lrt_B_im14","p_B_im14","lrt_B_im13","p_B_im13","lrt_B_im_M12","p_B_im_M12","lrt_B_im_M13","p_B_im_M13","lrt_B_im_M23","p_B_im_M23","pime13","piml13","pime14","piml14"])
+    out6=open(OUTDIR+"EL_Likelihoods_SlimQ_RealData_" + timestr + ".csv","wb")
+    out6x=csv.writer(out6,delimiter=",",dialect='excel')
+    out6x.writerow(["scaff","pos","lrt_B_q14","p_B_q14","lrt_B_q13","p_B_q13","lrt_B_q_M12","p_B_q_M12","lrt_B_q_M13","p_B_q_M13","lrt_B_q_M23","p_B_q_M23","pqe13","pql13","pqe14","pql14"])    
+#if file6!=0:
+#    out6=open(OUTDIR+"EL_Likelihoods_PerPopSigCounts_1MbWindows" + timestr + ".csv","wb")
+#    out6x=csv.writer(out6,delimiter=",",dialect='excel')  
+#    out6x.writerow(["scaff","window","start_bp","wind_sites","dist","sigBim","sigBq","sigBbr","numsigBim","numsigBq","numsigBbr","numBtests_im","numBtests_q","numBtests_br","pime13","piml13","pime14","piml14","pqe13","pql13","pqe14","pql14","pbre13","pbrl13","numtestsIM13","numtestsIM14","numtestsQ13","numtestsQ14","numtestsBR13"])
 
-vq1 = 0.01524366
-vq2 = 0.02004908
-vq3 = 0.00833159
-vq4 = 0.01379415
+
+#USED ONLY IN WINDOW CALCULATIONS FOR NUM SIG SNPS IN A WINDOW...BASED ON PREVIOUS RUN AND FDR CALC
+p_Y_im_cutoff = 0.000037
+p_YCB_im_cutoff = 0.000007
+p_B_im13_cutoff = 0.000018735352155
+p_Y_br_cutoff = 0.000010
+p_B_br13_cutoff = 3.47E-07
+p_Y_q_cutoff = 0.000106
+p_B_q13_cutoff = 0.000160195
+p_YCB_q_cutoff = 0.000017
 
 
-with open(INPUT_FILE, "rb") as sites_file:
-    sites = 0
-    fixed = 0
-    filtered = 0
-    pvals_Y_im = []
-    pvals_Y_q = []
-    pvals_B_br13 = []
-    pvals_B_im13 = []
-    pvals_B_q13 = []
-    pvals_B_im14 = []
-    pvals_B_q14 = []
-    pvals_B_q_M12 = []
-    pvals_B_q_M13 = []
-    pvals_B_q_M23 = []
-    pvals_B_im_M12 = []
-    pvals_B_im_M13 = []
-    pvals_B_im_M23 = []
-    pvals_B_13_M12 = []
-    pvals_B_13_M13 = []
-    pvals_B_13_M23 = []
-    pvals_B_14_M12 = []
-    pvals_B_14_M13 = []
-    pvals_B_14_M23 = []
-    pvals_P = []
-    pvals_Y_windows = []
-    pvals_P_windows = []
-    pvals_B_windows = []
-    exceptions = 0
-    polim = 0
-    polq = 0
-    polbr = 0
-    polimq = 0
-    polimbr = 0
-    polqbr = 0
-    polimqbr = 0
-    polim1 = 0
-    polq1 = 0
-    polimq1 = 0
-    for i, site in enumerate(sites_file):
-        if i > 0:
-            site = site.strip("\n")
-            site = site.split("\t")
-            scaff = site[0]
-            scaff = scaff
-            pos = float(site[1])
-            site = [float(a) for a in site[4:]]
-            bre13r, bre13a, brl13r, brl13a, ime14r, ime14a, iml14r, iml14a, ime13r, ime13a, iml13r, iml13a, qe14r, qe14a, ql14r, ql14a, qe13r, qe13a, ql13r, ql13a = site
+#BS variance factor : Paired + Single
+vb1=0.031943454869850194944 
+vb2=0.032900188828741155911
+vb3=0.027101898310498844652 
 
-            if bre13r + bre13a <= min_cov or bre13r + bre13a >= max_cov:
-                xbre13 = -99.0
-                vbre13 = -99.0
+vi1=0.0141406715106648095404 #With new data the variance calculations were similar to old data except for 2014...Early var was similar to late var and vice versa.
+vi2=0.0200071498211230672237 #Should run through calc with old data to confirm that there wasn't an error
+vi3=0.0066349383482011761726 #Calculated with minimum depth of 25
+vi4=0.0110139598993814532418
+
+vq1=0.0152782122396757438776
+vq2=0.0212079200267419748505
+vq3=0.0082510518410872438211
+vq4=0.0130222983597531889038
+
+
+with open(INPUT_FILE,"rb") as sites_file:   
+    sites=0
+    fixed=0
+    filtered=0
+    dist=0
+    pos=0
+    wind_sites=0
+    wind_df=0
+    pvals_Y_im=[]
+    pvals_Y_q=[]
+    pvals_B_br13=[]
+    pvals_B_im13=[]
+    pvals_B_q13=[]
+    pvals_B_im14=[]
+    pvals_B_q14=[]
+    pvals_B_q_M12=[]
+    pvals_B_q_M13=[]
+    pvals_B_q_M23=[]
+    pvals_B_im_M12=[]
+    pvals_B_im_M13=[]
+    pvals_B_im_M23=[]
+    pvals_B_13_M12=[]
+    pvals_B_13_M13=[]
+    pvals_B_13_M23=[]
+    pvals_B_14_M12=[]
+    pvals_B_14_M13=[]
+    pvals_B_14_M23=[]
+    pvals_P=[]
+    pvals_Y_windows=[]
+    pvals_P_windows=[]
+    pvals_B_windows=[]
+    exceptions=0
+    polim=0
+    polq=0
+    polbr=0
+    polimq=0
+    polimbr=0
+    polqbr=0
+    polimqbr=0
+    polim1=0
+    polq1=0
+    polimq1=0
+    for i,site in enumerate(sites_file):
+#        if i == 0:
+#            print site
+        if i>0:
+            site=site.strip("\n")
+            site=site.split("\t")
+            print len(site)
+            scaff=site[0]
+            scaff=scaff
+            pos=float(site[1])
+            site=[float(a) for a in site[4:]]
+            bre13r,bre13a,brl13r,brl13a,ime14r,ime14a,iml14r,iml14a,ime13r,ime13a,iml13r,iml13a,qe14r,qe14a,ql14r,ql14a,qe13r,qe13a,ql13r,ql13a=site
+            
+            if bre13r+bre13a <= min_cov or bre13r+bre13a >= max_cov:
+                xbre13=-99.0
+                vbre13=-99.0
             else:
-                xbre13 = 2 * math.asin((bre13r / (bre13r + bre13a))**0.5)
-                vbre13 = (vb1 + (1 / (bre13r + bre13a)))
-
-            if brl13r + brl13a <= min_cov or brl13r + brl13a >= max_cov:
-                xbrl13 = -99.0
-                vbrl13 = -99.0
+                xbre13=2*math.asin((bre13r/(bre13r+bre13a))**0.5)
+                vbre13=(vb1+(1/(bre13r+bre13a)))
+                
+            if brl13r+brl13a <= min_cov or brl13r+brl13a >= max_cov:
+                xbrl13=-99.0
+                vbrl13=-99.0
             else:
-                xbrl13 = 2 * math.asin((brl13r / (brl13r + brl13a))**0.5)
-                vbrl13 = (vb2 + (1 / (brl13r + brl13a)))
-
-            if ime13r + ime13a <= min_cov or ime13r + ime13a >= max_cov:
-                xime13 = -99.0
-                vime13 = -99.0
+                xbrl13=2*math.asin((brl13r/(brl13r+brl13a))**0.5)
+                vbrl13=(vb2+(1/(brl13r+brl13a)))
+                
+            if ime13r+ime13a <= min_cov or ime13r+ime13a >= max_cov:
+                xime13=-99.0
+                vime13=-99.0
             else:
-                xime13 = 2 * math.asin((ime13r / (ime13r + ime13a))**0.5)
-                vime13 = (vi1 + (1 / (ime13r + ime13a)))
-
-            if iml13r + iml13a <= min_cov or iml13r + iml13a >= max_cov:
-                ximl13 = -99.0
-                viml13 = -99.0
+                xime13=2*math.asin((ime13r/(ime13r+ime13a))**0.5)
+                vime13=(vi1+(1/(ime13r+ime13a)))
+                
+            if iml13r+iml13a <= min_cov or iml13r+iml13a >= max_cov:
+                ximl13=-99.0
+                viml13=-99.0
             else:
-                ximl13 = 2 * math.asin((iml13r / (iml13r + iml13a))**0.5)
-                viml13 = (vi2 + (1 / (iml13r + iml13a)))
-
-            if ime14r + ime14a <= min_cov or ime14r + ime14a >= max_cov:
-                xime14 = -99.0
-                vime14 = -99.0
+                ximl13=2*math.asin((iml13r/(iml13r+iml13a))**0.5)
+                viml13=(vi2+(1/(iml13r+iml13a)))
+                
+            if ime14r+ime14a <= min_cov or ime14r+ime14a >= max_cov:
+                xime14=-99.0
+                vime14=-99.0
             else:
-                xime14 = 2 * math.asin((ime14r / (ime14r + ime14a))**0.5)
-                vime14 = (vi3 + (1 / (ime14r + ime14a)))
-
-            if iml14r + iml14a <= min_cov or iml14r + iml14a >= max_cov:
-                ximl14 = -99.0
-                viml14 = -99.0
+                xime14=2*math.asin((ime14r/(ime14r+ime14a))**0.5)
+                vime14=(vi3+(1/(ime14r+ime14a)))
+                
+            if iml14r+iml14a <= min_cov or iml14r+iml14a >= max_cov:
+                ximl14=-99.0
+                viml14=-99.0
             else:
-                ximl14 = 2 * math.asin((iml14r / (iml14r + iml14a))**0.5)
-                viml14 = (vi4 + (1 / (iml14r + iml14a)))
-
-            if qe13r + qe13a <= min_cov or qe13r + qe13a >= max_cov:
-                xqe13 = -99.0
-                vqe13 = -99.0
+                ximl14=2*math.asin((iml14r/(iml14r+iml14a))**0.5)
+                viml14=(vi4+(1/(iml14r+iml14a)))
+                
+            if qe13r+qe13a <= min_cov or qe13r+qe13a >= max_cov:
+                xqe13=-99.0
+                vqe13=-99.0
             else:
-                xqe13 = 2 * math.asin((qe13r / (qe13r + qe13a))**0.5)
-                vqe13 = (vq1 + (1 / (qe13r + qe13a)))
-
-            if ql13r + ql13a <= min_cov or ql13r + ql13a >= max_cov:
-                xql13 = -99.0
-                vql13 = -99.0
+                xqe13=2*math.asin((qe13r/(qe13r+qe13a))**0.5)
+                vqe13=(vq1+(1/(qe13r+qe13a)))
+                
+                
+            if ql13r+ql13a <= min_cov or ql13r+ql13a >= max_cov:
+                xql13=-99.0
+                vql13=-99.0
             else:
-                xql13 = 2 * math.asin((ql13r / (ql13r + ql13a))**0.5)
-                vql13 = (vq2 + (1 / (ql13r + ql13a)))
-
-            if qe14r + qe14a <= min_cov or qe14r + qe14a >= max_cov:
-                xqe14 = -99.0
-                vqe14 = -99.0
+                xql13=2*math.asin((ql13r/(ql13r+ql13a))**0.5)
+                vql13=(vq2+(1/(ql13r+ql13a)))
+                
+            if qe14r+qe14a <= min_cov or qe14r+qe14a >= max_cov:
+                xqe14=-99.0
+                vqe14=-99.0
             else:
-                xqe14 = 2 * math.asin((qe14r / (qe14r + qe14a))**0.5)
-                vqe14 = (vq3 + (1 / (qe14r + qe14a)))
-
-            if ql14r + ql14a <= min_cov or ql14r + ql14a >= max_cov:
-                xql14 = -99.0
-                vql14 = -99.0
+                xqe14=2*math.asin((qe14r/(qe14r+qe14a))**0.5)
+                vqe14=(vq3+(1/(qe14r+qe14a)))
+            
+            if ql14r+ql14a <= min_cov or ql14r+ql14a >= max_cov:
+                xql14=-99.0
+                vql14=-99.0
             else:
-                xql14 = 2 * math.asin((ql14r / (ql14r + ql14a))**0.5)
-                vql14 = (vq4 + (1 / (ql14r + ql14a)))
+                xql14=2*math.asin((ql14r/(ql14r+ql14a))**0.5)
+                vql14=(vq4 +(1/(ql14r+ql14a)))                
+                
 
-
-            if (all(k == 0.0 for k in [xime13, ximl13, xime14, ximl14, xbre13, xbrl13, xqe13, xql13, xqe14, xql14]) or all(k == math.pi for k in [xime13, ximl13, xime14, ximl14, xbre13, xbrl13, xqe13, xql13, xqe14, xql14])):
-                fixed += 1
-                filtered += 1
-
-            elif (all(k == -99.0 for k in [xime13, ximl13, xime14, ximl14, xbre13, xbrl13, xqe13, xql13, xqe14, xql14])):
-                filtered += 1
-
+            if (all(k==0.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14]) or all(k==math.pi for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14])):
+                fixed+=1
+                filtered+=1
+            elif (all(k==-99.0 for k in [xime13,ximl13,xime14,ximl14,xbre13,xbrl13,xqe13,xql13,xqe14,xql14])):                
+                filtered+=1
+            
             else:
-                sites += 1
-                if sites % 10000 == 0:
+                sites+=1
+                if sites%10000==0:
                     print sites
-
-                """Calculate likelihood for each population/year assuming no differences among bulks"""
-
-                ll_Y_br13 = 0.0
-                ll_Y_im13 = 0.0
-                ll_Y_q13 = 0.0
-                ll_Y_im14 = 0.0
-                ll_Y_q14 = 0.0
-                ll_Y_im = 0.0
-                ll_Y_q = 0.0
-                ll_Y_13 = 0.0
-                ll_Y_14 = 0.0
-                xbr13 = [xbre13, xbrl13]
-                vbr13 = [vbre13, vbrl13]
-                wbr13 = [1 / vbre13, 1 / vbrl13]
-                xim13 = [xime13, ximl13]
-                xim14 = [xime14, ximl14]
-                vim13 = [vime13, viml13]
-                vim14 = [vime14, viml14]
-                wim13 = [1 / vime13, 1 / viml13]
-                wim14 = [1 / vime14, 1 / viml14]
-                xq13 = [xqe13, xql13]
-                xq14 = [xqe14, xql14]
-                vq13 = [vqe13, vql13]
-                vq14 = [vqe14, vql14]
-                wq13 = [1 / vqe13, 1 / vql13]
-                wq14 = [1 / vqe14, 1 / vql14]
-                ubr13 = sum([xx * (ww / sum(wbr13)) for xx, ww in zip(xbr13, wbr13)])
-                uim13 = sum([xx * (ww / sum(wim13)) for xx, ww in zip(xim13, wim13)])
-                uim14 = sum([xx * (ww / sum(wim14)) for xx, ww in zip(xim14, wim14)])
-                uq13 = sum([xx * (ww / sum(wq13)) for xx, ww in zip(xq13, wq13)])
-                uq14 = sum([xx * (ww / sum(wq14)) for xx, ww in zip(xq14, wq14)])
-
-                df_B_br13 = 1
-                df_B_im13 = 1
-                df_B_q13 = 1
-                df_B_im14 = 1
-                df_B_q14 = 1
-                df_B_im = 2
-                df_B_q = 2
-                df_B_13 = 2
-                df_B_14 = 2
+                    
+                    
+                """Model 5 = Year and Pop effect.  No differences among bulks.""" 
+                    
+                ll_Y_br13=0.0
+                ll_Y_im13=0.0
+                ll_Y_q13=0.0
+                ll_Y_im14=0.0
+                ll_Y_q14=0.0
+                ll_Y_im=0.0
+                ll_Y_q=0.0
+                ll_Y_13=0.0
+                ll_Y_14=0.0
+                xbr13=[xbre13,xbrl13]
+                vbr13=[vbre13,vbrl13]
+                wbr13=[1/vbre13,1/vbrl13]
+                xim13=[xime13,ximl13]
+                xim14=[xime14,ximl14]
+                vim13=[vime13,viml13]
+                vim14=[vime14,viml14]
+                wim13=[1/vime13,1/viml13]
+                wim14=[1/vime14,1/viml14]
+                xq13=[xqe13,xql13]
+                xq14=[xqe14,xql14]
+                vq13=[vqe13,vql13]
+                vq14=[vqe14,vql14]
+                wq13=[1/vqe13,1/vql13]
+                wq14=[1/vqe14,1/vql14]
+                ubr13=sum([xx*(ww/sum(wbr13)) for xx,ww in zip(xbr13,wbr13)])
+                uim13=sum([xx*(ww/sum(wim13)) for xx,ww in zip(xim13,wim13)])
+                uim14=sum([xx*(ww/sum(wim14)) for xx,ww in zip(xim14,wim14)])
+                uq13=sum([xx*(ww/sum(wq13)) for xx,ww in zip(xq13,wq13)])            
+                uq14=sum([xx*(ww/sum(wq14)) for xx,ww in zip(xq14,wq14)]) 
+                
+                df_B_br13=1
+                df_B_im13=1
+                df_B_q13=1
+                df_B_im14=1
+                df_B_q14=1  
+                df_B_im=2
+                df_B_q=2 
+                df_B_13=2
+                df_B_14=2                 
 
                 if ((xbre13 < p_min and xbrl13 < p_min) or (xbre13 > p_max and xbrl13 > p_max) or bre13r+bre13a <= min_cov or brl13r+brl13a <= min_cov or bre13r+bre13a >= max_cov or brl13r+brl13a >= max_cov):
-                    df_B_br13 -= 1
+                    df_B_br13-=1
                 else:
                     for j,xx in enumerate(xbr13):                   
                         ll_Y_br13+=(-(xx-ubr13)**2)/(2*vbr13[j])

@@ -16,16 +16,16 @@ import csv
 
 #INDIR="/Volumes/avery/Research/EarlyLate/"
 #OUTDIR="/Volumes/avery/Research/EarlyLate/"
-INDIR="/Users/patrick/Documents/Research/EarlyLate/"
-OUTDIR="/Users/patrick/Documents/Research/EarlyLate/"
+INDIR="/Users/monnahap/Documents/Research/EarlyLate/"
+OUTDIR="/Users/monnahap/Documents/Research/EarlyLate/"
 
-INPUT_FILE="EL_Likelihoods_IndTests_20160602-0925.csv"
+INPUT_FILE="EL_Likelihoods_IndTests_20170406-1007.csv"
 
 p_B_im13_cutoff = 1.55238590731e-05
-p_B_br13_cutoff = 3.46567027194e-07
-p_B_q14_cutoff = 5.50884154187e-06
+p_B_br13_cutoff = 3.69770185093e-07
+p_B_q14_cutoff = 4.6588917357e-06
 p_B_im14_cutoff = 5.43576299401e-06
-p_B_q13_cutoff = 0.000222275904042
+p_B_q13_cutoff = 0.000256908772079
 
 
 sigfile=open(OUTDIR+INPUT_FILE[:-4]+"_sig.csv","wb")
